@@ -7,6 +7,7 @@ import ServicesDesign from "./pages/ServicesDesign";
 import ServicesDevelopment from "./pages/ServicesDevelopment";
 import ServicesMarketing from "./pages/ServicesMarketing";
 import Navbar from "./components/Navbar";
+import Blank from "./pages/Blank";
 
 import "aos/dist/aos.css"; //Import AOS styles
 import AOS from "aos";
@@ -31,6 +32,7 @@ function App() {
         <Route path="/services/design" element={<ServicesDesign />} />
         <Route path="/services/development" element={<ServicesDevelopment />} />
         <Route path="/services/marketing" element={<ServicesMarketing />} />
+        <Route path="/blank" element={<Blank />} />
       </Routes>
     </Router>
   );
