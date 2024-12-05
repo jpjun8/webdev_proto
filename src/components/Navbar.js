@@ -37,12 +37,17 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto flex justify-between items-center px-4 py-8">
+        
         <div className="logo text-black font-bold text-2xl">
           <Link to="/">MyCompany</Link>
         </div>
 
+        <div className="">
+          <Link to="/">Testing</Link>
+        </div>
+
         {/* Desktop navigation */}
-        <div className="nav-links flex space-x-6 text-black ml-auto">
+        <div className="nav-links flex space-x-6 text-black ml-auto font-bold">
           <ul className="flex space-x-6">
             <li>
               <Link to="/" className="text-lg hover:text-gray-300">
@@ -63,7 +68,7 @@ const Navbar = () => {
                 Services
               </span>
               {isDropdownOpen && (
-                <ul className="dropdown-menu absolute top-full left-0 mt-2 bg-white text-black rounded shadow-lg">
+                <ul className="dropdown-menu absolute top-full left-0 mt-2 bg-white text-black rounded shadow-lg font-normal">
                   <li>
                     <Link
                       to="/services/design"
