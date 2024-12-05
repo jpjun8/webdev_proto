@@ -101,6 +101,11 @@ const Navbar = () => {
                 Contact
               </Link>
             </li>
+            <li>
+              <Link to="/blank" className="text-lg hover:text-gray-300">
+                Blank
+              </Link>
+            </li>
           </ul>
         </div>
 
