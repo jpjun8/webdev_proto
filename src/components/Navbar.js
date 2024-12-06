@@ -2,17 +2,12 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const handleMouseEnter = () => {
-    setIsDropdownOpen(true);
-  };
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleDropdown = () => setIsOpen(!isOpen);
 
-  const handleMouseLeave = () => {
-    setIsDropdownOpen(false);
-  };
+  const [isSmall, setIsSmall] = useState(false);
 
   // Add scroll event listener
   useEffect(() => {
@@ -37,37 +32,50 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto flex justify-between items-center px-4 py-8">
-        
+        {/* Logo */}
         <div className="logo text-black font-bold text-2xl">
-          <Link to="/">MyCompany</Link>
+          <Link to="/">
+            <img
+              src={require("../assets/logo.webp")}
+              alt="Link to Home page"
+              className="size-20"
+            ></img>
+          </Link>
         </div>
 
-        <div className="">
-          <Link to="/">Testing</Link>
-        </div>
-
-        {/* Desktop navigation */}
-        <div className="nav-links flex space-x-6 text-black ml-auto font-bold">
+        {/* Full Menu Links for Larger Screens */}
+        <div
+          className={`nav-links flex space-x-6 ml-auto font-bold ${
+            isScrolled ? "text-white" : "text-black"
+          }`}
+        >
           <ul className="flex space-x-6">
             <li>
-              <Link to="/" className="text-lg hover:text-gray-300">
+              <Link
+                to="/"
+                className="px-3 py-2 rounded-md text-base font-medium hover:bg-gray-400"
+              >
                 Home
               </Link>
             </li>
             <li>
-              <Link to="/about" className="text-lg hover:text-gray-300">
+              <Link
+                to="/about"
+                className="px-3 py-2 rounded-md text-base font-medium hover:bg-gray-400"
+              >
                 About
               </Link>
             </li>
-            <li
-              className="dropdown relative"
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-            >
-              <span className="dropdown-toggle text-lg cursor-pointer hover:text-gray-300">
+            <li className="dropdown relative">
+              <Link
+                onClick={toggleDropdown}
+                className="px-3 py-2 rounded-md text-base font-medium hover:bg-gray-400"
+              >
                 Services
-              </span>
-              {isDropdownOpen && (
+              </Link>
+
+              {/* Dropdown menu */}
+              {isOpen && (
                 <ul className="dropdown-menu absolute top-full left-0 mt-2 bg-white text-black rounded shadow-lg font-normal">
                   <li>
                     <Link
@@ -97,39 +105,83 @@ const Navbar = () => {
               )}
             </li>
             <li>
-              <Link to="/contact" className="text-lg hover:text-gray-300">
+              <Link
+                to="/contact"
+                className="px-3 py-2 rounded-md text-base font-medium hover:bg-gray-400"
+              >
                 Contact
               </Link>
             </li>
             <li>
-              <Link to="/blank" className="text-lg hover:text-gray-300">
+              <Link
+                to="/blank"
+                className="px-3 py-2 rounded-md text-base font-medium hover:bg-gray-400"
+              >
                 Blank
               </Link>
             </li>
           </ul>
         </div>
 
-        {/* Mobile menu icon */}
-        <button
-          className="md:hidden text-white"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          <i
-            className={`fas ${
-              isMobileMenuOpen ? "fa-times" : "fa-bars"
-            } text-2x1`}
-          ></i>
-        </button>
+        {/* Hamburger Icon */}
+        <div className="flex md:hidden">
+          <button
+            onClick={() => setIsSmall(!isSmall)}
+            className="text-gray-300 hover:text-white focus:outline-none"
+          >
+            <svg
+              className="h-6 w-6"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width={2}
+                d="M4 6h16M4 12h16m-7 6h7"
+              />
+            </svg>
+          </button>
+        </div>
       </div>
 
-      {/* Mobile menu */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden bg-gray-800 p-4">
-          <ul className="space-y-4">
+      {/* Right-Side Sliding Pane */}
+      <div
+        className={`fixed top-0 right-0 h-full w-64 bg-gray-800 text-white shadow-lg transform ${
+          isSmall ? "translate-x-0" : "translate-x-full"
+        } transition-transform duration-300 ease-in-out z-50`}
+      >
+        {/* Close Button */}
+        <button
+          onClick={() => setIsSmall(false)}
+          className="absolute top-4 right-4 text-gray-300 hover:text-white focus:outline-none"
+          aria-label="Close Menu"
+        >
+          <svg
+            className="h-6 w-6"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+
+        {/* Navigation Links */}
+        <div className="flex flex-col items-center justify-center h-full space-y-6">
+        <ul className="">
             <li>
               <Link
                 to="/"
-                className="block text-lg text-white hover:text-gray-300"
+                className="px-3 py-2 rounded-md text-base font-medium hover:bg-gray-400"
               >
                 Home
               </Link>
@@ -137,30 +189,68 @@ const Navbar = () => {
             <li>
               <Link
                 to="/about"
-                className="block text-lg text-white hover:text-gray-300"
+                className="px-3 py-2 rounded-md text-base font-medium hover:bg-gray-400"
               >
                 About
               </Link>
             </li>
-            <li>
+            <li className="dropdown relative">
               <Link
-                to="/services"
-                className="block text-lg text-white hover:text-gray-300"
+                onClick={toggleDropdown}
+                className="px-3 py-2 rounded-md text-base font-medium hover:bg-gray-400"
               >
                 Services
               </Link>
+
+              {/* Dropdown menu */}
+              {isOpen && (
+                <ul className="dropdown-menu absolute top-full left-0 mt-2 bg-white text-black rounded shadow-lg font-normal">
+                  <li>
+                    <Link
+                      to="/services/design"
+                      className="block px-4 py-2 hover:bg-gray-100"
+                    >
+                      Design
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/services/development"
+                      className="block px-4 py-2 hover:bg-gray-100"
+                    >
+                      Development
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/services/marketing"
+                      className="block px-4 py-2 hover:bg-gray-100"
+                    >
+                      Marketing
+                    </Link>
+                  </li>
+                </ul>
+              )}
             </li>
             <li>
               <Link
                 to="/contact"
-                className="block text-lg text-white hover:text-gray-300"
+                className="px-3 py-2 rounded-md text-base font-medium hover:bg-gray-400"
               >
                 Contact
               </Link>
             </li>
+            <li>
+              <Link
+                to="/blank"
+                className="px-3 py-2 rounded-md text-base font-medium hover:bg-gray-400"
+              >
+                Blank
+              </Link>
+            </li>
           </ul>
         </div>
-      )}
+      </div>
     </nav>
   );
 };
