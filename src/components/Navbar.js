@@ -31,14 +31,14 @@ const Navbar = () => {
         isScrolled ? "bg-gray-800" : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto flex justify-between items-center px-4 py-8">
+      <div className="container mx-auto flex justify-between items-center px-2 py-4">
         {/* Logo */}
         <div className="logo text-black font-bold text-2xl">
           <Link to="/">
             <img
               src={require("../assets/logo.webp")}
               alt="Link to Home page"
-              className="size-20"
+              className="size-14"
             ></img>
           </Link>
         </div>
