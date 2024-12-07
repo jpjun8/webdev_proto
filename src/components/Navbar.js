@@ -45,7 +45,7 @@ const Navbar = () => {
 
         {/* Full Menu Links for Larger Screens */}
         <div
-          className={`nav-links flex space-x-6 ml-auto font-bold ${
+          className={`nav-links flex space-x-6 ml-auto font-bold md:block hidden ${
             isScrolled ? "text-white" : "text-black"
           }`}
         >
