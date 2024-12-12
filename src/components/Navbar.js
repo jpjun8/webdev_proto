@@ -28,7 +28,7 @@ const Navbar = () => {
   return (
     <nav
       className={`navbar fixed top-0 left-0 w-full shadow-md transition-all duration-300 ${
-        isScrolled ? "bg-gray-800" : "bg-transparent"
+        isScrolled ? "bg-gray-800 hidden" : "bg-transparent"
       }`}
     >
       <div className="container mx-auto flex justify-between items-center px-2 py-4">
@@ -45,9 +45,7 @@ const Navbar = () => {
 
         {/* Full Menu Links for Larger Screens */}
         <div
-          className={`nav-links flex space-x-6 ml-auto font-bold md:block hidden ${
-            isScrolled ? "text-white" : "text-black"
-          }`}
+          className="nav-links flex space-x-6 ml-auto mr-auto font-bold md:block hidden text-white" //ml-auto + mr-auto = centered
         >
           <ul className="flex space-x-6">
             <li>
@@ -66,43 +64,39 @@ const Navbar = () => {
                 About
               </Link>
             </li>
-            <li className="dropdown relative">
-              <Link
-                onClick={toggleDropdown}
-                className="px-3 py-2 rounded-md text-base font-medium hover:bg-gray-400"
-              >
+            <li className="dropdown group relative">
+              <Link className="px-3 py-2 rounded-md text-base font-medium hover:bg-gray-400">
                 Services
               </Link>
 
               {/* Dropdown menu */}
-              {isOpen && (
-                <ul className="dropdown-menu absolute top-full left-0 mt-2 bg-white text-black rounded shadow-lg font-normal">
-                  <li>
-                    <Link
-                      to="/services/design"
-                      className="block px-4 py-2 hover:bg-gray-100"
-                    >
-                      Design
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/services/development"
-                      className="block px-4 py-2 hover:bg-gray-100"
-                    >
-                      Development
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/services/marketing"
-                      className="block px-4 py-2 hover:bg-gray-100"
-                    >
-                      Marketing
-                    </Link>
-                  </li>
-                </ul>
-              )}
+
+              <ul className="absolute left-0 hidden w-48 shadow-md transition duration-300 delay-150 group-hover:block group-hover:delay-300">
+                <li>
+                  <Link
+                    to="/services/design"
+                    className="block px-4 py-2 hover:bg-gray-100"
+                  >
+                    Design
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/services/development"
+                    className="block px-4 py-2 hover:bg-gray-100"
+                  >
+                    Development
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/services/marketing"
+                    className="block px-4 py-2 hover:bg-gray-100"
+                  >
+                    Marketing
+                  </Link>
+                </li>
+              </ul>
             </li>
             <li>
               <Link
@@ -177,7 +171,7 @@ const Navbar = () => {
 
         {/* Navigation Links */}
         <div className="flex flex-col items-center justify-center h-full space-y-6">
-        <ul className="">
+          <ul className="">
             <li>
               <Link
                 to="/"
