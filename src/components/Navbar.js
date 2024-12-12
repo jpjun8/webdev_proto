@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   const [isOpen, setIsOpen] = useState(false);
   const toggleDropdown = () => setIsOpen(!isOpen);
@@ -12,23 +13,30 @@ const Navbar = () => {
   // Add scroll event listener
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 0) {
-        setIsScrolled(true);
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY && currentScrollY > 50) {
+        // Scrolling Down
+        setIsVisible(false);
       } else {
-        setIsScrolled(false);
+        // Scrolling Up
+        setIsVisible(true);
       }
+
+      setLastScrollY(currentScrollY);
     };
 
     window.addEventListener("scroll", handleScroll);
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [lastScrollY]);
 
   return (
     <nav
-      className={`navbar fixed top-0 left-0 w-full shadow-md transition-all duration-300 ${
-        isScrolled ? "bg-gray-800 hidden" : "bg-transparent"
+      className={`navbar fixed top-0 left-0 w-full shadow-md transition-transform duration-300 z-50 bg-black ${
+        isVisible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
       <div className="container mx-auto flex justify-between items-center px-2 py-4">

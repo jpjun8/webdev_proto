@@ -21,94 +21,66 @@ const Home = () => {
   };
 
   return (
-    <div className="flex flex-col items-center text-center py-20 p-4 bg-design-page bg-auto">
-      <header className="mb-20">
-        <p className="text-2xl font-bold text-white mb-2 my-20">Websites</p>
-        <p className="text-6xl font-bold text-white mb-20">
-          The leader in <br />
-          website design
-        </p>
-        <a
-          href="/services/design"
-          className="px-6 py-6 bg-white text-black border border-black"
-        >
-          GET STARTED
-        </a>
-      </header>
+    <div className="flex-col items-center text-center">
+      <div className="bg-design-page bg-auto mt-20">
+        <header className="mb-20">
+          <p className="text-2xl font-bold text-white mb-2 pt-32">Websites</p>
+          <p className="text-6xl font-bold text-white mb-20">
+            The leader in <br />
+            website design
+          </p>
+          <a
+            href="/services/design"
+            className="px-6 py-6 bg-white text-black border border-black"
+          >
+            GET STARTED
+          </a>
+        </header>
 
-      <nav
-        id="subnav"
-        className="flex top-0 shadow-md z-50 rounded-full mb-20 bg-zinc-950"
-      >
-        <div className="container mx-auto">
-          <ul className="flex flex-row py-2 text-white  ml-auto mr-auto">
-            <li>
-              <a
-                href="#section1"
-                className="px-4 py-2 hover:bg-zinc-800 hover:text-white rounded-full transition-colors duration-300"
-              >
-                Templates
-              </a>
-            </li>
-            <li>
-              <a
-                href="#section2"
-                className="px-4 py-2 hover:bg-zinc-800 hover:text-white rounded-full transition-colors duration-300"
-              >
-                Design Intelligence
-              </a>
-            </li>
-            <li>
-              <a
-                href="#section3"
-                className="px-4 py-2 hover:bg-zinc-800 hover:text-white rounded-full transition-colors duration-300"
-              >
-                Creative Tools
-              </a>
-            </li>
-            <li>
-              <a
-                href="#section4"
-                className="px-4 py-2 hover:bg-zinc-800 hover:text-white rounded-full transition-colors duration-300"
-              >
-                SEO & Analytics
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-
-      <section
-        id="emp"
-        className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-20"
-      >
-        <div className="bg-gray-100 p-4 rounded shadow" data-aos="fade-up">
-          <h2 className="text-xl font-semibold mb-2">About Us</h2>
-          <p>Placeholder for company description.</p>
-        </div>
-        <div
-          className="bg-gray-100 p-4 rounded shadow"
-          data-aos="fade-up" // slide-up, zoom-in also available
-          data-aos-delay="200" // Optional delay for staggered animations
+        <nav
+          id="subnav"
+          className="flex top-0 shadow-md z-50 rounded-full mb-20 bg-zinc-950"
         >
-          <h2 className="text-xl font-semibold mb-2">Our Services</h2>
-          <p>Placeholder for services offered.</p>
-        </div>
-        <div
-          className="bg-gray-100 p-4 rounded shadow"
-          data-aos="fade-up"
-          data-aos-delay="400" // Optional delay for staggered animations
-        >
-          <h2 className="text-xl font-semibold mb-2">Contact Us</h2>
-          <p>Placeholder for contact details.</p>
-        </div>
-      </section>
+          <div className="w-auto inline-flex rounded-lg shadow-md px-4 py-2 mr-auto ml-auto">
+            <ul className="flex text-white">
+              <li>
+                <a
+                  href="#section1"
+                  className="px-4 py-2 hover:bg-zinc-800 hover:text-white rounded-full transition-colors duration-300"
+                >
+                  Templates
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#section2"
+                  className="px-4 py-2 hover:bg-zinc-800 hover:text-white rounded-full transition-colors duration-300"
+                >
+                  Design Intelligence
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#section3"
+                  className="px-4 py-2 hover:bg-zinc-800 hover:text-white rounded-full transition-colors duration-300"
+                >
+                  Creative Tools
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#section4"
+                  className="px-4 py-2 hover:bg-zinc-800 hover:text-white rounded-full transition-colors duration-300"
+                >
+                  SEO & Analytics
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
 
-      {/* Wrapper for sections */}
-      <div className="text-white space-y-10">
-        {/* Section 1 */}
-        <section id="section1" className="relative mb-20">
-          <h1 className="text-2xl font-bold mb-10">Section 1</h1>
+        <div className="relative">
+          <h1 className="text-2xl font-bold mb-10 text-white">Video</h1>
           <video
             ref={videoRef}
             className="w-full max-w-3xl rounded-lg shadow-lg ml-auto mr-auto"
@@ -126,11 +98,41 @@ const Home = () => {
           >
             {isPlaying ? "Pause" : "Play"}
           </button>
+        </div>
+      </div>
+
+      {/* Wrapper for sections */}
+      <div className="">
+        {/* Section 1 */}
+        <section id="section1" className="px-8 pt-20 pb-20 bg-slate-300">
+          <h1 className="text-2xl font-bold mb-10">Section 1</h1>
+          <div className="grid grid-cols-4 gap-4">
+            <p className="col-start-1 col-end-3 text-3xl text-left">
+              Start with a best-in-class, <br /> customizable website template
+            </p>
+            <button className="col-start-4 bg-blue-500">
+              BUILD YOUR OWN WITH AI
+            </button>
+          </div>
+
+          {/* 2x2 Grid */}
+          <div className="grid grid-cols-2 pt-20">
+            {/* Each item wrapper */}
+            <div>Something 1</div>
+            <div>Something 2</div>
+            <div>Something 3</div>
+            <div>Something 4</div>
+          </div>
+
+          {/* More Button */}
+          <button className="mt-20 w-full py-4 border border-solid border-gray-500 hover:text-white hover:bg-black ease-in-out transition duration-300">
+            VIEW MORE TEMPLATES
+          </button>
         </section>
 
         {/* Section 2 */}
-        <section id="section2" className="mb-20">
-          <h1 className="text-2xl font-bold mb-10">Section 2</h1>
+        <section id="section2" className="px-8 pt-20 pb-20 bg-slate-400">
+          <h2 className="text-2xl font-bold mb-10">Section 2</h2>
           <p>
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
@@ -150,7 +152,7 @@ const Home = () => {
         </section>
 
         {/* Section 3 */}
-        <section id="section3" className="mb-20">
+        <section id="section3" className="px-8 pt-20 pb-20 bg-slate-600">
           <h2 className="text-2xl font-bold mb-10">Section 3</h2>
           <p>
             Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -171,7 +173,7 @@ const Home = () => {
         </section>
 
         {/* Section 4 */}
-        <section id="section4" className="mb-20">
+        <section id="section4" className="px-8 pt-20 pb-20 bg-slate-800">
           <h2 className="text-2xl font-bold mb-10">Section 4</h2>
           <p>
             Lorem Ipsum is simply dummy text of the printing and typesetting
