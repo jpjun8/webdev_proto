@@ -1,260 +1,262 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
-  const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
-
+export default function Navbar2() {
   const [isOpen, setIsOpen] = useState(false);
-  const toggleDropdown = () => setIsOpen(!isOpen);
-
-  const [isSmall, setIsSmall] = useState(false);
-
-  // Add scroll event listener
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      if (currentScrollY > lastScrollY && currentScrollY > 50) {
-        // Scrolling Down
-        setIsVisible(false);
-      } else {
-        // Scrolling Up
-        setIsVisible(true);
-      }
-
-      setLastScrollY(currentScrollY);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [lastScrollY]);
 
   return (
-    <nav
-      className={`navbar fixed top-0 left-0 w-full shadow-md transition-transform duration-300 z-50 bg-black ${
-        isVisible ? "translate-y-0" : "-translate-y-full"
-      }`}
-    >
-      <div className="container mx-auto flex justify-between items-center px-2 py-4">
-        {/* Logo */}
-        <div className="logo text-black font-bold text-2xl">
-          <Link to="/">
-            <img
-              src={require("../assets/logo.webp")}
-              alt="Link to Home page"
-              className="size-14"
-            ></img>
-          </Link>
-        </div>
-
-        {/* Full Menu Links for Larger Screens */}
-        <div
-          className="nav-links flex space-x-6 ml-auto mr-auto font-bold md:block hidden text-white" //ml-auto + mr-auto = centered
-        >
-          <ul className="flex space-x-6">
-            <li>
-              <Link
-                to="/"
-                className="px-3 py-2 rounded-md text-base font-medium hover:bg-gray-400"
-              >
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/about"
-                className="px-3 py-2 rounded-md text-base font-medium hover:bg-gray-400"
-              >
-                About
-              </Link>
-            </li>
-            <li className="dropdown group relative">
-              <Link className="px-3 py-2 rounded-md text-base font-medium hover:bg-gray-400">
-                Services
-              </Link>
-
-              {/* Dropdown menu */}
-
-              <ul className="absolute left-0 hidden w-48 shadow-md transition duration-300 delay-150 group-hover:block group-hover:delay-300">
-                <li>
-                  <Link
-                    to="/services/design"
-                    className="block px-4 py-2 hover:bg-gray-100"
-                  >
-                    Design
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/services/development"
-                    className="block px-4 py-2 hover:bg-gray-100"
-                  >
-                    Development
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/services/marketing"
-                    className="block px-4 py-2 hover:bg-gray-100"
-                  >
-                    Marketing
-                  </Link>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <Link
-                to="/contact"
-                className="px-3 py-2 rounded-md text-base font-medium hover:bg-gray-400"
-              >
-                Contact
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/blank"
-                className="px-3 py-2 rounded-md text-base font-medium hover:bg-gray-400"
-              >
-                Blank
-              </Link>
-            </li>
-          </ul>
-        </div>
-
-        {/* Hamburger Icon */}
-        <div className="flex md:hidden">
-          <button
-            onClick={() => setIsSmall(!isSmall)}
-            className="text-gray-300 hover:text-white focus:outline-none"
-          >
-            <svg
-              className="h-6 w-6"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width={2}
-                d="M4 6h16M4 12h16m-7 6h7"
-              />
-            </svg>
-          </button>
-        </div>
+    <div className="relative">
+      {/* Logo */}
+      <div className="logo fixed top-4 left-4 z-50">
+        <Link to="/">
+          <img
+            src={require("../assets/logo.png")}
+            alt="Link to Home page"
+            className="size-1/2"
+          ></img>
+        </Link>
       </div>
 
-      {/* Right-Side Sliding Pane */}
-      <div
-        className={`fixed top-0 right-0 h-full w-64 bg-gray-800 text-white shadow-lg transform ${
-          isSmall ? "translate-x-0" : "translate-x-full"
-        } transition-transform duration-300 ease-in-out z-50`}
+      {/* Navigation Button */}
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="fixed top-4 right-4 z-50 bg-gray-800 text-white px-4 py-2 rounded-lg"
       >
-        {/* Close Button */}
-        <button
-          onClick={() => setIsSmall(false)}
-          className="absolute top-4 right-4 text-gray-300 hover:text-white focus:outline-none"
-          aria-label="Close Menu"
-        >
+        {isOpen ? (
+          // Close Icon (X)
           <svg
-            className="h-6 w-6"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
+            strokeWidth="2"
             stroke="currentColor"
+            className="w-6 h-6"
           >
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
-              strokeWidth={2}
               d="M6 18L18 6M6 6l12 12"
             />
           </svg>
-        </button>
+        ) : (
+          // Hamburger Icon
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="2"
+            stroke="currentColor"
+            className="w-6 h-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        )}
+      </button>
 
-        {/* Navigation Links */}
-        <div className="flex flex-col items-center justify-center h-full space-y-6">
-          <ul className="">
-            <li>
-              <Link
-                to="/"
-                className="px-3 py-2 rounded-md text-base font-medium hover:bg-gray-400"
-              >
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/about"
-                className="px-3 py-2 rounded-md text-base font-medium hover:bg-gray-400"
-              >
-                About
-              </Link>
-            </li>
-            <li className="dropdown relative">
-              <Link
-                onClick={toggleDropdown}
-                className="px-3 py-2 rounded-md text-base font-medium hover:bg-gray-400"
-              >
-                Services
-              </Link>
+      {/* Full-Page Navigation Pange */}
+      <div
+        className={`fixed inset-0 bg-gray-900 text-white flex flex-row items-center justify-center transition-transform duration-300 ${
+          isOpen ? "translate-x-0" : "translate-x-full"
+        } z-20`}
+      >
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 text-center text-xl">
+          {/* Column 1 */}
+          <div>
+            <ul className="space-y-4">
+              <li>
+                <Link
+                  to="/ad"
+                  className="px-3 py-2 rounded-md text-2xl font-medium hover:bg-gray-400"
+                  onClick={() => setIsOpen(false)}
+                >
+                  AD
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/ad#CEO"
+                  className="px-3 py-2 rounded-md text-base font-medium hover:bg-gray-400"
+                  onClick={() => setIsOpen(false)}
+                >
+                  CEO
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/ad#company"
+                  className="px-3 py-2 rounded-md text-base font-medium hover:bg-gray-400"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Company
+                </Link>
+              </li>
+            </ul>
+          </div>
 
-              {/* Dropdown menu */}
-              {isOpen && (
-                <ul className="dropdown-menu absolute top-full left-0 mt-2 bg-white text-black rounded shadow-lg font-normal">
-                  <li>
-                    <Link
-                      to="/services/design"
-                      className="block px-4 py-2 hover:bg-gray-100"
-                    >
-                      Design
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/services/development"
-                      className="block px-4 py-2 hover:bg-gray-100"
-                    >
-                      Development
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/services/marketing"
-                      className="block px-4 py-2 hover:bg-gray-100"
-                    >
-                      Marketing
-                    </Link>
-                  </li>
-                </ul>
-              )}
-            </li>
-            <li>
-              <Link
-                to="/contact"
-                className="px-3 py-2 rounded-md text-base font-medium hover:bg-gray-400"
-              >
-                Contact
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/blank"
-                className="px-3 py-2 rounded-md text-base font-medium hover:bg-gray-400"
-              >
-                Blank
-              </Link>
-            </li>
-          </ul>
+          {/* Column 2 */}
+          <div>
+            <ul className="space-y-4">
+              <li>
+                <Link
+                  to="/solution"
+                  className="px-3 py-2 rounded-md text-base font-medium hover:bg-gray-400"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Solution
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/solution#nstore"
+                  className="px-3 py-2 rounded-md text-base font-medium hover:bg-gray-400"
+                  onClick={() => setIsOpen(false)}
+                >
+                  N Store
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/solution#cstore"
+                  className="px-3 py-2 rounded-md text-base font-medium hover:bg-gray-400"
+                  onClick={() => setIsOpen(false)}
+                >
+                  C Store
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/solution#kshopping"
+                  className="px-3 py-2 rounded-md text-base font-medium hover:bg-gray-400"
+                  onClick={() => setIsOpen(false)}
+                >
+                  K Shopping
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/solution#nplace"
+                  className="px-3 py-2 rounded-md text-base font-medium hover:bg-gray-400"
+                  onClick={() => setIsOpen(false)}
+                >
+                  N Place
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/solution#instagram"
+                  className="px-3 py-2 rounded-md text-base font-medium hover:bg-gray-400"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Instagram
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/solution#youtube"
+                  className="px-3 py-2 rounded-md text-base font-medium hover:bg-gray-400"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Youtube
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 3 */}
+          <div>
+            <ul className="space-y-4">
+              <li>
+                <Link
+                  to="/reference"
+                  className="px-3 py-2 rounded-md text-base font-medium hover:bg-gray-400"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Reference
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/reference#store"
+                  className="px-3 py-2 rounded-md text-base font-medium hover:bg-gray-400"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Store
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/reference/place"
+                  className="px-3 py-2 rounded-md text-base font-medium hover:bg-gray-400"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Place
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/reference#others"
+                  className="px-3 py-2 rounded-md text-base font-medium hover:bg-gray-400"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Others
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 4 */}
+          <div>
+            <ul className="space-y-4">
+              <li>
+                <Link
+                  to="/recruiting"
+                  className="px-3 py-2 rounded-md text-base font-medium hover:bg-gray-400"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Recruiting
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/recruiting#adgasan"
+                  className="px-3 py-2 rounded-md text-base font-medium hover:bg-gray-400"
+                  onClick={() => setIsOpen(false)}
+                >
+                  AD 가산본사
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/recruiting#adchungra"
+                  className="px-3 py-2 rounded-md text-base font-medium hover:bg-gray-400"
+                  onClick={() => setIsOpen(false)}
+                >
+                  AD 청라지사
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 5 */}
+          <div>
+            <ul className="space-y-4">
+              <li>
+                <Link
+                  to="/inquiry"
+                  className="px-3 py-2 rounded-md text-base font-medium hover:bg-gray-400"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Inquiry
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-    </nav>
+    </div>
   );
-};
-
-export default Navbar;
+}

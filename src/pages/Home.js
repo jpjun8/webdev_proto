@@ -1,203 +1,80 @@
 // Reference Site: https://www.squarespace.com/website-design
-import React, { useRef, useState } from "react";
+import React from "react";
 // import { Link } from "react-router-dom";
-import video1 from "../assets/ForBiggerBlazes.mp4";
 
 const Home = () => {
-  const videoRef = useRef(video1);
-
-  const [isPlaying, setIsPlaying] = useState(false);
-
-  // Play/Pause Handler
-  const togglePlayPause = () => {
-    const video = videoRef.current;
-    if (video.paused) {
-      video.play();
-      setIsPlaying(true);
-    } else {
-      video.pause();
-      setIsPlaying(false);
-    }
-  };
-
   return (
-    <div className="flex-col items-center text-center">
-      <div className="bg-design-page bg-auto mt-20">
-        <header className="mb-20">
-          <p className="text-2xl font-bold text-white mb-2 pt-32">Websites</p>
-          <p className="text-6xl font-bold text-white mb-20">
-            The leader in <br />
-            website design
-          </p>
-          <a
-            href="/services/design"
-            className="px-6 py-6 bg-white text-black border border-black"
-          >
-            GET STARTED
-          </a>
-        </header>
-
-        <nav
-          id="subnav"
-          className="flex top-0 shadow-md z-50 rounded-full mb-20 bg-zinc-950"
-        >
-          <div className="w-auto inline-flex rounded-lg shadow-md px-4 py-2 mr-auto ml-auto">
-            <ul className="flex text-white">
-              <li>
-                <a
-                  href="#section1"
-                  className="px-4 py-2 hover:bg-zinc-800 hover:text-white rounded-full transition-colors duration-300"
-                >
-                  Templates
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#section2"
-                  className="px-4 py-2 hover:bg-zinc-800 hover:text-white rounded-full transition-colors duration-300"
-                >
-                  Design Intelligence
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#section3"
-                  className="px-4 py-2 hover:bg-zinc-800 hover:text-white rounded-full transition-colors duration-300"
-                >
-                  Creative Tools
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#section4"
-                  className="px-4 py-2 hover:bg-zinc-800 hover:text-white rounded-full transition-colors duration-300"
-                >
-                  SEO & Analytics
-                </a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-
-        <div className="relative">
-          <h1 className="text-2xl font-bold mb-10 text-white">Video</h1>
-          <video
-            ref={videoRef}
-            className="w-full max-w-3xl rounded-lg shadow-lg ml-auto mr-auto"
-            muted
-            loop
-          >
-            <source src={video1} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-
-          {/* Play/Pause button */}
-          <button
-            onClick={togglePlayPause}
-            class="relative px-4 py-2 bg-blue-500 text-white rounded-full shadow-lg focus:outline-none"
-          >
-            {isPlaying ? "Pause" : "Play"}
-          </button>
-        </div>
-      </div>
-
+    <div className="flex-col">
       {/* Wrapper for sections */}
       <div className="">
-        {/* Section 1 */}
-        <section id="section1" className="px-8 pt-20 pb-20 bg-slate-300">
-          <h1 className="text-2xl font-bold mb-10">Section 1</h1>
-          <div className="grid grid-cols-4 gap-4">
-            <p className="col-start-1 col-end-3 text-3xl text-left">
-              Start with a best-in-class, <br /> customizable website template
+        <section className="px-8 pt-96 pb-20 bg-indigo-950">
+          <div className="text-white">
+            <p>사업자 마케팅</p>
+            <p>*24년 6월 기준</p>
+            <p>
+              계약업체 1950개 / 재계약율 94.6% <br />
+              사업자마케팅 회사
             </p>
-            <button className="col-start-4 bg-blue-500">
-              BUILD YOUR OWN WITH AI
-            </button>
+            <p>상품에 관한 이야기가 필요할까요? 결과물로 증명하겠습니다.</p>
+          </div>
+        </section>
+
+        {/* 성공사례 */}
+        <section id="section1" className="px-8 pt-32 pb-20 bg-slate-300">
+          <h1 className="text-2xl font-bold mb-10 text-center">성공사례</h1>
+          <div className="grid grid-cols- gap-4">
+            <p className="col-start-1 col-end-4 text-3xl text-center">
+              에이디파트너스를 만나고 삶이 달라졌습니다.
+            </p>
           </div>
 
-          {/* 2x2 Grid */}
-          <div className="grid grid-cols-2 pt-20">
+          {/* 이미지 + 사례 */}
+          <div className="justify-items-center grid gap-x-4 gap-y-6 grid-cols-3 pt-20">
             {/* Each item wrapper */}
-            <div>Something 1</div>
-            <div>Something 2</div>
-            <div>Something 3</div>
-            <div>Something 4</div>
+            <img src="https://via.placeholder.com/300x300" alt="image1"></img>
+            <img src="https://via.placeholder.com/300x300" alt="image2"></img>
+            <img src="https://via.placeholder.com/300x300" alt="image3"></img>
+            <div>인터뷰 멘트 매출이 존나게 올라갔어요 앙기모띠 1</div>
+            <div>인터뷰 멘트 방문자수가 존나게 올라갔어요 앙김</div>
+            <div>인터뷰 멘트 3</div>
           </div>
-
-          {/* More Button */}
-          <button className="mt-20 w-full py-4 border border-solid border-gray-500 hover:text-white hover:bg-black ease-in-out transition duration-300">
-            VIEW MORE TEMPLATES
-          </button>
         </section>
 
-        {/* Section 2 */}
+        {/* 직원소개 */}
         <section id="section2" className="px-8 pt-20 pb-20 bg-slate-400">
-          <h2 className="text-2xl font-bold mb-10">Section 2</h2>
-          <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s
-            with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus
-            PageMaker including versions of Lorem Ipsum. It is a long
-            established fact that a reader will be distracted by the readable
-            content of a page when looking at its layout. The point of using
-            Lorem Ipsum is that it has a more-or-less normal distribution of
-            letters, as opposed to using 'Content here, content here', making it
-            look like readable English.
+          <h2 className="text-2xl font-bold mb-10 text-center">직원소개</h2>
+          {/* 가로 Rolling 직원 이미지들 + 코멘트 */}
+          <div className="text-center">어쩌고 저쩌고 자기소개</div>
+
+          {/* 마케팅 실패 이유 어쩌고 */}
+          <p className="font-bold text-3xl text-center">
+            당신의 마케팅이 지금까지 실패했던 이유를 알려드리겠습니다.
+          </p>
+          <p className="px-16">
+            1. 마케팅을 잘 알아보지 못하고 <br />
+            2. 갖고 있는 아이템이 준비되지 않았습니다 <br />
+            3. 그저 남에게 의존하는 <br />
           </p>
         </section>
 
-        {/* Section 3 */}
-        <section id="section3" className="px-8 pt-20 pb-20 bg-slate-600">
-          <h2 className="text-2xl font-bold mb-10">Section 3</h2>
+        {/* 서비스 소개 */}
+        <section id="section3" className="px-8 pt-20 pb-20 bg-slate-600 text-center">
+          <h2 className="text-2xl font-bold mb-10">서비스 소개</h2>
           <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s
-            with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus
-            PageMaker including versions of Lorem Ipsum. It is a long
-            established fact that a reader will be distracted by the readable
-            content of a page when looking at its layout. The point of using
-            Lorem Ipsum is that it has a more-or-less normal distribution of
-            letters, as opposed to using 'Content here, content here', making it
-            look like readable English.
+            <strong>장기적인 파트너를 찾습니다.</strong>
+            <br />
+            <p>1~2달 정도만 진행하고 그만할 것이라면</p>
           </p>
         </section>
 
-        {/* Section 4 */}
-        <section id="section4" className="px-8 pt-20 pb-20 bg-slate-800">
-          <h2 className="text-2xl font-bold mb-10">Section 4</h2>
-          <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s
-            with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus
-            PageMaker including versions of Lorem Ipsum. It is a long
-            established fact that a reader will be distracted by the readable
-            content of a page when looking at its layout. The point of using
-            Lorem Ipsum is that it has a more-or-less normal distribution of
-            letters, as opposed to using 'Content here, content here', making it
-            look like readable English.
-          </p>
+        {/* 자주 묻는 질문 */}
+        <section id="section4" className="px-8 pt-20 pb-20 bg-slate-800 text-center">
+          <h2 className="text-2xl font-bold mb-10">자주 묻는 질문</h2>
+          <strong>아직 궁금한 점이 있으신가요?</strong>
         </section>
 
-        {/* Go to the top */}
-        <p>
-          Go to the
-          <a href="#">top</a>.
-        </p>
+        {/* 문의하기 */}
+
       </div>
     </div>
   );

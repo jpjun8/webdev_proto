@@ -1,6 +1,6 @@
 import React from "react";
 
-const Blank = () => {
+const Inquiry = () => {
     return (
         <div>
             This is a blank page.
@@ -8,4 +8,4 @@ const Blank = () => {
     );
 };
 
-export default Blank;
+export default Inquiry;

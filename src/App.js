@@ -1,13 +1,19 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+// Pages
 import Home from "./pages/Home";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
+import Solution from "./pages/Solution";
+import Recruiting from "./pages/Recruiting";
 import ServicesDesign from "./pages/ServicesDesign";
 import ServicesDevelopment from "./pages/ServicesDevelopment";
 import ServicesMarketing from "./pages/ServicesMarketing";
+import Inquiry from "./pages/Inquiry";
+import AD from "./pages/AD";
+
+// Components
 import Navbar from "./components/Navbar";
-import Blank from "./pages/Blank";
+import BackToTopButton from "./components/BackToTopButton";
 
 import "aos/dist/aos.css"; //Import AOS styles
 import AOS from "aos";
@@ -27,13 +33,15 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/ad" element={<AD />} />
+        <Route path="/solution" element={<Solution />} />
         <Route path="/services/design" element={<ServicesDesign />} />
         <Route path="/services/development" element={<ServicesDevelopment />} />
         <Route path="/services/marketing" element={<ServicesMarketing />} />
-        <Route path="/blank" element={<Blank />} />
+        <Route path="/recruiting" element={<Recruiting />} />
+        <Route path="/inquiry" element={<Inquiry />} />
       </Routes>
+      <BackToTopButton />
     </Router>
   );
 }
