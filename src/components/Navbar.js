@@ -12,7 +12,7 @@ export default function Navbar2() {
           <img
             src={require("../assets/logo.png")}
             alt="Link to Home page"
-            className="size-1/2"
+            className="border-2 border-black rounded size-1/2 "
           ></img>
         </Link>
       </div>
