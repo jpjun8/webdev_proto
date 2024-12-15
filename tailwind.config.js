@@ -9,6 +9,9 @@ module.exports = {
       scrollBehavior: {
         smooth: "smooth",
       },
+      fontFamily: {
+        pre: ['Pretendard'],
+      },
     },
   },
   plugins: [],
