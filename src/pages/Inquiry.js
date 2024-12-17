@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useRef } from "react";
 
 const Inquiry = () => {
     return (
-        <div>
-            This is a blank page.
+        <div className="pt-32">
+            Welcome to Inquiry
         </div>
-    );
+    )
 };
 
 export default Inquiry;
