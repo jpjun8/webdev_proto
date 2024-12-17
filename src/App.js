@@ -14,6 +14,7 @@ import AD from "./pages/AD";
 // Components
 import Navbar from "./components/Navbar";
 import BackToTopButton from "./components/BackToTopButton";
+// import HorizontalMenu from "./components/HorizontalMenu";
 
 import "aos/dist/aos.css"; //Import AOS styles
 import AOS from "aos";

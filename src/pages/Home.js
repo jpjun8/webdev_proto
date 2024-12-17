@@ -1,55 +1,64 @@
 // Reference Site: https://www.squarespace.com/website-design
 import React, { useRef } from "react";
-import HorizontalMenu from "../components/HorizontalMenu";
+// import HorizontalMenu from "../components/HorizontalMenu";
 
-const navItem = [
+const employees = [
   {
-    name: "Too Good to Say Goodbye",
-    imageURL: "https://via.placeholder.com/300x300",
+    id: 1,
+    image: "https://randomuser.me/api/portraits/men/1.jpg",
+    quote: "Strive for progress, not perfection.",
   },
   {
-    name: "항복복",
-    imageURL: "https://via.placeholder.com/300x300",
+    id: 2,
+    image: "https://randomuser.me/api/portraits/women/2.jpg",
+    quote: "Success is a journey, not a destination.",
   },
   {
-    name: "휴먼 매커니즘즘",
-    imageURL: "https://via.placeholder.com/300x300",
+    id: 3,
+    image: "https://randomuser.me/api/portraits/men/3.jpg",
+    quote: "The best way to predict the future is to create it.",
   },
   {
-    name: "Rodeo Girls (Feat. 키드밀리)",
-    imageURL: "https://via.placeholder.com/300x300",
+    id: 4,
+    image: "https://randomuser.me/api/portraits/women/4.jpg",
+    quote: "Dream big, work hard.",
   },
   {
-    name: "지글지글 (Feat. ZICO)",
-    imageURL: "https://via.placeholder.com/300x300",
+    id: 5,
+    image: "https://randomuser.me/api/portraits/men/5.jpg",
+    quote: "Believe you can and you’re halfway there.",
   },
   {
-    name: "I BE LIKE (Feat. SOLE)",
-    imageURL: "https://via.placeholder.com/300x300",
+    id: 6,
+    image: "https://randomuser.me/api/portraits/women/5.jpg",
+    quote: "Believe you can and you’re halfway there.",
   },
   {
-    name: "MZ",
-    imageURL: "https://via.placeholder.com/300x300",
+    id: 7,
+    image: "https://randomuser.me/api/portraits/men/6.jpg",
+    quote: "Believe you can and you’re halfway there.",
   },
   {
-    name: "선 (Feat. oceanfromtheblue)",
-    imageURL: "https://via.placeholder.com/300x300",
+    id: 8,
+    image: "https://randomuser.me/api/portraits/women/6.jpg",
+    quote: "Believe you can and you’re halfway there.",
   },
-  {
-    name: "When I Get Old",
-    imageURL: "https://via.placeholder.com/300x300",
-  },
+  // Add more employees as needed
 ];
 
 const Home = () => {
-  const scrollRef = useRef(null);
+  const scrollContainerRef = useRef(null);
 
   const scrollLeft = () => {
-    scrollRef.current.scrollBy({ left: -200, behavior: "smooth" });
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({ left: -200, behavior: "smooth" });
+    }
   };
 
   const scrollRight = () => {
-    scrollRef.current.scrollBy({ left: 200, behavior: "smooth" });
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({ left: 200, behavior: "smooth" });
+    }
   };
 
   return (
@@ -105,10 +114,49 @@ const Home = () => {
         <section id="section2" className="px-4 pt-20 pb-20 bg-neutral-800">
           <h2 className="text-2xl font-bold mb-10 text-center">직원소개</h2>
           {/* 가로 Rolling 직원 이미지들 + 코멘트 */}
-          <HorizontalMenu navItem={navItem}/>
+          <div className="p-4">
+            <h1 className="text-2xl font-bold mb-4 text-center">Our Team</h1>
+            <div className="flex items-center space-x-4">
+              {/* Left Arrow Button */}
+              <button
+                onClick={scrollLeft}
+                className="p-2 rounded-full bg-gray-300 hover:bg-gray-400 focus:outline-none"
+              >
+                <span className="text-lg">&larr;</span>
+              </button>
+
+              {/* Scrollable Container */}
+              <div
+                ref={scrollContainerRef}
+                className="flex overflow-x-hidden space-x-6 pb-4 w-full"
+              >
+                {employees.map((employee, index) => (
+                  <div
+                    key={index}
+                    className="flex-none w-64 bg-white p-4 rounded-lg shadow-md"
+                  >
+                    <img
+                      src={employee.image}
+                      alt={employee.id}
+                      className="w-full h-40 object-cover rounded-lg"
+                    />
+                    <p className="text-gray-500 mt-2">"{employee.quote}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* Right Arrow Button */}
+              <button
+                onClick={scrollRight}
+                className="p-2 rounded-full bg-gray-300 hover:bg-gray-400 focus:outline-none"
+              >
+                <span className="text-lg">&rarr;</span>
+              </button>
+            </div>
+          </div>
 
           {/* 마케팅 실패 이유 어쩌고 */}
-          <p className="font-bold text-3xl text-center">
+          <p className="font-bold text-3xl text-center pt-20">
             당신의 마케팅이 지금까지 실패했던 이유를 알려드리겠습니다.
           </p>
           <p className="px-4 pt-16">
@@ -133,7 +181,7 @@ const Home = () => {
         {/* 서비스 소개 */}
         <section id="section3" className="px-4 pt-20 pb-20 bg-neutral-700">
           <h2 className="text-xl font-bold mb-10 text-center">서비스 소개</h2>
-          <p className="px-4 pt-16">
+          <div className="px-4 pt-16">
             <strong>장기적인 파트너를 찾습니다.</strong>
             <br />
             <p>
@@ -157,7 +205,7 @@ const Home = () => {
               이슈는 감수해야할 영역이 아닙니다, 비용을 지불하였으면, 그에 맞는
               관리를 받으셔야 합니다.
             </p>
-          </p>
+          </div>
         </section>
         {/* 자주 묻는 질문 */}
         <section

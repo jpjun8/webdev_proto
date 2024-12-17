@@ -1,78 +1,129 @@
-import { useRef, useState, useEffect } from "react";
+// 잠깐 보류 -- ㅈ버그 걸림
 
-const HorizontalMenu = ({ navItem }) => {
-    const scrollRef = useRef(null);
-    const [scrollPosition, setScrollPosition] = useState(0);
+import React, { useState, useEffect, useRef } from "react";
 
-    // Scroll one item to the left every 4 seconds
-    useEffect(() => {
-        const scrollInterval = setInterval(() => {
-            // Calculate the width of one item
-            const itemWidth = scrollRef.current?.children[0]?.offsetWidth || 0;
+const employees = [
+  {
+    id: 1,
+    image: "https://randomuser.me/api/portraits/men/1.jpg",
+    quote: "Strive for progress, not perfection.",
+  },
+  {
+    id: 2,
+    image: "https://randomuser.me/api/portraits/women/2.jpg",
+    quote: "Success is a journey, not a destination.",
+  },
+  {
+    id: 3,
+    image: "https://randomuser.me/api/portraits/men/3.jpg",
+    quote: "The best way to predict the future is to create it.",
+  },
+  {
+    id: 4,
+    image: "https://randomuser.me/api/portraits/women/4.jpg",
+    quote: "Dream big, work hard.",
+  },
+  {
+    id: 5,
+    image: "https://randomuser.me/api/portraits/men/5.jpg",
+    quote: "Believe you can and you’re halfway there.",
+  },
+  {
+    id: 6,
+    image: "https://randomuser.me/api/portraits/women/5.jpg",
+    quote: "Believe you can and you’re halfway there.",
+  },
+  {
+    id: 7,
+    image: "https://randomuser.me/api/portraits/men/6.jpg",
+    quote: "Believe you can and you’re halfway there.",
+  },
+  {
+    id: 8,
+    image: "https://randomuser.me/api/portraits/women/6.jpg",
+    quote: "Believe you can and you’re halfway there.",
+  },
+  // Add more employees as needed
+];
 
-            // Scroll by one item width
-            setScrollPosition(prevPosition => {
-                const newPosition = prevPosition + itemWidth;
-                return newPosition >= itemWidth * navItem.length ? 0 : newPosition;
-            });
-        }, 500); // 4 seconds interval
+const HorizontalMenu = () => {
+  const [, setScrollIndex] = useState(0);
+  const menuRef = useRef(null);
 
-        return () => clearInterval(scrollInterval); // Cleanup on unmount
-    }, [navItem.length]);
+  // Auto-scroll every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setScrollIndex((prevIndex) => (prevIndex + 1) % employees.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
-    useEffect(() => {
-        if(scrollRef.current) {
-            scrollRef.current.scrollTo({
-                left: scrollPosition,
-                behavior: "smooth", //smooth scrolling
-            });
-        }
-    }, [scrollPosition]);
+//   // Scroll to the item based on the index
+//   useEffect(() => {
+//     console.log("scrollIndex changed:", scrollIndex);
 
-    return (
-        <div className="relative flex items-center overflow-hidden">
-            {/* Left Arrow */}
-            <button
-                className="absolute left-0 z-10 w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full shadow-md hover:bg-gray-300 transition-all"
-                onClick={() => {
-                    scrollRef.current.scrollBy({ left: -200, behavior: "smooth" });
-                }}
-                style={{ transform: "translateY(-50%)", top: "50%" }}
-            >
-                ◀
-            </button>
+//     if (menuRef.current) {
+//       const menuItem = menuRef.current.children[scrollIndex];
+//       if (menuItem) {
+//         menuRef.current.scrollLeft = menuItem.offsetLeft;
+//         console.log("Scrolled to:", menuItem);
+//       }
+//     }
+//   }, [scrollIndex]);
 
-            {/* Scrolling Menu with Infinite Scroll */}
+  // Handle left/right arrow navigation
+  const handleArrowClick = (direction) => {
+    setScrollIndex((prevIndex) => {
+      if (direction === "left") {
+        return prevIndex === 0 ? employees.length - 1 : prevIndex - 1;
+      } else {
+        return (prevIndex + 1) % employees.length;
+      }
+    });
+  };
+
+  return (
+    <div className="relative flex items-center justify-center">
+      {/* Left Arrow */}
+      <button
+        className="absolute left-0 p-2 text-black bg-gray-500 rounded-full hover:bg-gray-700"
+        onClick={() => handleArrowClick("left")}
+      >
+        &#8592;
+      </button>
+
+      {/* Menu */}
+      <div className="overflow-hidden px-4" style={{ maxWidth: "100%" }}>
+        <div className="flex space-x-6 animation-scroll" ref={menuRef}
+        style={{
+            animation: 'scroll 25s linear infinite'
+        }}>
+          {employees.map((employee) => (
             <div
-                ref={scrollRef}
-                className="whitespace-nowrap flex gap-4 px-12 scrollbar-hide"
-                style={{
-                    animation: "scroll 20s linear infinite",
-                }}
+              key={employee.id}
+              className="flex flex-col items-center"
+              style={{ minWidth: "200px" }}
             >
-                {/* Duplicate the navItems to make it loop seamlessly */}
-                {navItem.concat(navItem).map((item, index) => (
-                    <div key={index} className="inline-block px-4 py-2 bg-gray-100 rounded text-black">
-                        <img
-                        src={item.imageURL} alt={item.name}
-                        />
-                        {item.name}
-                    </div>
-                ))}
+              <img
+                src={employee.image}
+                alt={`Employee ${employee.id}`}
+                className="w-32 h-32 rounded-full object-cover mb-4"
+              />
+              <p className="text-center text-white">{employee.quote}</p>
             </div>
-
-            {/* Right Arrow */}
-            <button
-                className="absolute right-0 z-10 w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full shadow-md hover:bg-gray-300 transition-all"
-                onClick={() => {
-                    scrollRef.current.scrollBy({ left: 200, behavior: "smooth" });
-                }}
-                style={{ transform: "translateY(-50%)", top: "50%" }}
-            >
-                ▶
-            </button>
+          ))}
         </div>
-    );
+      </div>
+
+      {/* Right Arrow */}
+      <button
+        className="absolute right-0 p-2 text-white bg-gray-500 rounded-full hover:bg-gray-700"
+        onClick={() => handleArrowClick("right")}
+      >
+        &#8594;
+      </button>
+    </div>
+  );
 };
 
 export default HorizontalMenu;
