@@ -152,10 +152,10 @@ const Inquiry = () => {
       onSubmit={handleSubmit}
       className="pt-32 bg-blue-300 rounded shadow"
     >
-      <h2 className="text-xl font-bold mb-4">Inquire About Our Services</h2>
+      <h2 className="text-xl font-bold mb-4 mx-4">Inquire About Our Services</h2>
 
       {/* 카테고리 선택택 */}
-      <div className="grid grid-cols-2 gap-4 mb-4">
+      <div className="grid grid-cols-2 gap-4 mb-4 mx-4">
         {categories.map((category) => (
           <label
             key={category.id}
@@ -179,7 +179,7 @@ const Inquiry = () => {
       </div>
 
       {/* 브랜드명 */}
-      <div className="mb-4">
+      <div className="mb-4 mx-4">
         <label className="block text-gray-700">브랜드명</label>
         <input
           type="text"
@@ -192,7 +192,7 @@ const Inquiry = () => {
       </div>
 
       {/* 담당자명 */}
-      <div className="mb-4">
+      <div className="mb-4 mx-4">
         <label className="block text-gray-700">담당자명</label>
         <input
           type="text"
@@ -205,7 +205,7 @@ const Inquiry = () => {
       </div>
 
       {/* 이메일 */}
-      <div className="mb-4">
+      <div className="mb-4 mx-4">
         <label className="block text-gray-700">이메일</label>
         <input
           type="text"
@@ -218,7 +218,7 @@ const Inquiry = () => {
       </div>
 
       {/* 연락처 */}
-      <div className="mb-4">
+      <div className="mb-4 mx-4">
         <label className="block text-gray-700">연락처</label>
         <input
           type="text"
@@ -233,7 +233,7 @@ const Inquiry = () => {
       </div>
 
       {/* 문의사항 */}
-      <div className="mb-4">
+      <div className="mb-4 mx-4">
         <label className="block text-gray-700">문의사항</label>
         <textarea
           name="message"
@@ -250,7 +250,7 @@ const Inquiry = () => {
       {/* Submit Button */}
       <button
         type="submit"
-        className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+        className="mb-4 mx-4 mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
       >
         Submit
       </button>
