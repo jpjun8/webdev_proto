@@ -94,17 +94,17 @@ const Home = () => {
               src="https://via.placeholder.com/300x300"
               alt="image1"
               className="rounded shadow-2xl"
-            ></img>
+            />
             <img
               src="https://via.placeholder.com/300x300"
               alt="image2"
               className="rounded shadow-2xl"
-            ></img>
+            />
             <img
               src="https://via.placeholder.com/300x300"
               alt="image3"
               className="rounded shadow-2xl"
-            ></img>
+            />
             <div>인터뷰 멘트 매출이 존나게 올라갔어요 앙기모띠</div>
             <div>인터뷰 멘트 방문자수가 존나게 올라갔어요 앙기모띵 </div>
             <div>인터뷰 멘트 단톡방은 무슨 의미인지 잘 모르겠어용 히히</div>
