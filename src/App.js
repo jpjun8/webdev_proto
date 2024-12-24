@@ -5,11 +5,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Solution from "./pages/Solution";
 import Recruiting from "./pages/Recruiting";
-import ServicesDesign from "./pages/ServicesDesign";
-import ServicesDevelopment from "./pages/ServicesDevelopment";
-import ServicesMarketing from "./pages/ServicesMarketing";
 import Inquiry from "./pages/Inquiry";
 import AD from "./pages/AD";
+import Reference from "./pages/Reference";
 
 // Components
 import Navbar from "./components/Navbar";
@@ -36,9 +34,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/ad" element={<AD />} />
         <Route path="/solution" element={<Solution />} />
-        <Route path="/services/design" element={<ServicesDesign />} />
-        <Route path="/services/development" element={<ServicesDevelopment />} />
-        <Route path="/services/marketing" element={<ServicesMarketing />} />
+        <Route path="/reference" element={<Reference />} />
         <Route path="/recruiting" element={<Recruiting />} />
         <Route path="/inquiry" element={<Inquiry />} />
       </Routes>

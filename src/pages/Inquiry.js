@@ -150,7 +150,7 @@ const Inquiry = () => {
     <form
       ref={form}
       onSubmit={handleSubmit}
-      className="pt-32 bg-blue-300 rounded shadow"
+      className="pt-32 bg-slate-200 rounded shadow"
     >
       <h2 className="text-xl font-bold mb-4 mx-4">Inquire About Our Services</h2>
 

@@ -1,6 +1,7 @@
 // Reference Site: https://www.squarespace.com/website-design
 import React, { useRef } from "react";
 // import HorizontalMenu from "../components/HorizontalMenu";
+import FAQSection from "../components/FAQ";
 
 const employees = [
   {
@@ -78,6 +79,7 @@ const Home = () => {
             <p>상품에 관한 이야기가 필요할까요? 결과물로 증명하겠습니다.</p>
           </div>
         </section>
+
         {/* 성공사례 */}
         <section id="section1" className="px-4 pt-28 pb-20 bg-neutral-900">
           <h1 className="text-2xl font-bold mb-10 text-center">성공사례</h1>
@@ -88,7 +90,7 @@ const Home = () => {
           </div>
 
           {/* 이미지 + 사례 */}
-          <div className="justify-items-center text-center grid gap-x-4 gap-y-6 grid-cols-3 pt-16 font-bold px-4">
+          <div className="justify-items-center text-center grid gap-x-4 gap-y-6 grid-cols-3 pt-16 px-4">
             {/* Each item wrapper */}
             <img
               src="https://via.placeholder.com/300x300"
@@ -105,9 +107,21 @@ const Home = () => {
               alt="image3"
               className="rounded shadow-2xl"
             />
-            <div>인터뷰 멘트 매출이 존나게 올라갔어요 앙기모띠</div>
-            <div>인터뷰 멘트 방문자수가 존나게 올라갔어요 앙기모띵 </div>
-            <div>인터뷰 멘트 단톡방은 무슨 의미인지 잘 모르겠어용 히히</div>
+            <div>
+              <strong>한달에 </strong>온라인으로만
+              <br />
+              <strong>예약 400건</strong> 들어오는 분당 병원
+            </div>
+            <div>
+              마케팅 <strong>7개월</strong>만에
+              <br />
+              병원 <strong>한층 추가 확장</strong>
+            </div>
+            <div>
+              마케팅 <strong>3개월</strong>만에
+              <br />
+              한달 수술 예약 모두 찬 성형외과
+            </div>
           </div>
         </section>
         {/* 직원소개 */}
@@ -180,9 +194,9 @@ const Home = () => {
         </section>
         {/* 서비스 소개 */}
         <section id="section3" className="px-4 pt-20 pb-20 bg-neutral-700">
-          <h2 className="text-xl font-bold mb-10 text-center">서비스 소개</h2>
+          <h2 className="text-2xl font-bold mb-10 text-center">서비스 소개</h2>
           <div className="px-4 pt-16">
-            <strong>장기적인 파트너를 찾습니다.</strong>
+            <p className="text-3xl font-bold">장기적인 파트너를 찾습니다.</p>
             <br />
             <p>
               1~2달 정도만 진행하고 그만할 것이라면 시작도 안하시는게 좋습니다.
@@ -210,53 +224,9 @@ const Home = () => {
         {/* 자주 묻는 질문 */}
         <section
           id="section4"
-          className="px-4 pt-20 pb-20 bg-neutral-600 text-center"
+          className="px-4 pt-20 pb-20 bg-neutral-600"
         >
-          <h2 className="text-2xl font-bold mb-10">자주 묻는 질문</h2>
-          <strong className="text-xl">아직 궁금한 점이 있으신가요?</strong>
-          <br />
-          <br />
-          <div className="text-left">
-            <p>1. 광고비 투자 대비 이뤄낸 성과가 없으면요?</p>
-            <p>
-              그건 마케팅 회사 잘못입니다. 성과가 없는 마케팅은 실패한
-              마케팅입니다, 에이디파트너스센터는 확실한 담당자들의 분석으로
-              성과있는 마케팅만을 도와드립니다.
-            </p>
-            <br />
-            <p>2. 마케팅이 곧 광고 아니냐?</p>
-            <p>
-              아니라고 봅니다, 광고는 누구나 손쉽게 진행알 수 있는 것이
-              광고입니다. 메타광고, gfa광고, 배너광고, cpc광과 누구나 손쉽게
-              접근을 할 수 있죠, 하지만 마케팅은 분석이 필요하고, 어떠한
-              방향으로 어떠한 목표를 잡고 나아갈지가 중요합니다.
-            </p>
-            <br />
-            <p>
-              3. 그렇게 마케팅을 잘하면 스스로 사업을 운영하면 되는게 아니냐?
-            </p>
-            <p>
-              맞습니다, 하지만 현재 저희와 함께하시는 2000여명의 클라이언트
-              대표님들, 각 각 담당자들이 신경쓰기에도 바쁩니다, 우리 회사가
-              단독으로 성장하는 것이 목표가 아닌, 클라이언트 분들을 도와서 함께
-              성장하는 것이 저희의 목표입니다.
-            </p>
-            <br />
-            <p>4. 너도하고, 나도하면 내부적인 경쟁구도 아니냐?</p>
-            <p>
-              가망이 없거나, 성공 확률이 낮은 클라이언트 분들은 저희도 진행을
-              도와드리지 않습니다. 선별하고 선별하여서 성과를 극대화 시킬 수
-              있는 분들 한해서 컨설팅 및 마케팅 진행을 도와드립니다.
-            </p>
-            <br />
-            <p>5. 에이디파트너스센터도 똑같은 대행사 아니냐?</p>
-            <p>
-              대행사란 대신 해준다는 의미도 있고, 위에 있는 실행사에게서 상품을
-              받아서 판매하는 사업자들을 의미하기도 합니다. 저희는 직접적으로
-              마케팅을 개발하고 실행하면서 다이렉트로 클라이언트 분들 관리에
-              참여하는 마케팅 실행사입니다.
-            </p>
-          </div>
+          <FAQSection />
         </section>
         {/* 문의하기 */}
       </div>

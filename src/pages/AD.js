@@ -72,7 +72,7 @@ const AD = () => {
       {/* Company */}
       <section id="company" className="mt-32">
         <p>COMPANY</p>
-        <div className="justify-items-center text-center gap-x-4 gap-y-6 font-bold px-4">
+        <div className="justify-items-center font-bold px-4 space-y-2">
           <img
             src="https://via.placeholder.com/300x300"
             alt="image1"
