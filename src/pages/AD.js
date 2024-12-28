@@ -6,7 +6,7 @@ const AD = () => {
 
   return (
     // Section Wrapper
-    <div className="flex-col items-center text-center mt-40">
+    <div className="flex-col items-center text-center mt-40 bg-black text-white">
       {/* CEO */}
       <section id="CEO" className="">
         <p>
@@ -70,9 +70,9 @@ const AD = () => {
       </section>
 
       {/* Company */}
-      <section id="company" className="mt-32">
+      <section id="company" className="mt-28">
         <p>COMPANY</p>
-        <div className="justify-items-center font-bold px-4 space-y-2">
+        <div className="justify-items-center font-bold px-4 space-y-2 mt-2">
           <img
             src="https://via.placeholder.com/300x300"
             alt="image1"
