@@ -66,7 +66,6 @@ const Home = () => {
     <div className="font-pre text-white bg-black">
       {/* Wrapper for sections */}
       <div className="">
-        {" "}
         {/* mx-32 제거: 모바일에서 구림 */}
         <section className="px-4 pt-40 pb-20 bg-neutral-950">
           <div className="">
@@ -128,45 +127,43 @@ const Home = () => {
         <section id="section2" className="px-4 pt-20 pb-20 bg-neutral-800">
           <h2 className="text-2xl font-bold mb-10 text-center">직원소개</h2>
           {/* 가로 Rolling 직원 이미지들 + 코멘트 */}
-          <div className="p-4">
-            <h1 className="text-2xl font-bold mb-4 text-center">Our Team</h1>
-            <div className="flex items-center space-x-4">
-              {/* Left Arrow Button */}
-              <button
-                onClick={scrollLeft}
-                className="p-2 rounded-full bg-gray-300 hover:bg-gray-400 focus:outline-none"
-              >
-                <span className="text-lg">&larr;</span>
-              </button>
 
-              {/* Scrollable Container */}
-              <div
-                ref={scrollContainerRef}
-                className="flex overflow-x-hidden space-x-6 pb-4 w-full"
-              >
-                {employees.map((employee, index) => (
-                  <div
-                    key={index}
-                    className="flex-none w-64 bg-white p-4 rounded-lg shadow-md"
-                  >
-                    <img
-                      src={employee.image}
-                      alt={employee.id}
-                      className="w-full h-40 object-cover rounded-lg"
-                    />
-                    <p className="text-gray-500 mt-2">"{employee.quote}</p>
-                  </div>
-                ))}
-              </div>
+          <div className="flex items-center space-x-4">
+            {/* Left Arrow Button */}
+            <button
+              onClick={scrollLeft}
+              className="p-2 rounded-full bg-gray-300 hover:bg-gray-400 focus:outline-none"
+            >
+              <span className="text-lg">&larr;</span>
+            </button>
 
-              {/* Right Arrow Button */}
-              <button
-                onClick={scrollRight}
-                className="p-2 rounded-full bg-gray-300 hover:bg-gray-400 focus:outline-none"
-              >
-                <span className="text-lg">&rarr;</span>
-              </button>
+            {/* Scrollable Container */}
+            <div
+              ref={scrollContainerRef}
+              className="flex overflow-x-hidden space-x-6 pb-4 w-full snap-x snap-mandatory space-x-20"
+            >
+              {employees.map((employee, index) => (
+                <div
+                  key={index}
+                  className="flex-none w-64 bg-white p-4 rounded-lg shadow-md snap-center"
+                >
+                  <img
+                    src={employee.image}
+                    alt={employee.id}
+                    className="w-full h-40 object-cover rounded-lg"
+                  />
+                  <p className="text-gray-500 mt-2">"{employee.quote}</p>
+                </div>
+              ))}
             </div>
+
+            {/* Right Arrow Button */}
+            <button
+              onClick={scrollRight}
+              className="p-2 rounded-full bg-gray-300 hover:bg-gray-400 focus:outline-none"
+            >
+              <span className="text-lg">&rarr;</span>
+            </button>
           </div>
 
           {/* 마케팅 실패 이유 어쩌고 */}
@@ -222,10 +219,7 @@ const Home = () => {
           </div>
         </section>
         {/* 자주 묻는 질문 */}
-        <section
-          id="section4"
-          className="px-4 pt-20 pb-20 bg-neutral-600"
-        >
+        <section id="section4" className="px-4 pt-20 pb-20 bg-neutral-600">
           <FAQSection />
         </section>
         {/* 문의하기 */}

@@ -8,8 +8,8 @@ const Solution = () => {
     // Section Wrapper
     <div className="flex-col mt-32">
       {/* N Store */}
-      <section id="nstore" className="">
-        <h2 className="font-bold text-3xl text-center">N Store</h2>
+      <section id="nstore" className="" data-aos="fade-up">
+        <h2 className="font-bold text-3xl text-center my-8">N Store</h2>
         {/* Chapters 1, 2, 3 */}
         <div className="flex justify-between w-full mx-auto space-x-4 p-2">
           <div className="flex-1 h-32 flex flex-col p-2">
@@ -49,7 +49,7 @@ const Solution = () => {
       </section>
 
       {/* C Store */}
-      <section id="cstore" className="">
+      <section id="cstore" className="" data-aos="fade-up">
         <h2 className="font-bold text-3xl text-center my-8">C Store</h2>
         {/* Chapters 1, 2, 3 */}
         <div className="flex justify-between w-full mx-auto space-x-4 p-2">
@@ -94,7 +94,7 @@ const Solution = () => {
       </section>
 
       {/* K Shopping */}
-      <section id="kshopping" className="">
+      <section id="kshopping" className="" data-aos="fade-up">
         <h2 className="font-bold text-3xl text-center my-8">K Shopping</h2>
         {/* Chapters 1, 2, 3 */}
         <div className="flex justify-between w-full mx-auto space-x-4 p-2">
@@ -136,7 +136,7 @@ const Solution = () => {
       </section>
 
       {/* N Place */}
-      <section id="nplace" className="">
+      <section id="nplace" className="" data-aos="fade-up">
         <h2 className="font-bold text-3xl text-center my-8">N Place</h2>
         {/* Chapters 1, 2, 3 */}
         <div className="flex justify-between w-full mx-auto space-x-4 p-2">
@@ -181,7 +181,7 @@ const Solution = () => {
       </section>
 
       {/* Instagram */}
-      <section id="instagram" className="">
+      <section id="instagram" className="" data-aos="fade-up">
         <h2 className="font-bold text-3xl text-center my-8">Instagram</h2>
         {/* Chapters 1, 2, 3 */}
         <div className="flex justify-between w-full mx-auto space-x-4 p-2">
@@ -227,7 +227,7 @@ const Solution = () => {
       </section>
 
       {/* Youtube */}
-      <section id="youtube" className="">
+      <section id="youtube" className="" data-aos="fade-up">
         <h2 className="font-bold text-3xl text-center my-8">Youtube</h2>
         {/* Chapters 1, 2, 3 */}
         <div className="flex justify-between w-full mx-auto space-x-4 p-2">

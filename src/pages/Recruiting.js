@@ -1,29 +1,92 @@
 import React from "react";
+import "../styles/Effects.css";
 
 const Recruiting = () => {
   return (
-    <div className="p-4 flex flex-col items-center text-center py-20 p-4">
-      <header>
-        <h2 className="text-4xl font-bold mb-2 my-28">Testing Page: Will be replaced with Recruiting contents.</h2>
-      </header>
-      <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4 py-24">
-        <img
-          src="https://via.placeholder.com/400"
-          alt="Sample"
-          className="w-full md:w-1/2 rounded shadow-lg"
-          data-aos="fade-up"
-        />
-        <iframe
-          width="75%"
-          height="315"
-          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-          title="YouTube video player"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          className="rounded shadow-lg"
-          data-aos="fade-up"
-        ></iframe>
+    <div className="font-pre text-white bg-black">
+      {/* Section Wrapper */}
+      <div className="mt-24">
+        {/* Testing Effects Here */}
+        {/* Rolling */}
+        <div className="overflow-hidden w-full">
+          <div className="flex animate-roll space-x-20">
+            <div className="menu-item px-12 py-4 bg-blue-500 text-white">
+              Item 1
+            </div>
+            <div className="menu-item px-12 py-4 bg-red-500 text-white">
+              Item 1
+            </div>
+            <div className="menu-item px-12 py-4 bg-green-500 text-white">
+              Item 1
+            </div>
+            <div className="menu-item px-12 py-4 bg-yellow-500 text-white">
+              Item 1
+            </div>
+            <div className="menu-item px-12 py-4 bg-purple-500 text-white">
+              Item 1
+            </div>
+            <div className="menu-item px-12 py-4 bg-blue-500 text-white">
+              Item 1
+            </div>
+            <div className="menu-item px-12 py-4 bg-red-500 text-white">
+              Item 1
+            </div>
+            <div className="menu-item px-12 py-4 bg-green-500 text-white">
+              Item 1
+            </div>
+            <div className="menu-item px-12 py-4 bg-yellow-500 text-white">
+              Item 1
+            </div>
+            <div className="menu-item px-12 py-4 bg-purple-500 text-white">
+              Item 1
+            </div>
+            <div className="menu-item px-12 py-4 bg-blue-500 text-white">
+              Item 1
+            </div>
+            <div className="menu-item px-12 py-4 bg-red-500 text-white">
+              Item 1
+            </div>
+            <div className="menu-item px-12 py-4 bg-green-500 text-white">
+              Item 1
+            </div>
+            <div className="menu-item px-12 py-4 bg-yellow-500 text-white">
+              Item 1
+            </div>
+            <div className="menu-item px-12 py-4 bg-purple-500 text-white">
+              Item 1
+            </div>
+            <div className="menu-item px-12 py-4 bg-blue-500 text-white">
+              Item 1
+            </div>
+            <div className="menu-item px-12 py-4 bg-red-500 text-white">
+              Item 1
+            </div>
+            <div className="menu-item px-12 py-4 bg-green-500 text-white">
+              Item 1
+            </div>
+            <div className="menu-item px-12 py-4 bg-yellow-500 text-white">
+              Item 1
+            </div>
+            <div className="menu-item px-12 py-4 bg-purple-500 text-white">
+              Item 1
+            </div>
+            <div className="menu-item px-12 py-4 bg-blue-500 text-white">
+              Item 1
+            </div>
+            <div className="menu-item px-12 py-4 bg-red-500 text-white">
+              Item 1
+            </div>
+            <div className="menu-item px-12 py-4 bg-green-500 text-white">
+              Item 1
+            </div>
+            <div className="menu-item px-12 py-4 bg-yellow-500 text-white">
+              Item 1
+            </div>
+            <div className="menu-item px-12 py-4 bg-purple-500 text-white">
+              Item 1
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
