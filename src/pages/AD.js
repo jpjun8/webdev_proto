@@ -8,16 +8,16 @@ const AD = () => {
     // Section Wrapper
     <div className="flex-col bg-neutral-800 text-white">
       {/* CEO */}
-      <section id="CEO" className="">
-        <div className="bg-AD-company-background bg-auto h-auto flex flex-col ">
+      <section id="CEO" className="bg-AD-company-background bg-auto">
+        <div className="h-auto flex flex-col ">
           {/* Banner */}
           <div className="bg-red-700/75 my-32 mx-24 pt-12 pb-16 rounded-[24px]">
-            <h1 className="ml-24 text-6xl/loose font-bold">회사소개</h1>
-            <blockquote className="ml-24 italic text-2xl/loose">
+            <h1 className="ml-24 text-7xl/loose font-bold">About</h1>
+            <blockquote className="ml-24 italic text-xl/loose">
               Innovation starts with a vision.
             </blockquote>
             <h2 className="ml-24 text-xl/loose">
-              성공을 이끄는 전략, 당신의 비즈니스를 성장시킵니다.
+              성공을 이끄는 전략, 당신의 비즈니스를 성장시킵니다
               <br />
               창의적인 마케팅으로 미래를 만듭니다.
             </h2>
