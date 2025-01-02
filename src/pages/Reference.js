@@ -8,7 +8,7 @@ const Reference = () => {
     // Section wrapper
     <div className="flex flex-col bg-AD-company-background bg-auto text-white min-h-screen">
       {/* Banner */}
-      <div className="bg-red-700/75 my-32 mx-24 pt-12 pb-16 rounded-[24px]">
+      <div className="bg-red-700/75 my-32 mx-32 pt-12 pb-16 rounded-[24px]">
         <h1 className="ml-24 text-7xl/loose font-bold">Reference</h1>
         <blockquote className="ml-24 italic text-xl/loose">
           Empowering Your Brand with Innovative Marketing Solutions
@@ -29,7 +29,7 @@ const Reference = () => {
         <h2 className="text-5xl font-bold mb-16 text-center">STORE</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-black font-semibold">
           {/* A */}
-          <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+          <div className="bg-white shadow-lg rounded-3xl overflow-hidden">
             <img
               src="https://placehold.co/200x300"
               alt="N Store Chapter 1"
@@ -43,7 +43,7 @@ const Reference = () => {
             </div>
           </div>
           {/* B */}
-          <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+          <div className="bg-white shadow-lg rounded-3xl overflow-hidden">
             <img
               src="https://placehold.co/200x300"
               alt="N Store Chapter 1"
@@ -57,7 +57,7 @@ const Reference = () => {
             </div>
           </div>
           {/* C */}
-          <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+          <div className="bg-white shadow-lg rounded-3xl overflow-hidden">
             <img
               src="https://placehold.co/200x300"
               alt="N Store Chapter 1"
@@ -71,7 +71,7 @@ const Reference = () => {
             </div>
           </div>
           {/* D */}
-          <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+          <div className="bg-white shadow-lg rounded-3xl overflow-hidden">
             <img
               src="https://placehold.co/200x300"
               alt="N Store Chapter 1"
@@ -85,7 +85,7 @@ const Reference = () => {
             </div>
           </div>
           {/* E */}
-          <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+          <div className="bg-white shadow-lg rounded-3xl overflow-hidden">
             <img
               src="https://placehold.co/200x300"
               alt="N Store Chapter 1"
@@ -99,7 +99,7 @@ const Reference = () => {
             </div>
           </div>
           {/* F */}
-          <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+          <div className="bg-white shadow-lg rounded-3xl overflow-hidden">
             <img
               src="https://placehold.co/200x300"
               alt="N Store Chapter 1"
@@ -125,7 +125,7 @@ const Reference = () => {
         <h2 className="text-5xl font-bold mb-16 text-center">PLACE</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-black font-semibold">
           {/* A */}
-          <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+          <div className="bg-white shadow-lg rounded-3xl overflow-hidden">
             <img
               src="https://placehold.co/200x300"
               alt="N Store Chapter 1"
@@ -139,7 +139,7 @@ const Reference = () => {
             </div>
           </div>
           {/* B */}
-          <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+          <div className="bg-white shadow-lg rounded-3xl overflow-hidden">
             <img
               src="https://placehold.co/200x300"
               alt="N Store Chapter 1"
@@ -153,7 +153,7 @@ const Reference = () => {
             </div>
           </div>
           {/* C */}
-          <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+          <div className="bg-white shadow-lg rounded-3xl overflow-hidden">
             <img
               src="https://placehold.co/200x300"
               alt="N Store Chapter 1"
@@ -179,7 +179,7 @@ const Reference = () => {
         <h2 className="text-5xl font-bold mb-16 text-center">OTHERS</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-black font-semibold">
           {/* A */}
-          <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+          <div className="bg-white shadow-lg rounded-3xl overflow-hidden">
             <img
               src="https://placehold.co/200x300"
               alt="N Store Chapter 1"
@@ -193,7 +193,7 @@ const Reference = () => {
             </div>
           </div>
           {/* Chapter 2 */}
-          <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+          <div className="bg-white shadow-lg rounded-3xl overflow-hidden">
             <img
               src="https://placehold.co/200x300"
               alt="N Store Chapter 1"
@@ -207,7 +207,7 @@ const Reference = () => {
             </div>
           </div>
           {/* Chapter 3 */}
-          <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+          <div className="bg-white shadow-lg rounded-3xl overflow-hidden">
             <img
               src="https://placehold.co/200x300"
               alt="N Store Chapter 1"

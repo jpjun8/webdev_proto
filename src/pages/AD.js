@@ -11,7 +11,7 @@ const AD = () => {
       <section id="CEO" className="bg-AD-company-background bg-auto">
         <div className="h-auto flex flex-col ">
           {/* Banner */}
-          <div className="bg-red-700/75 my-32 mx-24 pt-12 pb-16 rounded-[24px]">
+          <div className="bg-red-700/75 my-32 mx-32 pt-12 pb-16 rounded-[24px]">
             <h1 className="ml-24 text-7xl/loose font-bold">About</h1>
             <blockquote className="ml-24 italic text-xl/loose">
               Innovation starts with a vision.

@@ -29,7 +29,7 @@ export default function Navbar2() {
       {/* Navigation Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed top-4 right-4 z-50 bg-gray-800 text-white px-4 py-2 rounded-lg"
+        className="fixed top-4 right-4 z-50 bg-black-700 text-white px-4 py-2 rounded-lg"
       >
         {isOpen ? (
           // Close Icon (X)
@@ -68,8 +68,8 @@ export default function Navbar2() {
 
       {/* Full-Page Navigation Pange */}
       <div
-        className={`fixed inset-0 bg-black text-white flex flex-row items-center justify-center transition-transform duration-300 p-4 ${
-          isOpen ? "translate-x-0" : "translate-x-full"
+        className={`fixed inset-0 bg-black text-white flex flex-row justify-center transition-all duration-[1000ms] ease-in-out p-4 pt-32 ${
+          isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         } z-20`}
       >
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8 text-xl">
@@ -90,7 +90,7 @@ export default function Navbar2() {
               <li>
                 <Link
                   to="/ad"
-                  className="px-3 py-2 rounded-md text-3xl font-medium"
+                  className="px-3 py-2 rounded-md text-6xl font-bold"
                   onClick={() => setIsOpen(false)}
                 >
                   AD
@@ -100,7 +100,7 @@ export default function Navbar2() {
                 <li>
                   <Link
                     to="/ad#CEO"
-                    className="px-3 py-2 rounded-md text-sm font-medium hover:text-red-500 transition-all duration-300 ease-in-out"
+                    className="px-3 py-2 rounded-md text-2xl/loose font-medium hover:text-red-500 transition-all duration-300 ease-in-out"
                     onClick={() => setIsOpen(false)}
                   >
                     CEO
@@ -109,7 +109,7 @@ export default function Navbar2() {
                 <li>
                   <Link
                     to="/ad#company"
-                    className="px-3 py-2 rounded-md text-sm font-medium hover:text-red-500 transition-all duration-300 ease-in-out"
+                    className="px-3 py-2 rounded-md text-2xl/loose font-medium hover:text-red-500 transition-all duration-300 ease-in-out"
                     onClick={() => setIsOpen(false)}
                   >
                     Company
@@ -136,7 +136,7 @@ export default function Navbar2() {
               <li>
                 <Link
                   to="/solution"
-                  className="px-3 py-2 rounded-md text-3xl font-medium"
+                  className="px-3 py-2 rounded-md text-6xl font-bold"
                   onClick={() => setIsOpen(false)}
                 >
                   Solution
@@ -146,7 +146,7 @@ export default function Navbar2() {
                 <li>
                   <Link
                     to="/solution#nstore"
-                    className="px-3 py-2 rounded-md text-sm font-medium hover:text-red-500 transition-all duration-300 ease-in-out"
+                    className="px-3 py-2 rounded-md text-2xl/loose font-medium hover:text-red-500 transition-all duration-300 ease-in-out"
                     onClick={() => setIsOpen(false)}
                   >
                     N Store
@@ -155,7 +155,7 @@ export default function Navbar2() {
                 <li>
                   <Link
                     to="/solution#cstore"
-                    className="px-3 py-2 rounded-md text-sm font-medium hover:text-red-500 transition-all duration-300 ease-in-out"
+                    className="px-3 py-2 rounded-md text-2xl/loose font-medium hover:text-red-500 transition-all duration-300 ease-in-out"
                     onClick={() => setIsOpen(false)}
                   >
                     C Store
@@ -164,7 +164,7 @@ export default function Navbar2() {
                 <li>
                   <Link
                     to="/solution#kshopping"
-                    className="px-3 py-2 rounded-md text-sm font-medium hover:text-red-500 transition-all duration-300 ease-in-out"
+                    className="px-3 py-2 rounded-md text-2xl/loose font-medium hover:text-red-500 transition-all duration-300 ease-in-out"
                     onClick={() => setIsOpen(false)}
                   >
                     K Shopping
@@ -173,7 +173,7 @@ export default function Navbar2() {
                 <li>
                   <Link
                     to="/solution#nplace"
-                    className="px-3 py-2 rounded-md text-sm font-medium hover:text-red-500 transition-all duration-300 ease-in-out"
+                    className="px-3 py-2 rounded-md text-2xl/loose font-medium hover:text-red-500 transition-all duration-300 ease-in-out"
                     onClick={() => setIsOpen(false)}
                   >
                     N Place
@@ -182,7 +182,7 @@ export default function Navbar2() {
                 <li>
                   <Link
                     to="/solution#instagram"
-                    className="px-3 py-2 rounded-md text-sm font-medium hover:text-red-500 transition-all duration-300 ease-in-out"
+                    className="px-3 py-2 rounded-md text-2xl/loose font-medium hover:text-red-500 transition-all duration-300 ease-in-out"
                     onClick={() => setIsOpen(false)}
                   >
                     Instagram
@@ -191,7 +191,7 @@ export default function Navbar2() {
                 <li>
                   <Link
                     to="/solution#youtube"
-                    className="px-3 py-2 rounded-md text-sm font-medium hover:text-red-500 transition-all duration-300 ease-in-out"
+                    className="px-3 py-2 rounded-md text-2xl/loose font-medium hover:text-red-500 transition-all duration-300 ease-in-out"
                     onClick={() => setIsOpen(false)}
                   >
                     Youtube
@@ -218,7 +218,7 @@ export default function Navbar2() {
               <li>
                 <Link
                   to="/reference"
-                  className="px-3 py-2 rounded-md text-3xl font-medium"
+                  className="px-3 py-2 rounded-md text-6xl font-bold"
                   onClick={() => setIsOpen(false)}
                 >
                   Reference
@@ -228,7 +228,7 @@ export default function Navbar2() {
                 <li>
                   <Link
                     to="/reference#store"
-                    className="px-3 py-2 rounded-md text-sm font-medium hover:text-red-500 transition-all duration-300 ease-in-out"
+                    className="px-3 py-2 rounded-md text-2xl/loose font-medium hover:text-red-500 transition-all duration-300 ease-in-out"
                     onClick={() => setIsOpen(false)}
                   >
                     Store
@@ -237,7 +237,7 @@ export default function Navbar2() {
                 <li>
                   <Link
                     to="/reference#place"
-                    className="px-3 py-2 rounded-md text-sm font-medium hover:text-red-500 transition-all duration-300 ease-in-out"
+                    className="px-3 py-2 rounded-md text-2xl/loose font-medium hover:text-red-500 transition-all duration-300 ease-in-out"
                     onClick={() => setIsOpen(false)}
                   >
                     Place
@@ -246,7 +246,7 @@ export default function Navbar2() {
                 <li>
                   <Link
                     to="/reference#others"
-                    className="px-3 py-2 rounded-md text-sm font-medium hover:text-red-500 transition-all duration-300 ease-in-out"
+                    className="px-3 py-2 rounded-md text-2xl/loose font-medium hover:text-red-500 transition-all duration-300 ease-in-out"
                     onClick={() => setIsOpen(false)}
                   >
                     Others
@@ -273,7 +273,7 @@ export default function Navbar2() {
               <li>
                 <Link
                   to="/recruiting"
-                  className="px-3 py-2 rounded-md text-3xl font-medium"
+                  className="px-3 py-2 rounded-md text-6xl font-bold"
                   onClick={() => setIsOpen(false)}
                 >
                   Recruiting
@@ -283,7 +283,7 @@ export default function Navbar2() {
                 <li>
                   <Link
                     to="/recruiting#adgasan"
-                    className="px-3 py-2 rounded-md text-sm font-medium hover:text-red-500 transition-all duration-300 ease-in-out"
+                    className="px-3 py-2 rounded-md text-2xl/loose font-medium hover:text-red-500 transition-all duration-300 ease-in-out"
                     onClick={() => setIsOpen(false)}
                   >
                     AD 가산본사
@@ -292,7 +292,7 @@ export default function Navbar2() {
                 <li>
                   <Link
                     to="/recruiting#adchungra"
-                    className="px-3 py-2 rounded-md text-sm font-medium hover:text-red-500 transition-all duration-300 ease-in-out"
+                    className="px-3 py-2 rounded-md text-2xl/loose font-medium hover:text-red-500 transition-all duration-300 ease-in-out"
                     onClick={() => setIsOpen(false)}
                   >
                     AD 청라지사
@@ -319,7 +319,7 @@ export default function Navbar2() {
               <li>
                 <Link
                   to="/inquiry"
-                  className="px-3 py-2 rounded-md text-3xl font-medium"
+                  className="px-3 py-2 rounded-md text-6xl font-bold"
                   onClick={() => setIsOpen(false)}
                 >
                   Inquiry
