@@ -9,6 +9,7 @@ module.exports = {
         "AD-background": "url('/src/assets/AD_background.jpg')",
         "AD-background2": "url('/src/assets/AD_background2.jpg')",
         "AD-company-background": "url('/src/assets/AD_company_background.jpg')",
+        "profile-background": "url('/src/assets/profile_background.jpg')",
       },
       scrollBehavior: {
         smooth: "smooth",

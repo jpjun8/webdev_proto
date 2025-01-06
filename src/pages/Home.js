@@ -1,122 +1,101 @@
 // Reference Site: https://www.squarespace.com/website-design
-import React, { useRef } from "react";
+import React, { useState, useRef } from "react";
 // import HorizontalMenu from "../components/HorizontalMenu";
 import FAQSection from "../components/FAQ";
+import Accordion from "../components/Accordion";
+
+// Images
+import sample300x300 from "../assets/samples/300x300.png";
 
 const employees = [
-  {
-    id: 1,
-    image: "https://randomuser.me/api/portraits/men/1.jpg",
-    quote: "Strive for progress, not perfection.",
-  },
-  {
-    id: 2,
-    image: "https://randomuser.me/api/portraits/women/2.jpg",
-    quote: "Success is a journey, not a destination.",
-  },
-  {
-    id: 3,
-    image: "https://randomuser.me/api/portraits/men/3.jpg",
-    quote: "The best way to predict the future is to create it.",
-  },
-  {
-    id: 4,
-    image: "https://randomuser.me/api/portraits/women/4.jpg",
-    quote: "Dream big, work hard.",
-  },
-  {
-    id: 5,
-    image: "https://randomuser.me/api/portraits/men/5.jpg",
-    quote: "Believe you can and you’re halfway there.",
-  },
-  {
-    id: 6,
-    image: "https://randomuser.me/api/portraits/women/5.jpg",
-    quote: "Believe you can and you’re halfway there.",
-  },
-  {
-    id: 7,
-    image: "https://randomuser.me/api/portraits/men/6.jpg",
-    quote: "Believe you can and you’re halfway there.",
-  },
-  {
-    id: 8,
-    image: "https://randomuser.me/api/portraits/women/6.jpg",
-    quote: "Believe you can and you’re halfway there.",
-  },
-  // Add more employees as needed
+  { id: 1, name: "Alice", role: "Developer", img: sample300x300 },
+  { id: 2, name: "Bob", role: "Designer", img: sample300x300 },
+  { id: 3, name: "Charlie", role: "Manager", img: sample300x300 },
+  { id: 4, name: "Diana", role: "Analyst", img: sample300x300 },
+  { id: 5, name: "John", role: "CEO", img: sample300x300 },
 ];
 
 const Home = () => {
-  const scrollContainerRef = useRef(null);
+  const [currentIndex, setCurrentIndex] = useState(2);
+  const dragStartX = useRef(0);
+  const dragThreshold = 5; // Minimum pixels to trigger a slide
 
-  const scrollLeft = () => {
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({ left: -200, behavior: "smooth" });
-    }
+  const handleDragStart = (e) => {
+    dragStartX.current = e.clientX || e.touches[0].clientX;
   };
 
-  const scrollRight = () => {
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({ left: 200, behavior: "smooth" });
+  const handleDragEnd = (e) => {
+    const dragEndX =
+      e.clientX || (e.changedTouches && e.changedTouches[0].clientX);
+
+    if (dragEndX - dragStartX.current > dragThreshold) {
+      // Dragged right
+      setCurrentIndex((prev) => Math.max(prev - 1, 0));
+    } else if (dragStartX.current - dragEndX > dragThreshold) {
+      // Dragged left
+      setCurrentIndex((prev) => Math.min(prev + 1, employees.length - 1));
     }
   };
 
   return (
-    <div className="font-pre text-white bg-black">
+    <div className="font-pre text-white bg-zinc-950 flex flex-col">
       {/* Wrapper for sections */}
       <div className="">
-        {/* mx-32 제거: 모바일에서 구림 */}
-        <section className="px-4 pt-40 pb-20 bg-neutral-950">
-          <div className="">
-            <p>사업자 마케팅</p>
-            <p>*24년 6월 기준</p>
-            <p>
-              계약업체 1950개 / 재계약율 94.6% <br />
-              사업자마케팅 회사
-            </p>
-            <p>상품에 관한 이야기가 필요할까요? 결과물로 증명하겠습니다.</p>
+        {/* mx-72: Default */}
+        <section className="mx-72 py-52 bg-neutral-900 border">
+          <div className="mx-24">
+            <p className="">사업자마케팅</p>
+            <div className="my-12">
+              <p className="text-xs">*24년 6월 기준</p>
+              <p className="text-3xl/loose font-bold">
+                계약업체 1950개 / 재계약율 94.6% <br />
+                사업자마케팅 회사
+              </p>
+            </div>
+
+            <span className="inline-block border-b-2 border-gray-500 pb-2">
+              상품에 관한 이야기가 필요할까요? 결과물로 증명하겠습니다.
+            </span>
           </div>
         </section>
 
         {/* 성공사례 */}
-        <section id="section1" className="px-4 pt-28 pb-20 bg-neutral-900">
-          <h1 className="text-2xl font-bold mb-10 text-center">성공사례</h1>
-          <div className="grid grid-cols- gap-4">
-            <p className="col-start-1 col-end-4 text-3xl text-center font-bold">
-              에이디파트너스를 만나고 삶이 달라졌습니다.
-            </p>
-          </div>
+        <section id="section1" className="mx-72 py-32">
+          <span className="text-3xl font-bold mx-24">성공사례</span>
+          <hr className="mt-3 w-1/3 mx-24" />
+          <p className="mx-24 mt-4 text-lg">
+            에이디파트너스를 만나고 삶이 달라졌습니다.
+          </p>
 
           {/* 이미지 + 사례 */}
-          <div className="justify-items-center text-center grid gap-x-4 gap-y-6 grid-cols-3 pt-16 px-4">
+          <div className="justify-items-center text-center grid gap-x-4 gap-y-6 grid-cols-3 pt-16 mx-24">
             {/* Each item wrapper */}
             <img
-              src="https://via.placeholder.com/300x300"
+              src={sample300x300}
               alt="image1"
               className="rounded shadow-2xl"
             />
             <img
-              src="https://via.placeholder.com/300x300"
+              src={sample300x300}
               alt="image2"
               className="rounded shadow-2xl"
             />
             <img
-              src="https://via.placeholder.com/300x300"
+              src={sample300x300}
               alt="image3"
               className="rounded shadow-2xl"
             />
-            <div>
+            <div className="text-lg">
               <strong>한달에 </strong>온라인으로만
               <br />
               <strong>예약 400건</strong> 들어오는 분당 병원
             </div>
-            <div>
+            <div className="text-lg">
               마케팅 <strong>7개월</strong>만에
               <br />
               병원 <strong>한층 추가 확장</strong>
             </div>
-            <div>
+            <div className="text-lg">
               마케팅 <strong>3개월</strong>만에
               <br />
               한달 수술 예약 모두 찬 성형외과
@@ -124,70 +103,52 @@ const Home = () => {
           </div>
         </section>
         {/* 직원소개 */}
-        <section id="section2" className="px-4 pt-20 pb-20 bg-neutral-800">
-          <h2 className="text-2xl font-bold mb-10 text-center">직원소개</h2>
+        <section id="section2" className="mx-72 py-32">
+          <span className="text-3xl font-bold mx-24">사원 프로필</span>
+          <hr className="mt-3 w-1/3 mx-24 mb-20 border" />
           {/* 가로 Rolling 직원 이미지들 + 코멘트 */}
 
-          <div className="flex items-center space-x-4">
-            {/* Left Arrow Button */}
-            <button
-              onClick={scrollLeft}
-              className="p-2 rounded-full bg-gray-300 hover:bg-gray-400 focus:outline-none"
-            >
-              <span className="text-lg">&larr;</span>
-            </button>
-
-            {/* Scrollable Container */}
+          <div className="flex items-center justify-center w-full relative space-x-4 my-16">
             <div
-              ref={scrollContainerRef}
-              className="flex overflow-x-hidden space-x-6 pb-4 w-full snap-x snap-mandatory space-x-20"
+              className="flex items-center gap-8 cursor-grab"
+              onMouseDown={handleDragStart}
+              onMouseUp={handleDragEnd}
+              onTouchStart={handleDragStart}
+              onTouchEnd={handleDragEnd}
             >
               {employees.map((employee, index) => (
                 <div
-                  key={index}
-                  className="flex-none w-64 bg-white p-4 rounded-lg shadow-md snap-center"
+                  key={employee.id}
+                  className={`flex-shrink-0 w-64 h-[26rem] rounded-lg shadow-lg transition-transform duration-300 ${
+                    index === currentIndex ? "scale-110" : "scale-90"
+                  }`}
+                  style={{
+                    transform: `translateX(${(index - currentIndex) * 160}px)`,
+                  }}
+                  onMouseDown={(e) => e.preventDefault()}
+                  onTouchStart={(e) => e.preventDefault()}
                 >
                   <img
-                    src={employee.image}
-                    alt={employee.id}
-                    className="w-full h-40 object-cover rounded-lg"
+                    src={employee.img}
+                    alt={employee.name}
+                    className="w-full h-full object-cover rounded-md mb-4"
                   />
-                  <p className="text-gray-500 mt-2">"{employee.quote}</p>
+                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-0 bg-red-500 w-80 h-36 rounded-lg flex items-center justify-center text-center shadow-md">
+                    <p className="text-sm text-white">{employee.role}</p>
+                  </div>
                 </div>
               ))}
             </div>
-
-            {/* Right Arrow Button */}
-            <button
-              onClick={scrollRight}
-              className="p-2 rounded-full bg-gray-300 hover:bg-gray-400 focus:outline-none"
-            >
-              <span className="text-lg">&rarr;</span>
-            </button>
           </div>
 
-          {/* 마케팅 실패 이유 어쩌고 */}
-          <p className="font-bold text-3xl text-center pt-20">
-            당신의 마케팅이 지금까지 실패했던 이유를 알려드리겠습니다.
-          </p>
-          <p className="px-4 pt-16">
-            1. 마케팅을 잘 알아보지 못하고, 무작정 마케팅 회사를 찾습니다.{" "}
-            <br /> 대부분 전화받으시는 회사는 일반적인 광고 대행사일 확률이
-            95%입니다. 직접적으로 어떤 마케팅이 있고, 어떤 효과를 볼 수 있는지,
-            어떤 마케팅이 정말 필요한 마케팅인지 인지를 해야합니다. 그렇지
-            못하면, 실패합니다. <br /> <br />
-            2. 갖고 있는 아이템이 준비되지 않았습니다. <br /> 남들이 다 판매하는
-            아이템, 시즌이 다 지난 아이템, 갑자기 유행을 탄 아이템, 이런
-            아이템은 오래 살아남기 힘듭니다. 사소하지만 차별점을 두고, 미리
-            준비하고, 시장을 예측하면서 분석해서 다가가야지만 살아남을 수
-            있습니다. 그렇지 못하면, 실패합니다. <br /> <br />
-            3. 그저 남에게 의존하는 마케팅을 합니다. <br /> 마케팅 회사는 물론
-            전문가일 수 있습니다. 보다 지식이 많고 보다 여러방면으로 내 아이템을
-            활성화 시킬 수도 있습니다. 하지만 평생 마케팅 회사를 통해서 사업을
-            성장시키실 건가요? 아닙니다, 모르는건 배워가고, 부족한건 채워가면서
-            함께 성장을 해야지만, 사업이 커지고 롱런 할 수가 있습니다. 그렇지
-            못하면, 실패합니다.
-          </p>
+          {/* 마케팅 실패 이유 설명 */}
+          <div>
+            <p className="font-bold text-2xl text-center pt-20">
+              당신의 마케팅이 지금까지 실패했던 이유를 알려드리겠습니다.
+            </p>
+            <hr className="mt-8 mb-20 w-full border-1" />
+            <Accordion />
+          </div>
         </section>
         {/* 서비스 소개 */}
         <section id="section3" className="px-4 pt-20 pb-20 bg-neutral-700">
