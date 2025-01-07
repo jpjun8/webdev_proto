@@ -146,35 +146,47 @@ const Home = () => {
             <p className="font-bold text-2xl text-center pt-20">
               당신의 마케팅이 지금까지 실패했던 이유를 알려드리겠습니다.
             </p>
-            <hr className="mx-24 mt-8 mb-20 w-full border-1" />
+            <hr className="mx-24 mt-8 mb-20 border-1" />
             <Accordion />
           </div>
         </section>
         {/* 서비스 소개 */}
-        <section id="section3" className="px-4 pt-20 pb-20">
-          <div classname="py-4 px-4 bg-neutral-700">
-          <h2 className="text-xl mb-2 text-center">서비스 소개<br />
-          <strong className="text-2xl font-bold text-center">장기적인 파트너를 찾습니다.</strong>
-          </h2>
+        <section id="section3" className="px-4 py-20">
+          <div className="py-8 mb-6 bg-blue-700 rounded-tl-[36px] text-center w-5/6 mx-auto">
+            <h2 className="text-lg mb-2 font-base">
+              서비스 소개
+              <br />
+              <strong className="text-3xl font-semibold">
+                장기적인 파트너를 찾습니다.
+              </strong>
+            </h2>
           </div>
-          <div className="rounded-br-lg py-4 px-8 bg-neutral-700">
-            <p>
+          <div className="rounded-br-[36px] py-12 px-24 bg-neutral-700 text-lg w-5/6 mx-auto">
+            <p data-aos="fade-up" data-aos-delay="200" data-aos-offset="200" data-aos-easing="ease-in-out-sine">
               1~2달 정도만 진행하고 그만할 것이라면 시작도 안하시는게 좋습니다.
               오랜기간 함께 성장할 클라이언트분들만 선별합니다.
               <br />
               <br />
+            </p>
+            <p data-aos="fade-up" data-aos-delay="400" data-aos-offset="200" data-aos-easing="ease-in-out-sine">
               이것이 가능하려면, 담당자의 역할이 중요합니다, 따라서
               <br />
               <br />
+            </p>
+            <p data-aos="fade-up" data-aos-delay="600" data-aos-offset="200" data-aos-easing="ease-in-out-sine">
               1. 마케팅을 진행하기 앞서 시장에 대한 분석, 방향성 검토, 상품에
               대한 분석을 담당자가 직접 전문적으로 해줍니다.
               <br />
               <br />
+            </p>
+            <p data-aos="fade-up" data-aos-delay="800" data-aos-offset="200" data-aos-easing="ease-in-out-sine">
               2. 마케팅 투자대비 성과가 없을 것 같은 마케팅은 진행을 도와드리지
               않습니다. 성공할만한 케이스들만 진행을 도와드리고, 저희 또한
               그렇기 때문에 재연장율 92%라는 성과를 자랑하고 있습니다.
               <br />
               <br />
+            </p>
+            <p data-aos="fade-up" data-aos-delay="1000" data-aos-offset="200" data-aos-easing="ease-in-out-sine">
               3. 관리를 받는다는 것은 당연한 겁니다. 유령회사, 담당자 부재 등
               이슈는 감수해야할 영역이 아닙니다, 비용을 지불하였으면, 그에 맞는
               관리를 받으셔야 합니다.
