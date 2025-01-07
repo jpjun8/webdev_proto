@@ -23,42 +23,60 @@ const items = [
 
 const Accordion = () => {
   const [activeItem, setActiveItem] = useState(null);
+  const [sliderPosition, setSliderPosition] = useState(0);
 
   const toggleItem = (id) => {
     setActiveItem((prev) => (prev === id ? null : id));
+    setSliderPosition(id - 1); // Update slider position based on the item index
   };
 
   return (
-    <div className="flex flex-col items-center space-y-4 text-xl">
-      {items.map((item) => (
-        <div
-          key={item.id}
-          className="border border-gray-500 w-3/4 rounded-lg overflow-hidden transition-all duration-300"
-          style={{
-            height: activeItem === item.id ? "auto" : "50px",
-          }}
-        >
-          <button
-            className={`w-full text-left px-4 py-2 font-bold transition-colors duration-300 ${
-                activeItem === item.id ? "text-white" : "text-stone-400"
-            }`}
-            onClick={() => toggleItem(item.id)}
-          >
-            {item.title}
-          </button>
+    <div className="relative flex flex-row items-start space-y-4 text-xl py-16">
+      {/* Accordion Items */}
+      <div className="flex flex-col items-center space-y-8 w-2/3 mx-auto">
+        {items.map((item) => (
           <div
-            className={`px-4 py-2 transition-opacity duration-300 ${
-              activeItem === item.id ? "opacity-100" : "opacity-0"
-            }`}
+            key={item.id}
+            className="border border-gray-500 w-full overflow-hidden transition-all duration-300"
             style={{
-              height: activeItem === item.id ? "auto" : "0",
-              overflow: "hidden",
+              height: activeItem === item.id ? "auto" : "50px",
             }}
           >
-            <p className="text-lg">{item.content}</p>
+            <button
+              className={`w-full text-left px-4 py-2 font-bold transition-colors duration-300 ${
+                activeItem === item.id ? "text-white" : "text-zinc-400"
+              }`}
+              onClick={() => toggleItem(item.id)}
+            >
+              {item.title}
+            </button>
+            <div
+              className={`px-4 py-2 transition-opacity duration-300 ${
+                activeItem === item.id ? "opacity-100" : "opacity-0"
+              }`}
+              style={{
+                height: activeItem === item.id ? "auto" : "0",
+                overflow: "hidden",
+              }}
+            >
+              <p className="text-lg">{item.content}</p>
+            </div>
           </div>
+        ))}
+      </div>
+
+      {/* Tracking Slider */}
+      <div className="absolute right-32 top-0 h-full flex flex-col items-center">
+        <div className="relative w-1 h-full bg-gray-600">
+          {/* Slider */}
+          <div
+            className="absolute w-4 h-4 bg-white rounded-full transform -translate-x-1/2 cursor-pointer transition-transform duration-300"
+            style={{
+              top: `${(sliderPosition / (items.length - 1)) * 100}%`,
+            }}
+          ></div>
         </div>
-      ))}
+      </div>
     </div>
   );
 };

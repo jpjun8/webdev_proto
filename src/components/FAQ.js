@@ -9,14 +9,14 @@ const FAQItem = ({ question, answer }) => {
   };
 
   return (
-    <div className="border-b border-gray-300 pb-4 mb-4">
+    <div className="border-y border-gray-300 py-4">
       <div className="flex items-center">
         <p
-          className={`text-lg font-medium ${
+          className={`text-lg font-medium ml-4 ${
             isOpen ? "text-whie" : "text-gray-300"
           }`}
         >
-          {question}
+          Q&nbsp;&nbsp;&nbsp;{question}
         </p>
         <button
           onClick={toggleAnswer}
@@ -32,7 +32,10 @@ const FAQItem = ({ question, answer }) => {
           isOpen ? "max-h-screen" : "max-h-0"
         }`}
       >
-        <p className="text-white mt-2">{answer}</p>
+        <p className="text-white mt-2 ml-4 text-base/loose">
+          <p className="text-lg">A</p>
+          {answer}
+        </p>
       </div>
     </div>
   );
@@ -71,9 +74,7 @@ const FAQSection = () => {
     <div className="">
       <div className="text-center mb-12">
         <p className="text-md">자주 묻는 질문</p>
-        <h2 className="text-3xl">
-          아직 궁금한 점이 있으신가요?
-        </h2>
+        <h2 className="text-3xl/loose">아직 궁금한 점이 있으신가요?</h2>
       </div>
       {faqData.map((faq, index) => {
         return (

@@ -38,11 +38,11 @@ const Home = () => {
   };
 
   return (
-    <div className="font-pre text-white bg-zinc-950 flex flex-col">
+    <div className="font-pre text-white bg-zinc-950 flex flex-col overflow-x-hidden">
       {/* Wrapper for sections */}
       <div className="px-48">
         {/* mx-72: Default */}
-        <section className="py-52 bg-neutral-900 border">
+        <section className="py-40 bg-neutral-900 border">
           <div className="mx-24">
             <p className="">사업자마케팅</p>
             <div className="my-12">
@@ -142,7 +142,7 @@ const Home = () => {
           </div>
 
           {/* 마케팅 실패 이유 설명 */}
-          <div>
+          <div className="mt-64">
             <p className="font-bold text-2xl text-center pt-20">
               당신의 마케팅이 지금까지 실패했던 이유를 알려드리겠습니다.
             </p>
@@ -151,8 +151,8 @@ const Home = () => {
           </div>
         </section>
         {/* 서비스 소개 */}
-        <section id="section3" className="px-4 py-20">
-          <div className="py-8 mb-6 bg-blue-700 rounded-tl-[36px] text-center w-5/6 mx-auto">
+        <section id="section3" className="px-4 py-20 mt-44">
+          <div className="py-8 mb-6 bg-zinc-800 rounded-tl-[36px] text-center w-5/6 mx-auto">
             <h2 className="text-lg mb-2 font-base">
               서비스 소개
               <br />
@@ -161,32 +161,57 @@ const Home = () => {
               </strong>
             </h2>
           </div>
-          <div className="rounded-br-[36px] py-12 px-24 bg-neutral-700 text-lg w-5/6 mx-auto">
-            <p data-aos="fade-up" data-aos-delay="200" data-aos-offset="200" data-aos-easing="ease-in-out-sine">
+          <div className="rounded-br-[36px] py-12 px-24 bg-zinc-800 text-lg w-5/6 mx-auto">
+            <p
+              data-aos="fade-up"
+              data-aos-delay="200"
+              data-aos-offset="200"
+              data-aos-easing="ease-in-out-sine"
+            >
               1~2달 정도만 진행하고 그만할 것이라면 시작도 안하시는게 좋습니다.
               오랜기간 함께 성장할 클라이언트분들만 선별합니다.
               <br />
               <br />
             </p>
-            <p data-aos="fade-up" data-aos-delay="400" data-aos-offset="200" data-aos-easing="ease-in-out-sine">
+            <p
+              data-aos="fade-up"
+              data-aos-delay="400"
+              data-aos-offset="200"
+              data-aos-easing="ease-in-out-sine"
+            >
               이것이 가능하려면, 담당자의 역할이 중요합니다, 따라서
               <br />
               <br />
             </p>
-            <p data-aos="fade-up" data-aos-delay="600" data-aos-offset="200" data-aos-easing="ease-in-out-sine">
+            <p
+              data-aos="fade-up"
+              data-aos-delay="600"
+              data-aos-offset="200"
+              data-aos-easing="ease-in-out-sine"
+            >
               1. 마케팅을 진행하기 앞서 시장에 대한 분석, 방향성 검토, 상품에
               대한 분석을 담당자가 직접 전문적으로 해줍니다.
               <br />
               <br />
             </p>
-            <p data-aos="fade-up" data-aos-delay="800" data-aos-offset="200" data-aos-easing="ease-in-out-sine">
+            <p
+              data-aos="fade-up"
+              data-aos-delay="800"
+              data-aos-offset="200"
+              data-aos-easing="ease-in-out-sine"
+            >
               2. 마케팅 투자대비 성과가 없을 것 같은 마케팅은 진행을 도와드리지
               않습니다. 성공할만한 케이스들만 진행을 도와드리고, 저희 또한
               그렇기 때문에 재연장율 92%라는 성과를 자랑하고 있습니다.
               <br />
               <br />
             </p>
-            <p data-aos="fade-up" data-aos-delay="1000" data-aos-offset="200" data-aos-easing="ease-in-out-sine">
+            <p
+              data-aos="fade-up"
+              data-aos-delay="1000"
+              data-aos-offset="200"
+              data-aos-easing="ease-in-out-sine"
+            >
               3. 관리를 받는다는 것은 당연한 겁니다. 유령회사, 담당자 부재 등
               이슈는 감수해야할 영역이 아닙니다, 비용을 지불하였으면, 그에 맞는
               관리를 받으셔야 합니다.
@@ -194,10 +219,33 @@ const Home = () => {
           </div>
         </section>
         {/* 자주 묻는 질문 */}
-        <section id="section4" className="py-10 w-5/6 mx-auto px-4">
+        <section id="section4" className="py-10 w-5/6 mx-auto px-4 mt-44">
           <FAQSection />
         </section>
         {/* 문의하기 */}
+        <section
+          id="section5"
+          className="mt-64 mb-32 py-16 w-5/6 mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6 items-center justify-center text-center md:text-left border-2 border-white"
+        >
+          <div className="md:col-span-2 flex flex-col items-center md:items-start mx-12">
+            <h2 className="text-2xl font-semibold mb-4">
+              급하신가요? 빨리 매출을 극대화 하고 싶으신가요? <br />
+              그러면 나가셔도 좋습니다.
+            </h2>
+            <p className="mb-4">
+              급할수록 천천히, 그리고 탄탄히, 무엇보다 짧은 기간 내에 이뤄낸
+              성과는 쉽게 무너지기 마련입니다.
+            </p>
+            <p className="text-lg">
+              제대로 알아보시고, 확실한 믿음을 가지고 동행하시길 권고 드립니다.
+            </p>
+          </div>
+          <div className="flex justify-center">
+            <button className="px-12 py-3 bg-transparent text-white border border-white rounded-full hover:bg-white hover:text-black transition duration-300">
+              문의하기
+            </button>
+          </div>
+        </section>
       </div>
     </div>
   );
