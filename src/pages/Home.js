@@ -40,9 +40,9 @@ const Home = () => {
   return (
     <div className="font-pre text-white bg-zinc-950 flex flex-col">
       {/* Wrapper for sections */}
-      <div className="">
+      <div className="px-48">
         {/* mx-72: Default */}
-        <section className="mx-72 py-52 bg-neutral-900 border">
+        <section className="py-52 bg-neutral-900 border">
           <div className="mx-24">
             <p className="">사업자마케팅</p>
             <div className="my-12">
@@ -60,9 +60,9 @@ const Home = () => {
         </section>
 
         {/* 성공사례 */}
-        <section id="section1" className="mx-72 py-32">
+        <section id="section1" className="py-32">
           <span className="text-3xl font-bold mx-24">성공사례</span>
-          <hr className="mt-3 w-1/3 mx-24" />
+          <hr className="mx-24 mt-3 w-1/3" />
           <p className="mx-24 mt-4 text-lg">
             에이디파트너스를 만나고 삶이 달라졌습니다.
           </p>
@@ -103,7 +103,7 @@ const Home = () => {
           </div>
         </section>
         {/* 직원소개 */}
-        <section id="section2" className="mx-72 py-32">
+        <section id="section2" className="py-32">
           <span className="text-3xl font-bold mx-24">사원 프로필</span>
           <hr className="mt-3 w-1/3 mx-24 mb-20 border" />
           {/* 가로 Rolling 직원 이미지들 + 코멘트 */}
@@ -146,16 +146,18 @@ const Home = () => {
             <p className="font-bold text-2xl text-center pt-20">
               당신의 마케팅이 지금까지 실패했던 이유를 알려드리겠습니다.
             </p>
-            <hr className="mt-8 mb-20 w-full border-1" />
+            <hr className="mx-24 mt-8 mb-20 w-full border-1" />
             <Accordion />
           </div>
         </section>
         {/* 서비스 소개 */}
-        <section id="section3" className="px-4 pt-20 pb-20 bg-neutral-700">
-          <h2 className="text-2xl font-bold mb-10 text-center">서비스 소개</h2>
-          <div className="px-4 pt-16">
-            <p className="text-3xl font-bold">장기적인 파트너를 찾습니다.</p>
-            <br />
+        <section id="section3" className="px-4 pt-20 pb-20">
+          <div classname="py-4 px-4 bg-neutral-700">
+          <h2 className="text-xl mb-2 text-center">서비스 소개<br />
+          <strong className="text-2xl font-bold text-center">장기적인 파트너를 찾습니다.</strong>
+          </h2>
+          </div>
+          <div className="rounded-br-lg py-4 px-8 bg-neutral-700">
             <p>
               1~2달 정도만 진행하고 그만할 것이라면 시작도 안하시는게 좋습니다.
               오랜기간 함께 성장할 클라이언트분들만 선별합니다.
