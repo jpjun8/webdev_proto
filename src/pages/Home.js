@@ -194,7 +194,7 @@ const Home = () => {
           </div>
         </section>
         {/* 자주 묻는 질문 */}
-        <section id="section4" className="px-4 pt-20 pb-20 bg-neutral-600">
+        <section id="section4" className="py-10 w-5/6 mx-auto px-4">
           <FAQSection />
         </section>
         {/* 문의하기 */}

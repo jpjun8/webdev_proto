@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/solid";
 
 const FAQItem = ({ question, answer }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,14 +11,20 @@ const FAQItem = ({ question, answer }) => {
   return (
     <div className="border-b border-gray-300 pb-4 mb-4">
       <div className="flex items-center">
-        <p className="text-lg font-medium">{question}</p>
-        <button
-          onClick={toggleAnswer}
-          className={`w-6 h-6 ml-auto flex items-center justify-center rounded-full border border-gray-500 ${
-            isOpen ? "bg-gray-500 text-white" : "bg-white text-gray-500"
+        <p
+          className={`text-lg font-medium ${
+            isOpen ? "text-whie" : "text-gray-300"
           }`}
         >
-          {isOpen ? "-" : "+"}
+          {question}
+        </p>
+        <button
+          onClick={toggleAnswer}
+          className={`w-16 h-16 ml-auto flex items-center justify-center rounded-full ${
+            isOpen ? "text-white" : "text-gray-300"
+          }`}
+        >
+          {isOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
         </button>
       </div>
       <div
@@ -62,7 +69,12 @@ const FAQSection = () => {
 
   return (
     <div className="">
-      <h2 className="text-2xl font-bold mb-6 text-center">자주 묻는 질문</h2>
+      <div className="text-center mb-12">
+        <p className="text-md">자주 묻는 질문</p>
+        <h2 className="text-3xl">
+          아직 궁금한 점이 있으신가요?
+        </h2>
+      </div>
       {faqData.map((faq, index) => {
         return (
           <FAQItem key={index} question={faq.question} answer={faq.answer} />
