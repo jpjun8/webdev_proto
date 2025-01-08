@@ -1,5 +1,5 @@
 // Reference Site: https://www.squarespace.com/website-design
-import React, { useState, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 // import HorizontalMenu from "../components/HorizontalMenu";
 import FAQSection from "../components/FAQ";
 import Accordion from "../components/Accordion";
@@ -16,6 +16,11 @@ const employees = [
 ];
 
 const Home = () => {
+  // Page Title
+  useEffect(() => {
+    document.title = 'Home | AD';
+  }, []);
+
   const [currentIndex, setCurrentIndex] = useState(2);
   const dragStartX = useRef(0);
   const dragThreshold = 5; // Minimum pixels to trigger a slide

@@ -1,7 +1,12 @@
-import React, { useState, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 
 const Inquiry = () => {
+  // Page Title
+  useEffect(() => {
+    document.title = "Inquiry | AD";
+  }, []);
+  
   // 카테고리
   const categories = [
     {

@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import useScrollToHash from "../components/useScrollToHash";
 
 const AD = () => {
+  // Page Title
+  useEffect(() => {
+    document.title = "About | AD";
+  }, []);
+  
   useScrollToHash();
 
   return (

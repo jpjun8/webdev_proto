@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../styles/Effects.css";
 
 const Recruiting = () => {
+  // Page Title
+  useEffect(() => {
+    document.title = "Recruiting | AD";
+  }, []);
+
   return (
     <div className="font-pre text-white bg-black">
       {/* Section Wrapper */}
