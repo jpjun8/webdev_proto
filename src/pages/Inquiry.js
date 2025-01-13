@@ -6,7 +6,7 @@ const Inquiry = () => {
   useEffect(() => {
     document.title = "Inquiry | AD";
   }, []);
-  
+
   // 카테고리
   const categories = [
     {
@@ -264,8 +264,7 @@ const Inquiry = () => {
                 name="phoneNumber"
                 value={phoneNumber}
                 onChange={(e) => setPhoneNumber(e.target.value)}
-                pattern="^(01[0-9]|0[2-6][0-5]?)-?\d{3,4}-?\d{4}$
-"
+                pattern="^(01[0-9]|0[2-6][0-5]?)-?\d{3,4}-?\d{4}$"
                 placeholder="'-' 없이 숫자만 입력해 주세요"
                 className="block bg-inherit text-xl w-2/3 border-b border-gray-300 focus:border-red-700 focus:ring-0 rounded-md p-2 outline-nonee"
               />

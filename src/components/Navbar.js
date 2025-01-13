@@ -19,7 +19,7 @@ export default function Navbar2() {
       <div className="logo fixed top-4 left-4 z-50">
         <Link to="/">
           <img
-            src={require("../assets/logo.png")}
+            src={require("../assets/samples/logo.png")}
             alt="Link to Home page"
             className="border-2 border-black rounded size-1/2 "
           ></img>
