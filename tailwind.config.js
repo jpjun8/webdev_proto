@@ -5,13 +5,14 @@ module.exports = {
     extend: {
       backgroundImage: {
         "design-page": "url('/src/assets/samples/background-mobile-500w.jpg')",
-        "AD-top-banner": "url('/src/assets/samples/AD_top_banner.jpg')",
-        "AD-background": "url('/src/assets/samples/AD_background.jpg')",
-        "AD-background2": "url('/src/assets/samples/AD_background2.jpg')",
         "AD-company-background":
           "url('/src/assets/samples/AD_company_background.jpg')",
         "profile-background":
           "url('/src/assets/samples/profile_background.jpg')",
+        "AD-CEO-banner":
+          "url('/src/assets/design_proto/design_assets/회사 계단 사진.jpg')",
+        "AD-company-chart":
+          "url('/src/assets/design_proto/design_assets/차트배경이미지.jpg')",
       },
       scrollBehavior: {
         smooth: "smooth",

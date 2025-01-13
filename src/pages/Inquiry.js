@@ -109,47 +109,8 @@ const Inquiry = () => {
     console.log("Selected Options:", selectedOptions);
 
     // Clears the form after submission
-    e.target.reset();
+    window.location.reload();
   };
-
-  // Email Sending with sendForm
-  //   const sendEmail = (e) => {
-  //     e.persist();
-  //     e.preventDefault();
-  //     setIsSubmitting(true);
-
-  //     console.log(process.env.REACT_APP_PUBLIC_KEY);
-  //     console.log(process.env.REACT_APP_TEMPLATE_ID);
-  //     console.log(process.env.REACT_APP_SERVICE_ID);
-  //     console.log(e.target);
-
-  //     emailjs
-  //       .sendForm(
-  //         process.env.REACT_APP_SERVICE_ID,
-  //         process.env.REACT_APP_TEMPLATE_ID,
-  //         form.current,
-  //         process.env.REACT_APP_PUBLIC_KEY
-  //       )
-  //       .then(
-  //         (result) => {
-  //           setStateMessage("Message sent!");
-  //           setIsSubmitting(false);
-  //           setTimeout(() => {
-  //             setStateMessage(null);
-  //           }, 5000); // hide message after 5 seconds
-  //         },
-  //         (error) => {
-  //           setStateMessage("Something went wrong, please try again later");
-  //           setIsSubmitting(false);
-  //           setTimeout(() => {
-  //             console.log("ERROR:", error);
-  //             setStateMessage(null);
-  //           }, 5000); // hide message after 5 seconds
-  //         }
-  //       );
-  //     // Clears the form after sending the email
-  //     e.target.reset();
-  //   };
 
   return (
     // Background Wrapper Div
