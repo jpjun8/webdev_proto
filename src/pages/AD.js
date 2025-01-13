@@ -201,7 +201,7 @@ const AD = () => {
         </div>
 
         {/* Hierarchy */}
-        <div className="py-16 w-full h-auto bg-gradient-to-t from-neutral-700 via-neutral-800 via-10% to-neutral-700">
+        <div className="py-16 w-full h-auto bg-gradient-to-t from-neutral-800 via-neutral-700 via-10% to-neutral-800">
           <div className="mx-20">
             <h1 className="text-3xl font-bold">회사 조직도</h1>
             <hr className="w-1/3 mt-3" />
@@ -211,8 +211,8 @@ const AD = () => {
 
         {/* Report */}
         <div className="bg-cover h-auto bg-AD-company-chart">
-          <div className="bg-gradient-to-t from-neutral-700 via-neutral-800 via-10% to-neutral-700 opacity-90 flex flex-col">
-            <div className="bg-neutral-500 size-1/2 mx-auto my-12 text-white backdrop-blur-lg rounded-lg shadow-lg">
+          <div className="bg-gradient-to-t from-neutral-800 via-neutral-700 via-10% to-neutral-800 opacity-90 flex flex-col">
+            <div className="bg-neutral-700 size-2/3 mx-auto my-12 text-white backdrop-blur-lg rounded-lg shadow-lg">
               <div className="mx-8 mt-8">
                 <p className="text-3xl font-bold">회사 조직도</p>
                 <hr className="w-2/3 mt-3" />
@@ -234,12 +234,55 @@ const AD = () => {
         </div>
 
         {/* 3C Analysis */}
-        <div className="py-16 w-full h-auto bg-gradient-to-t from-neutral-700 via-neutral-800 via-10% to-neutral-700">
-          <div className="mx-20">
-            <h1 className="text-3xl font-bold">회사 조직도</h1>
-            <hr className="w-1/3 mt-3" />
+        <div className="py-4 w-full h-auto bg-gradient-to-t from-neutral-800 via-neutral-700 via-10% to-neutral-800">
+          <div className="bg-neutral-700 size-2/3 mx-auto my-12 text-white backdrop-blur-lg rounded-lg shadow-lg">
+            <div className="flex flex-col items-center justify-center text-center py-16 px-8">
+              <p className="text-3xl mb-16">
+                클라이언트를 위한 <br />
+                <span className="font-semibold">3C 분석</span>
+              </p>
+              <p className="text-xl font-semibold">3C 분석이란?</p>
+              <p>고객(Customer), 경쟁사(Competitor), 자사(Company)</p>
+              <p className="mb-16">세 가지 요소 시장을 분석하는 방법입니다.</p>
+
+              {/* 3 Sections */}
+              <div className="flex flex-row border-t-2">
+                <div className="p-4 bg-slate-100 text-black">
+                  <p className="text-2xl">
+                    Customer
+                    <br />
+                    <span>(고객)</span>
+                  </p>
+                  <p className="mt-4 text-sm">
+                    고객의 구매전환 포인트를 분석해서 대표 썸네일 또는 상세영역
+                    보여질 수 있는 컨텐츠를 기획하고 피드백
+                  </p>
+                </div>
+                <div className="p-4 bg-rose-500">
+                  <p className="text-2xl">
+                    Competitor
+                    <br />
+                    <span>(경쟁사)</span>
+                  </p>
+                  <p className="mt-4 text-sm">
+                    고객의 구매전환 포인트를 분석해서 대표 썸네일 또는 상세영역
+                    보여질 수 있는 컨텐츠를 기획하고 피드백
+                  </p>
+                </div>
+                <div className="p-4 bg-gray-400">
+                  <p className="text-2xl">
+                    Company
+                    <br />
+                    <span>(자사)</span>
+                  </p>
+                  <p className="mt-4 text-sm">
+                    고객의 구매전환 포인트를 분석해서 대표 썸네일 또는 상세영역
+                    보여질 수 있는 컨텐츠를 기획하고 피드백
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
-          <p className="text-center my-20">조직도 이미지</p>
         </div>
       </section>
     </div>
