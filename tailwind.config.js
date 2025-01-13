@@ -17,7 +17,7 @@ module.exports = {
         smooth: "smooth",
       },
       fontFamily: {
-        pre: ["Pretendard"],
+        pre: ["Pretendard", "sans-serif"],
       },
       // animation: {
       //   scroll: 'scrolling 25s linear infinite',
