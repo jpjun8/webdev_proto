@@ -190,7 +190,7 @@ const AD = () => {
       {/* Company */}
       <section id="company" className="px-48">
         {/* Banner */}
-        <div className="bg-AD-CEO-banner bg-cover relative w-full h-40 ">
+        <div className="bg-AD-CEO-banner bg-cover relative w-full h-40 my-20">
           <div className="absolute bottom-0 left-0 w-full h-full bg-inherit bg-opacity-30 leading-10 backdrop-blur-lg z-5 content-center">
             <div className="mx-20">
               <h1 className="text-6xl font-bold">COMPANY</h1>
