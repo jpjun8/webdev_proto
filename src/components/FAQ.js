@@ -9,11 +9,11 @@ const FAQItem = ({ question, answer }) => {
   };
 
   return (
-    <div className="border-y border-gray-300 py-4">
+    <div className="border-y border-black py-4">
       <div className="flex items-center">
         <p
-          className={`text-lg font-medium ml-4 ${
-            isOpen ? "text-whie" : "text-gray-300"
+          className={`text-xl font-medium ml-4 ${
+            isOpen ? "text-black" : "text-slate-600"
           }`}
         >
           Q&nbsp;&nbsp;&nbsp;{question}
@@ -21,7 +21,7 @@ const FAQItem = ({ question, answer }) => {
         <button
           onClick={toggleAnswer}
           className={`w-16 h-16 ml-auto flex items-center justify-center rounded-full ${
-            isOpen ? "text-white" : "text-gray-300"
+            isOpen ? "text-black" : "text-slate-600"
           }`}
         >
           {isOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
@@ -32,8 +32,8 @@ const FAQItem = ({ question, answer }) => {
           isOpen ? "max-h-screen" : "max-h-0"
         }`}
       >
-        <p className="text-white mt-2 ml-4 text-base/loose">
-          <p className="text-lg">A</p>
+        <p className="text-black mt-2 ml-4 text-lg/loose">
+          <p className="text-xl">A</p>
           {answer}
         </p>
       </div>

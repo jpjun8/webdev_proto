@@ -44,7 +44,7 @@ const Accordion = () => {
           >
             <button
               className={`w-full text-left px-4 py-2 font-bold transition-colors duration-300 ${
-                activeItem === item.id ? "text-white" : "text-zinc-400"
+                activeItem === item.id ? "text-black" : "text-slate-600"
               }`}
               onClick={() => toggleItem(item.id)}
             >
