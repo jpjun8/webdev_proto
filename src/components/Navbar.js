@@ -1,9 +1,17 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useLocation, Link } from "react-router-dom";
 
-export default function Navbar2() {
+// logic component: scroll
+import { useScroll } from "../components/scroll";
+
+// Icon
+import { ChevronRightIcon } from "@heroicons/react/solid";
+
+const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [hoveredGroup, setHoveredGroup] = useState(null);
+
+  const { isScrolled } = useScroll();
 
   const handleMouseEnter = (group) => {
     setHoveredGroup(group);
@@ -13,23 +21,101 @@ export default function Navbar2() {
     setHoveredGroup(null);
   };
 
+  // Section Navigation
+  const [activeSection, setActiveSection] = useState("");
+  const [sectionIds, setSectionIds] = useState([]);
+  const location = useLocation();
+
+  // Dynamically get the section IDs based on the page
+  useEffect(() => {
+    // Function to get the section IDs based on the page
+    const getSectionIds = () => {
+      const sections = document.querySelectorAll("section");
+      const ids = Array.from(sections).map((section) => section.id);
+      setSectionIds(ids);
+    };
+
+    // Re-fetch section IDs every time the route changes
+    getSectionIds();
+  }, [location]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      {
+        threshold: 0.4, // Adjust this for when the section is considered "in view"
+      }
+    );
+
+    sectionIds.forEach((id) => {
+      const section = document.getElementById(id);
+      if (section) {
+        observer.observe(section);
+      }
+    });
+
+    return () => {
+      sectionIds.forEach((id) => {
+        const section = document.getElementById(id);
+        if (section) {
+          observer.unobserve(section);
+        }
+      });
+    };
+  }, [sectionIds]);
+
   return (
     <div className="relative">
-      {/* Logo */}
-      <div className="logo fixed top-4 left-4 z-50">
-        <Link to="/">
-          <img
-            src={require("../assets/samples/logo.png")}
-            alt="Link to Home page"
-            className="border-2 border-black rounded size-1/2 "
-          ></img>
-        </Link>
-      </div>
+      {/* Sticky Navigation Bar */}
+      {/* {console.log(isScrolled)} */}
+      {isScrolled ? (
+        <div
+          className={`fixed top-0 w-full bg-snow text-black p-4 shadow-md transition-opacity duration-300 opacity-100 z-50 flex flex-row items-center justify-start space-x-8`}
+          data-aos="fade-down"
+        >
+          <Link to="/">
+            <img
+              src={require("../assets/samples/logo.png")}
+              alt="Link to Home page"
+              className="logo top-4 left-4 z-50 bg-blue-500 border-2 border-black rounded max-w-[80px] h-auto"
+            />
+          </Link>
+          {/* Dynamically create links based on the current section IDs */}
+          <div className="flex space-x-6 text-2xl">
+            {sectionIds.map((id) => (
+              <Link
+                key={id}
+                to={`#${id}`}
+                className={`flex items-center space-x-2 ${
+                  activeSection === id ? "text-red-500" : ""
+                }`}
+              >
+                <span>{id}</span>
+                <ChevronRightIcon className="w-8 h-6" />
+              </Link>
+            ))}
+          </div>
+        </div>
+      ) : (
+        <div
+          className={`fixed top-0 w-full bg-snow text-black p-4 shadow-md transition-opacity duration-300 opacity-0 z-50 flex flex-row items-center justify-start`}
+          style={{ minHeight: "64px", visibility: "hidden" }}
+          data-aos="fade-out"
+        >
+          {/* Empty or just transparent space */}
+        </div>
+      )}
 
       {/* Navigation Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed top-4 right-4 z-50 bg-black-700 text-white px-4 py-2 rounded-lg"
+        className="fixed top-5 right-4 z-50 bg-inherit text-white px-4 py-2 rounded-lg"
       >
         {isOpen ? (
           // Close Icon (X)
@@ -38,8 +124,8 @@ export default function Navbar2() {
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth="2"
-            stroke="currentColor"
-            className="w-6 h-6"
+            stroke="black"
+            className="w-8 h-8"
           >
             <path
               strokeLinecap="round"
@@ -54,8 +140,8 @@ export default function Navbar2() {
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth="2"
-            stroke="currentColor"
-            className="w-6 h-6"
+            stroke="black"
+            className="w-8 h-8"
           >
             <path
               strokeLinecap="round"
@@ -331,4 +417,6 @@ export default function Navbar2() {
       </div>
     </div>
   );
-}
+};
+
+export default Navbar;

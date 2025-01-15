@@ -46,10 +46,10 @@ const Home = () => {
     <div className="font-pre text-white bg-zinc-950 flex flex-col overflow-x-hidden">
       {/* Wrapper for sections */}
       <div className="">
-        {/* mx-72: Default */}
-        <section className="py-40 bg-black border">
-          <div className="mx-24">
-            <p className="">사업자마케팅</p>
+        {/* Top: change background image when received */}
+        <section id="section0" className="bg-black text-black pb-64">
+          <div className="mx-36 p-8 bg-snow w-1/3">
+            <p className="font-semibold">사업자마케팅</p>
             <div className="my-12">
               <p className="text-xs">*24년 6월 기준</p>
               <p className="text-3xl/loose font-bold">
@@ -58,7 +58,7 @@ const Home = () => {
               </p>
             </div>
 
-            <span className="inline-block border-b-2 border-gray-500 pb-2">
+            <span className="inline-block pb-2">
               상품에 관한 이야기가 필요할까요? 결과물로 증명하겠습니다.
             </span>
           </div>
@@ -107,7 +107,7 @@ const Home = () => {
             </div>
           </div>
         </section>
-        {/* 직원소개 */}
+        {/* 사원프로필 */}
         <section id="section2" className="py-32 bg-snow text-black">
           <span className="text-3xl font-bold mx-24">사원 프로필</span>
           <hr className="mt-3 w-1/3 mx-24 mb-20 border-black" />

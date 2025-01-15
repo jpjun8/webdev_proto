@@ -1,24 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+
+// logic component: scroll
+import { useScroll } from "./scroll";
 
 const BackToTopButton = () => {
-  const [showButton, setShowButton] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 300) {
-        setShowButton(true);
-      } else {
-        setShowButton(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    // Cleanup listener on component unmount
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  const { showButton } = useScroll();
 
   const scrollToTop = () => {
     window.scrollTo({

@@ -33,7 +33,9 @@ const FAQItem = ({ question, answer }) => {
         }`}
       >
         <p className="text-black mt-2 ml-4 text-lg/loose">
-          <p className="text-xl">A</p>
+          <span className="text-xl">
+            A<br />
+          </span>
           {answer}
         </p>
       </div>
