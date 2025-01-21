@@ -5,7 +5,7 @@ import { useLocation, Link } from "react-router-dom";
 import { useScroll } from "../components/scroll";
 
 // Icon
-import { ChevronRightIcon } from "@heroicons/react/solid";
+import { ChevronRightIcon } from "@heroicons/react/outline";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,6 +38,30 @@ const Navbar = () => {
     // Re-fetch section IDs every time the route changes
     getSectionIds();
   }, [location]);
+
+  // Handle hash change and scroll to corresponding section
+  useEffect(() => {
+    const onHashChange = () => {
+      const sectionId = window.location.hash.slice(1);
+      const sectionElement = document.getElementById(sectionId);
+      if (sectionElement) {
+        sectionElement.scrollIntoView({ behavior: "smooth" });
+      }
+    };
+
+    // Listen for hash changes
+    window.addEventListener("hashchange", onHashChange);
+
+    // Handle the case when the page is loaded with a hash
+    if (window.location.hash) {
+      onHashChange();
+    }
+
+    // Cleanup event listener when the page is loaded with a hash
+    return () => {
+      window.removeEventListener("hashchange", onHashChange);
+    };
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -73,7 +97,6 @@ const Navbar = () => {
   return (
     <div className="relative">
       {/* Sticky Navigation Bar */}
-      {/* {console.log(isScrolled)} */}
       {isScrolled ? (
         <div
           className={`fixed top-0 w-full bg-snow text-black p-4 shadow-md transition-opacity duration-300 opacity-100 z-50 flex flex-row items-center justify-start space-x-8`}
@@ -84,6 +107,7 @@ const Navbar = () => {
               src={require("../assets/samples/logo.png")}
               alt="Link to Home page"
               className="logo top-4 left-4 z-50 bg-blue-500 border-2 border-black rounded max-w-[80px] h-auto"
+              onClick={() => setIsOpen(false)}
             />
           </Link>
           {/* Dynamically create links based on the current section IDs */}
@@ -95,6 +119,7 @@ const Navbar = () => {
                 className={`flex items-center space-x-2 ${
                   activeSection === id ? "text-red-500" : ""
                 }`}
+                onClick={() => setIsOpen(false)}
               >
                 <span>{id}</span>
                 <ChevronRightIcon className="w-8 h-6" />
@@ -124,7 +149,7 @@ const Navbar = () => {
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth="2"
-            stroke="black"
+            stroke="red"
             className="w-8 h-8"
           >
             <path
@@ -140,7 +165,7 @@ const Navbar = () => {
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth="2"
-            stroke="black"
+            stroke="red"
             className="w-8 h-8"
           >
             <path

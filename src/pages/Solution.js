@@ -1,5 +1,16 @@
 import React, { useEffect } from "react";
 import useScrollToHash from "../components/useScrollToHash";
+import { Link } from "react-router-dom";
+
+// Icons
+import {
+  ArchiveIcon,
+  ShoppingCartIcon,
+  MapIcon,
+  ShareIcon,
+  VideoCameraIcon,
+  ChevronRightIcon,
+} from "@heroicons/react/outline";
 
 const Solution = () => {
   // Page Title
@@ -11,78 +22,154 @@ const Solution = () => {
 
   return (
     // Section Wrapper
-    <div className="flex flex-col bg-AD-company-background bg-auto text-white min-h-screen">
+    <div className="font-pre flex flex-col bg-black text-white">
       {/* Banner */}
-      <div className="bg-red-700/75 my-32 mx-32 pt-12 pb-16 rounded-[24px]">
-        <h1 className="ml-24 text-7xl/loose font-bold">Solutions</h1>
-        <blockquote className="ml-24 italic text-xl/loose">
-          Empowering Your Brand with Innovative Marketing Solutions
-        </blockquote>
-        <h2 className="ml-24 text-xl/loose">
-          성공적인 사례로 증명된 마케팅 솔루션
-          <br />
-          우리가 만든 결과, 우리의 마케팅 성공 사례
-        </h2>
+      <div className="bg-AD-CEO-banner bg-cover relative w-full min-h-[64rem]">
+        <div className="absolute top-0 left-0 w-full h-20 bg-black bg-opacity-30 leading-10 z-10"></div>
+        <div className="absolute top-[16rem] left-0 w-full bg-inherit bg-opacity-30 leading-10 backdrop-blur-lg z-5 content-center py-2">
+          <div className="mx-20">
+            <h1 className="text-6xl font-bold">Solution</h1>
+            <hr className="w-1/3 mt-3" />
+            <span className="text-xl">에이디파트너스센터 솔루션 소개</span>
+          </div>
+        </div>
+        <section
+          id="list"
+          className="absolute bottom-0 w-full h-2/3 content-center text-black items-center justify-center"
+        >
+          <div className="flex justify-center items-center">
+            <div className="grid grid-cols-3 gap-0 p-8 rounded-lg bg-gray-500 bg-opacity-80 text-3xl">
+              {/* Row 1 */}
+              <div className="menu-item">
+                <Link
+                  to="/solution/#nstore"
+                  className="flex flex-col items-center justify-center p-4 bg-inherit text-white text-center hover:bg-gray-600 transition duration-300 ease-in-out aspect-square border border-t-0 border-l-0 border-white"
+                >
+                  <ArchiveIcon className="w-20" />N Store
+                </Link>
+              </div>
+              <div className="menu-item">
+                <Link
+                  to="/solution/#cstore"
+                  className="flex flex-col items-center justify-center p-4 bg-inherit text-white text-center hover:bg-gray-600 transition duration-300 ease-in-out aspect-square border border-white border-t-0"
+                >
+                  <ArchiveIcon className="w-20" />C Store
+                </Link>
+              </div>
+              <div className="menu-item">
+                <Link
+                  to="/solution/#kshopping"
+                  className="flex flex-col items-center justify-center p-4 bg-inherit text-white text-center hover:bg-gray-600 transition duration-300 ease-in-out aspect-square border border-white border-t-0 border-r-0"
+                >
+                  <ShoppingCartIcon className="w-20" />K Shopping
+                </Link>
+              </div>
+
+              {/* Row 2 */}
+              <div className="menu-item">
+                <Link
+                  to="/solution/#nplace"
+                  className="flex flex-col items-center justify-center p-4 bg-inherit text-white text-center hover:bg-gray-600 transition duration-300 ease-in-out aspect-square border border-white border-b-0 border-l-0"
+                >
+                  <MapIcon className="w-20" />N Place
+                </Link>
+              </div>
+              <div className="menu-item">
+                <Link
+                  to="/solution/#instagram"
+                  className="flex flex-col items-center justify-center p-4 bg-inherit text-white text-center hover:bg-gray-600 transition duration-300 ease-in-out aspect-square border border-white border-b-0"
+                >
+                  <ShareIcon className="w-20" />
+                  Instagram
+                </Link>
+              </div>
+              <div className="menu-item">
+                <Link
+                  to="/solution/#youtube"
+                  className="flex flex-col items-center justify-center p-4 bg-inherit text-white text-center hover:bg-gray-600 transition duration-300 ease-in-out aspect-square border border-white border-b-0 border-r-0"
+                >
+                  <VideoCameraIcon className="w-20" />
+                  Youtube
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
+
       {/* N Store */}
-      <section
-        id="nstore"
-        className="mb-12 mx-4"
-        data-aos="fade-up"
-        data-aos-delay="200"
-      >
-        <h2 className="text-5xl font-bold mb-16 text-center">N Store</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-black font-semibold">
-          {/* Chapter 1 */}
-          <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-            <img
-              src="https://placehold.co/200x300"
-              alt="N Store Chapter 1"
-              className="w-full object-cover h-96"
-            />
-            <div className="p-6 flex-1">
-              <h1 className="text-2xl text-red-700 mb-4">
-                SEO가이드라인에 맞춘 전문적인 컨설팅
-              </h1>
-              <p className="text-gray-600">
-                에이디파트너스센터는 네이버 SEO(검색엔진최적화) Guideline에 맞춘
+      <section id="nstore" className="py-32 px-20 text-black bg-gainsborough">
+        {/* Link + Title */}
+        <Link to="/solution#list">
+          <p>
+            Solution
+            <ChevronRightIcon className="w-4 inline-block" />
+          </p>
+        </Link>
+        <h1 className="text-6xl font-semibold">N Store</h1>
+        <hr className="w-1/3 mt-3 border border-black" />
+        {/* Cards */}
+        <div className="flex space-x-4 mt-20 items-stretch justify-center">
+          {/* Card 1 */}
+          <div className="w-1/3 bg-white border border-gray-300 rounded-lg shadow-md flex flex-col">
+            {/* Top Red Section */}
+            <div className="bg-red-500 text-white text-md px-4 py-1 rounded-tl-lg">
+              <span>Chapter. 1</span>
+            </div>
+
+            {/* Card Content */}
+            <div className="flex-1 p-6">
+              <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+                Professional Consulting aligned with SEO Guideline
+              </h3>
+              <p className="text-gray-600 text-sm mb-4">
+                에이디파트너스 센터는 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
                 전문적인 데이터를 기반으로 올바른 상품 최적화 서비스를
                 제공합니다.
               </p>
             </div>
           </div>
-          {/* Chapter 2 */}
-          <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-            <img
-              src="https://placehold.co/200x300"
-              alt="N Store Chapter 1"
-              className="w-full object-cover h-96"
-            />
-            <div className="p-6 flex-1">
-              <h1 className="text-2xl text-red-700 mb-4">
-                프로그램X 바이럴 SNS 타겟 마케팅 실제고객 유입 OK
-              </h1>
-              <p className="text-gray-600">
-                에이디파트너스센터는 체계적인 솔루션을 통한 순위 상승 및
-                브랜드화를 이끌어 드립니다.
+
+          {/* Card 2 */}
+          <div className="w-1/3 bg-white border border-gray-300 rounded-lg shadow-md flex flex-col">
+            {/* Top Red Section */}
+            <div className="bg-orange-500 text-white text-md px-4 py-1 rounded-tl-lg">
+              <span>Chapter. 2</span>
+            </div>
+
+            {/* Card Content */}
+            <div className="flex-1 p-6">
+              <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+                No Illegal Software <br />
+                Viral Social Networking <br />
+                Targeted Marketing <br />
+                Real Customers Influx
+              </h3>
+              <p className="text-gray-600 text-sm mb-4">
+                에이디파트너스 센터는 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
+                전문적인 데이터를 기반으로 올바른 상품 최적화 서비스를
+                제공합니다.
               </p>
             </div>
           </div>
-          {/* Chapter 3 */}
-          <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-            <img
-              src="https://placehold.co/200x300"
-              alt="N Store Chapter 1"
-              className="w-full object-cover h-96"
-            />
-            <div className="p-6 flex-1">
-              <h1 className="text-2xl text-red-700 mb-4">
-                어뷰징 ZERO 컴플레인 ZERO
-              </h1>
-              <p className="text-gray-600">
-                에이디파트너스센터의 N쇼핑 솔루션 마케팅은 단 한건의 어뷰징
-                사례도 발생하지 않았으며 고객사의 만족도 최상의 서비스를
-                제공하고 있습니다.
+
+          {/* Card 3 */}
+          <div className="w-1/3 bg-white border border-gray-300 rounded-lg shadow-md flex flex-col">
+            {/* Top Red Section */}
+            <div className="bg-yellow-500 text-white text-md px-4 py-1 rounded-tl-lg">
+              <span>Chapter. 3</span>
+            </div>
+
+            {/* Card Content */}
+            <div className="flex-1 p-6">
+              <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+                Zero Abusing <br />
+                Zero Complaints
+              </h3>
+              <p className="text-gray-600 text-sm mb-4">
+                에이디파트너스 센터는 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
+                전문적인 데이터를 기반으로 올바른 상품 최적화 서비스를
+                제공합니다.
               </p>
             </div>
           </div>
@@ -90,64 +177,79 @@ const Solution = () => {
       </section>
 
       {/* C Store */}
-      <section
-        id="cstore"
-        className="mb-12 mx-4"
-        data-aos="fade-up"
-        data-aos-delay="200"
-      >
-        <h2 className="text-5xl font-bold mb-16 text-center">C Store</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-black font-semibold">
-          {/* Chapter 1 */}
-          <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-            <img
-              src="https://placehold.co/200x300"
-              alt="N Store Chapter 1"
-              className="w-full object-cover h-96"
-            />
-            <div className="p-6 flex-1">
-              <h1 className="text-2xl text-red-700 mb-4">
-                SEO가이드라인에 맞춘 전문적인 컨설팅
-              </h1>
-              <p className="text-gray-600">
-                에이디파트너스센터는 네이버 SEO(검색엔진최적화) Guideline에 맞춘
+      <section id="cstore" className="py-32 px-20 text-black bg-snow">
+        {/* Link + Title */}
+        <Link to="/solution#list">
+          <p>
+            Solution
+            <ChevronRightIcon className="w-4 inline-block" />
+          </p>
+        </Link>
+        <h1 className="text-6xl font-semibold">C Store</h1>
+        <hr className="w-1/3 mt-3 border border-black" />
+
+        {/* Cards */}
+        <div className="flex space-x-4 mt-20 items-stretch justify-center">
+          {/* Card 1 */}
+          <div className="w-1/3 bg-white border border-gray-300 rounded-lg shadow-md flex flex-col">
+            {/* Top Red Section */}
+            <div className="bg-red-500 text-white text-md px-4 py-1 rounded-tl-lg">
+              <span>Chapter. 1</span>
+            </div>
+
+            {/* Card Content */}
+            <div className="flex-1 p-6">
+              <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+                Professional Consulting aligned with SEO Guideline
+              </h3>
+              <p className="text-gray-600 text-sm mb-4">
+                에이디파트너스 센터는 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
                 전문적인 데이터를 기반으로 올바른 상품 최적화 서비스를
                 제공합니다.
               </p>
             </div>
           </div>
-          {/* Chapter 2 */}
-          <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-            <img
-              src="https://placehold.co/200x300"
-              alt="N Store Chapter 1"
-              className="w-full object-cover h-96"
-            />
-            <div className="p-6 flex-1">
-              <h1 className="text-2xl text-red-700 mb-4">
-                프로그램X 바이럴 SNS 타겟 마케팅 실제고객 유입 OK
-              </h1>
-              <p className="text-gray-600">
-                에이디파트너스센터는 체계적인 솔루션을 통한 순위 상승 및
-                브랜드화를 이끌어 드립니다.
+
+          {/* Card 2 */}
+          <div className="w-1/3 bg-white border border-gray-300 rounded-lg shadow-md flex flex-col">
+            {/* Top Red Section */}
+            <div className="bg-orange-500 text-white text-md px-4 py-1 rounded-tl-lg">
+              <span>Chapter. 2</span>
+            </div>
+
+            {/* Card Content */}
+            <div className="flex-1 p-6">
+              <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+                No Illegal Software <br />
+                Viral Social Networking <br />
+                Targeted Marketing <br />
+                Real Customers Influx
+              </h3>
+              <p className="text-gray-600 text-sm mb-4">
+                에이디파트너스 센터는 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
+                전문적인 데이터를 기반으로 올바른 상품 최적화 서비스를
+                제공합니다.
               </p>
             </div>
           </div>
-          {/* Chapter 3 */}
-          <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-            <img
-              src="https://placehold.co/200x300"
-              alt="N Store Chapter 1"
-              className="w-full object-cover h-96"
-            />
-            <div className="p-6 flex-1">
-              <h1 className="text-2xl text-red-700 mb-4">
-                어뷰징 ZERO 컴플레인 ZERO
-              </h1>
-              <p className="text-gray-600">
-                에이디파트너스센터의 N쇼핑 솔루션 마케팅은 단 한건의 어뷰징
-                사례도 발생하지 않았으며 고객사의 만족도 최상의 서비스를
-                제공하고 있습니다.
+
+          {/* Card 3 */}
+          <div className="w-1/3 bg-white border border-gray-300 rounded-lg shadow-md flex flex-col">
+            {/* Top Red Section */}
+            <div className="bg-yellow-500 text-white text-md px-4 py-1 rounded-tl-lg">
+              <span>Chapter. 3</span>
+            </div>
+
+            {/* Card Content */}
+            <div className="flex-1 p-6">
+              <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+                Zero Abusing <br />
+                Zero Complaints
+              </h3>
+              <p className="text-gray-600 text-sm mb-4">
+                에이디파트너스 센터는 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
+                전문적인 데이터를 기반으로 올바른 상품 최적화 서비스를
+                제공합니다.
               </p>
             </div>
           </div>
@@ -157,62 +259,80 @@ const Solution = () => {
       {/* K Shopping */}
       <section
         id="kshopping"
-        className="mb-12 mx-4"
-        data-aos="fade-up"
-        data-aos-delay="200"
+        className="py-32 px-20 text-black bg-gainsborough"
       >
-        <h2 className="text-5xl font-bold mb-16 text-center">K Shopping</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-black font-semibold">
-          {/* Chapter 1 */}
-          <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-            <img
-              src="https://placehold.co/200x300"
-              alt="N Store Chapter 1"
-              className="w-full object-cover h-96"
-            />
-            <div className="p-6 flex-1">
-              <h1 className="text-2xl text-red-700 mb-4">
-                SEO가이드라인에 맞춘 전문적인 컨설팅
-              </h1>
-              <p className="text-gray-600">
-                에이디파트너스센터는 네이버 SEO(검색엔진최적화) Guideline에 맞춘
+        {/* Link + Title */}
+        <Link to="/solution#list">
+          <p>
+            Solution
+            <ChevronRightIcon className="w-4 inline-block" />
+          </p>
+        </Link>
+        <h1 className="text-6xl font-semibold">K Shopping</h1>
+        <hr className="w-1/3 mt-3 border border-black" />
+
+        {/* Cards */}
+        <div className="flex space-x-4 mt-20 items-stretch justify-center">
+          {/* Card 1 */}
+          <div className="w-1/3 bg-white border border-gray-300 rounded-lg shadow-md flex flex-col">
+            {/* Top Red Section */}
+            <div className="bg-red-500 text-white text-md px-4 py-1 rounded-tl-lg">
+              <span>Chapter. 1</span>
+            </div>
+
+            {/* Card Content */}
+            <div className="flex-1 p-6">
+              <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+                Professional Consulting aligned with SEO Guideline
+              </h3>
+              <p className="text-gray-600 text-sm mb-4">
+                에이디파트너스 센터는 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
                 전문적인 데이터를 기반으로 올바른 상품 최적화 서비스를
                 제공합니다.
               </p>
             </div>
           </div>
-          {/* Chapter 2 */}
-          <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-            <img
-              src="https://placehold.co/200x300"
-              alt="N Store Chapter 1"
-              className="w-full object-cover h-96"
-            />
-            <div className="p-6 flex-1">
-              <h1 className="text-2xl text-red-700 mb-4">
-                프로그램X 바이럴 SNS 타겟 마케팅 실제고객 유입 OK
-              </h1>
-              <p className="text-gray-600">
-                에이디파트너스센터는 체계적인 솔루션을 통한 순위 상승 및
-                브랜드화를 이끌어 드립니다.
+
+          {/* Card 2 */}
+          <div className="w-1/3 bg-white border border-gray-300 rounded-lg shadow-md flex flex-col">
+            {/* Top Red Section */}
+            <div className="bg-orange-500 text-white text-md px-4 py-1 rounded-tl-lg">
+              <span>Chapter. 2</span>
+            </div>
+
+            {/* Card Content */}
+            <div className="flex-1 p-6">
+              <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+                No Illegal Software <br />
+                Viral Social Networking <br />
+                Targeted Marketing <br />
+                Real Customers Influx
+              </h3>
+              <p className="text-gray-600 text-sm mb-4">
+                에이디파트너스 센터는 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
+                전문적인 데이터를 기반으로 올바른 상품 최적화 서비스를
+                제공합니다.
               </p>
             </div>
           </div>
-          {/* Chapter 3 */}
-          <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-            <img
-              src="https://placehold.co/200x300"
-              alt="N Store Chapter 1"
-              className="w-full object-cover h-96"
-            />
-            <div className="p-6 flex-1">
-              <h1 className="text-2xl text-red-700 mb-4">
-                어뷰징 ZERO 컴플레인 ZERO
-              </h1>
-              <p className="text-gray-600">
-                에이디파트너스센터의 N쇼핑 솔루션 마케팅은 단 한건의 어뷰징
-                사례도 발생하지 않았으며 고객사의 만족도 최상의 서비스를
-                제공하고 있습니다.
+
+          {/* Card 3 */}
+          <div className="w-1/3 bg-white border border-gray-300 rounded-lg shadow-md flex flex-col">
+            {/* Top Red Section */}
+            <div className="bg-yellow-500 text-white text-md px-4 py-1 rounded-tl-lg">
+              <span>Chapter. 3</span>
+            </div>
+
+            {/* Card Content */}
+            <div className="flex-1 p-6">
+              <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+                Zero Abusing <br />
+                Zero Complaints
+              </h3>
+              <p className="text-gray-600 text-sm mb-4">
+                에이디파트너스 센터는 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
+                전문적인 데이터를 기반으로 올바른 상품 최적화 서비스를
+                제공합니다.
               </p>
             </div>
           </div>
@@ -220,64 +340,79 @@ const Solution = () => {
       </section>
 
       {/* N Place */}
-      <section
-        id="nplace"
-        className="mb-12 mx-4"
-        data-aos="fade-up"
-        data-aos-delay="200"
-      >
-        <h2 className="text-5xl font-bold mb-16 text-center">N Place</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-black font-semibold">
-          {/* Chapter 1 */}
-          <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-            <img
-              src="https://placehold.co/200x300"
-              alt="N Store Chapter 1"
-              className="w-full object-cover h-96"
-            />
-            <div className="p-6 flex-1">
-              <h1 className="text-2xl text-red-700 mb-4">
-                SEO가이드라인에 맞춘 전문적인 컨설팅
-              </h1>
-              <p className="text-gray-600">
-                에이디파트너스센터는 네이버 SEO(검색엔진최적화) Guideline에 맞춘
+      <section id="nplace" className="py-32 px-20 text-black bg-snow">
+        {/* Link + Title */}
+        <Link to="/solution#list">
+          <p>
+            Solution
+            <ChevronRightIcon className="w-4 inline-block" />
+          </p>
+        </Link>
+        <h1 className="text-6xl font-semibold">N Place</h1>
+        <hr className="w-1/3 mt-3 border border-black" />
+
+        {/* Cards */}
+        <div className="flex space-x-4 mt-20 items-stretch justify-center">
+          {/* Card 1 */}
+          <div className="w-1/3 bg-white border border-gray-300 rounded-lg shadow-md flex flex-col">
+            {/* Top Red Section */}
+            <div className="bg-red-500 text-white text-md px-4 py-1 rounded-tl-lg">
+              <span>Chapter. 1</span>
+            </div>
+
+            {/* Card Content */}
+            <div className="flex-1 p-6">
+              <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+                Professional Consulting aligned with SEO Guideline
+              </h3>
+              <p className="text-gray-600 text-sm mb-4">
+                에이디파트너스 센터는 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
                 전문적인 데이터를 기반으로 올바른 상품 최적화 서비스를
                 제공합니다.
               </p>
             </div>
           </div>
-          {/* Chapter 2 */}
-          <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-            <img
-              src="https://placehold.co/200x300"
-              alt="N Store Chapter 1"
-              className="w-full object-cover h-96"
-            />
-            <div className="p-6 flex-1">
-              <h1 className="text-2xl text-red-700 mb-4">
-                프로그램X 바이럴 SNS 타겟 마케팅 실제고객 유입 OK
-              </h1>
-              <p className="text-gray-600">
-                에이디파트너스센터는 체계적인 솔루션을 통한 순위 상승 및
-                브랜드화를 이끌어 드립니다.
+
+          {/* Card 2 */}
+          <div className="w-1/3 bg-white border border-gray-300 rounded-lg shadow-md flex flex-col">
+            {/* Top Red Section */}
+            <div className="bg-orange-500 text-white text-md px-4 py-1 rounded-tl-lg">
+              <span>Chapter. 2</span>
+            </div>
+
+            {/* Card Content */}
+            <div className="flex-1 p-6">
+              <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+                No Illegal Software <br />
+                Viral Social Networking <br />
+                Targeted Marketing <br />
+                Real Customers Influx
+              </h3>
+              <p className="text-gray-600 text-sm mb-4">
+                에이디파트너스 센터는 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
+                전문적인 데이터를 기반으로 올바른 상품 최적화 서비스를
+                제공합니다.
               </p>
             </div>
           </div>
-          {/* Chapter 3 */}
-          <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-            <img
-              src="https://placehold.co/200x300"
-              alt="N Store Chapter 1"
-              className="w-full object-cover h-96"
-            />
-            <div className="p-6 flex-1">
-              <h1 className="text-2xl text-red-700 mb-4">
-                어뷰징 ZERO 컴플레인 ZERO
-              </h1>
-              <p className="text-gray-600">
-                에이디파트너스센터의 N쇼핑 솔루션 마케팅은 단 한건의 어뷰징
-                사례도 발생하지 않았으며 고객사의 만족도 최상의 서비스를
-                제공하고 있습니다.
+
+          {/* Card 3 */}
+          <div className="w-1/3 bg-white border border-gray-300 rounded-lg shadow-md flex flex-col">
+            {/* Top Red Section */}
+            <div className="bg-yellow-500 text-white text-md px-4 py-1 rounded-tl-lg">
+              <span>Chapter. 3</span>
+            </div>
+
+            {/* Card Content */}
+            <div className="flex-1 p-6">
+              <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+                Zero Abusing <br />
+                Zero Complaints
+              </h3>
+              <p className="text-gray-600 text-sm mb-4">
+                에이디파트너스 센터는 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
+                전문적인 데이터를 기반으로 올바른 상품 최적화 서비스를
+                제공합니다.
               </p>
             </div>
           </div>
@@ -287,62 +422,80 @@ const Solution = () => {
       {/* Instagram */}
       <section
         id="instagram"
-        className="mb-12 mx-4"
-        data-aos="fade-up"
-        data-aos-delay="200"
+        className="py-32 px-20 text-black bg-gainsborough"
       >
-        <h2 className="text-5xl font-bold mb-16 text-center">Instagram</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-black font-semibold">
-          {/* Chapter 1 */}
-          <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-            <img
-              src="https://placehold.co/200x300"
-              alt="N Store Chapter 1"
-              className="w-full object-cover h-96"
-            />
-            <div className="p-6 flex-1">
-              <h1 className="text-2xl text-red-700 mb-4">
-                SEO가이드라인에 맞춘 전문적인 컨설팅
-              </h1>
-              <p className="text-gray-600">
-                에이디파트너스센터는 네이버 SEO(검색엔진최적화) Guideline에 맞춘
+        {/* Link + Title */}
+        <Link to="/solution#list">
+          <p>
+            Solution
+            <ChevronRightIcon className="w-4 inline-block" />
+          </p>
+        </Link>
+        <h1 className="text-6xl font-semibold">Instagram</h1>
+        <hr className="w-1/3 mt-3 border border-black" />
+
+        {/* Cards */}
+        <div className="flex space-x-4 mt-20 items-stretch justify-center">
+          {/* Card 1 */}
+          <div className="w-1/3 bg-white border border-gray-300 rounded-lg shadow-md flex flex-col">
+            {/* Top Red Section */}
+            <div className="bg-red-500 text-white text-md px-4 py-1 rounded-tl-lg">
+              <span>Chapter. 1</span>
+            </div>
+
+            {/* Card Content */}
+            <div className="flex-1 p-6">
+              <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+                Professional Consulting aligned with SEO Guideline
+              </h3>
+              <p className="text-gray-600 text-sm mb-4">
+                에이디파트너스 센터는 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
                 전문적인 데이터를 기반으로 올바른 상품 최적화 서비스를
                 제공합니다.
               </p>
             </div>
           </div>
-          {/* Chapter 2 */}
-          <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-            <img
-              src="https://placehold.co/200x300"
-              alt="N Store Chapter 1"
-              className="w-full object-cover h-96"
-            />
-            <div className="p-6 flex-1">
-              <h1 className="text-2xl text-red-700 mb-4">
-                프로그램X 바이럴 SNS 타겟 마케팅 실제고객 유입 OK
-              </h1>
-              <p className="text-gray-600">
-                에이디파트너스센터는 체계적인 솔루션을 통한 순위 상승 및
-                브랜드화를 이끌어 드립니다.
+
+          {/* Card 2 */}
+          <div className="w-1/3 bg-white border border-gray-300 rounded-lg shadow-md flex flex-col">
+            {/* Top Red Section */}
+            <div className="bg-orange-500 text-white text-md px-4 py-1 rounded-tl-lg">
+              <span>Chapter. 2</span>
+            </div>
+
+            {/* Card Content */}
+            <div className="flex-1 p-6">
+              <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+                No Illegal Software <br />
+                Viral Social Networking <br />
+                Targeted Marketing <br />
+                Real Customers Influx
+              </h3>
+              <p className="text-gray-600 text-sm mb-4">
+                에이디파트너스 센터는 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
+                전문적인 데이터를 기반으로 올바른 상품 최적화 서비스를
+                제공합니다.
               </p>
             </div>
           </div>
-          {/* Chapter 3 */}
-          <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-            <img
-              src="https://placehold.co/200x300"
-              alt="N Store Chapter 1"
-              className="w-full object-cover h-96"
-            />
-            <div className="p-6 flex-1">
-              <h1 className="text-2xl text-red-700 mb-4">
-                어뷰징 ZERO 컴플레인 ZERO
-              </h1>
-              <p className="text-gray-600">
-                에이디파트너스센터의 N쇼핑 솔루션 마케팅은 단 한건의 어뷰징
-                사례도 발생하지 않았으며 고객사의 만족도 최상의 서비스를
-                제공하고 있습니다.
+
+          {/* Card 3 */}
+          <div className="w-1/3 bg-white border border-gray-300 rounded-lg shadow-md flex flex-col">
+            {/* Top Red Section */}
+            <div className="bg-yellow-500 text-white text-md px-4 py-1 rounded-tl-lg">
+              <span>Chapter. 3</span>
+            </div>
+
+            {/* Card Content */}
+            <div className="flex-1 p-6">
+              <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+                Zero Abusing <br />
+                Zero Complaints
+              </h3>
+              <p className="text-gray-600 text-sm mb-4">
+                에이디파트너스 센터는 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
+                전문적인 데이터를 기반으로 올바른 상품 최적화 서비스를
+                제공합니다.
               </p>
             </div>
           </div>
@@ -350,64 +503,80 @@ const Solution = () => {
       </section>
 
       {/* Youtube */}
-      <section
-        id="youtube"
-        className="mb-12 mx-4"
-        data-aos="fade-up"
-        data-aos-delay="200"
-      >
-        <h2 className="text-5xl font-bold mb-16 text-center">Youtube</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-black font-semibold">
-          {/* Chapter 1 */}
-          <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-            <img
-              src="https://placehold.co/200x300"
-              alt="N Store Chapter 1"
-              className="w-full object-cover h-96"
-            />
-            <div className="p-6 flex-1">
-              <h1 className="text-2xl text-red-700 mb-4">
-                SEO가이드라인에 맞춘 전문적인 컨설팅
-              </h1>
-              <p className="text-gray-600">
-                에이디파트너스센터는 네이버 SEO(검색엔진최적화) Guideline에 맞춘
+      <section id="youtube" className="py-32 px-20 text-black bg-snow">
+        {/* Link + Title */}
+
+        <Link to="/solution#list">
+          <p>
+            Solution
+            <ChevronRightIcon className="w-4 inline-block" />
+          </p>
+        </Link>
+        <h1 className="text-6xl font-semibold">Youtube</h1>
+        <hr className="w-1/3 mt-3 border border-black" />
+
+        {/* Cards */}
+        <div className="flex space-x-4 mt-20 items-stretch justify-center">
+          {/* Card 1 */}
+          <div className="w-1/3 bg-white border border-gray-300 rounded-lg shadow-md flex flex-col">
+            {/* Top Red Section */}
+            <div className="bg-red-500 text-white text-md px-4 py-1 rounded-tl-lg">
+              <span>Chapter. 1</span>
+            </div>
+
+            {/* Card Content */}
+            <div className="flex-1 p-6">
+              <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+                Professional Consulting aligned with SEO Guideline
+              </h3>
+              <p className="text-gray-600 text-sm mb-4">
+                에이디파트너스 센터는 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
                 전문적인 데이터를 기반으로 올바른 상품 최적화 서비스를
                 제공합니다.
               </p>
             </div>
           </div>
-          {/* Chapter 2 */}
-          <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-            <img
-              src="https://placehold.co/200x300"
-              alt="N Store Chapter 1"
-              className="w-full object-cover h-96"
-            />
-            <div className="p-6 flex-1">
-              <h1 className="text-2xl text-red-700 mb-4">
-                프로그램X 바이럴 SNS 타겟 마케팅 실제고객 유입 OK
-              </h1>
-              <p className="text-gray-600">
-                에이디파트너스센터는 체계적인 솔루션을 통한 순위 상승 및
-                브랜드화를 이끌어 드립니다.
+
+          {/* Card 2 */}
+          <div className="w-1/3 bg-white border border-gray-300 rounded-lg shadow-md flex flex-col">
+            {/* Top Red Section */}
+            <div className="bg-orange-500 text-white text-md px-4 py-1 rounded-tl-lg">
+              <span>Chapter. 2</span>
+            </div>
+
+            {/* Card Content */}
+            <div className="flex-1 p-6">
+              <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+                No Illegal Software <br />
+                Viral Social Networking <br />
+                Targeted Marketing <br />
+                Real Customers Influx
+              </h3>
+              <p className="text-gray-600 text-sm mb-4">
+                에이디파트너스 센터는 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
+                전문적인 데이터를 기반으로 올바른 상품 최적화 서비스를
+                제공합니다.
               </p>
             </div>
           </div>
-          {/* Chapter 3 */}
-          <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-            <img
-              src="https://placehold.co/200x300"
-              alt="N Store Chapter 1"
-              className="w-full object-cover h-96"
-            />
-            <div className="p-6 flex-1">
-              <h1 className="text-2xl text-red-700 mb-4">
-                어뷰징 ZERO 컴플레인 ZERO
-              </h1>
-              <p className="text-gray-600">
-                에이디파트너스센터의 N쇼핑 솔루션 마케팅은 단 한건의 어뷰징
-                사례도 발생하지 않았으며 고객사의 만족도 최상의 서비스를
-                제공하고 있습니다.
+
+          {/* Card 3 */}
+          <div className="w-1/3 bg-white border border-gray-300 rounded-lg shadow-md flex flex-col">
+            {/* Top Red Section */}
+            <div className="bg-yellow-500 text-white text-md px-4 py-1 rounded-tl-lg">
+              <span>Chapter. 3</span>
+            </div>
+
+            {/* Card Content */}
+            <div className="flex-1 p-6">
+              <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+                Zero Abusing <br />
+                Zero Complaints
+              </h3>
+              <p className="text-gray-600 text-sm mb-4">
+                에이디파트너스 센터는 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
+                전문적인 데이터를 기반으로 올바른 상품 최적화 서비스를
+                제공합니다.
               </p>
             </div>
           </div>

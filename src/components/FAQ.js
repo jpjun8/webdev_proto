@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/solid";
+import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/outline";
 
 const FAQItem = ({ question, answer }) => {
   const [isOpen, setIsOpen] = useState(false);

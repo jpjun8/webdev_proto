@@ -20,7 +20,7 @@ const AD = () => {
         <div className="h-auto flex flex-col ">
           {/* Banner */}
           <div className="bg-AD-CEO-banner bg-cover relative w-full min-h-96">
-            <div className="absolute top-0 left-0 w-full h-14 bg-black bg-opacity-30 leading-10 z-10"></div>
+            <div className="absolute top-0 left-0 w-full h-20 bg-black bg-opacity-30 leading-10 z-10"></div>
             <div className="absolute bottom-0 left-0 w-full h-1/3 bg-inherit bg-opacity-30 leading-10 backdrop-blur-lg z-5 content-center">
               <div className="mx-20">
                 <h1 className="text-6xl font-bold">CEO</h1>

@@ -67,12 +67,12 @@ const Accordion = () => {
 
       {/* Tracking Slider */}
       <div className="absolute right-32 top-0 h-full flex flex-col items-center">
-        <div className="relative w-1 h-full bg-gray-600">
+        <div className="relative w-2 h-5/6 bg-gray-600">
           {/* Slider */}
           <div
-            className="absolute w-4 h-4 bg-white rounded-full transform -translate-x-1/2 cursor-pointer transition-transform duration-300"
+            className="absolute w-6 h-6 bg-white rounded-full transform -translate-x-1/2 cursor-pointer transition-transform duration-300 inset-1"
             style={{
-              top: `${(sliderPosition / (items.length - 1)) * 100}%`,
+              top: `${sliderPosition ? (sliderPosition / (items.length - 1)) * 100 : -2}%`,
             }}
           ></div>
         </div>
