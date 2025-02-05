@@ -154,7 +154,7 @@ const Inquiry = () => {
             to="Form"
             smooth={true}
             duration={500}
-            className="p-20 bg-black backdrop-blur-lg bg-opacity-50 leading-10 text-2xl text-white border border-white"
+            className="p-20 bg-black backdrop-blur-lg bg-opacity-50 leading-10 text-2xl text-white border border-white cursor-pointer"
           >
             문의하기
           </Link>
