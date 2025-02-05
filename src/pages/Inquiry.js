@@ -1,5 +1,9 @@
 import React, { useEffect, useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
+import { Link, Element } from "react-scroll";
+
+// Images
+import sample from "../assets/samples/300x300.png";
 
 const Inquiry = () => {
   // Page Title
@@ -12,27 +16,27 @@ const Inquiry = () => {
     {
       id: 1,
       label: "체험단 마케팅",
-      image: "https://randomuser.me/api/portraits/men/1.jpg",
+      image: sample,
     },
     {
       id: 2,
       label: "플레이스 마케팅",
-      image: "https://randomuser.me/api/portraits/women/2.jpg",
+      image: sample,
     },
     {
       id: 3,
       label: "스토어 마케팅",
-      image: "https://randomuser.me/api/portraits/men/3.jpg",
+      image: sample,
     },
     {
       id: 4,
       label: "숏폼 마케팅",
-      image: "https://randomuser.me/api/portraits/women/4.jpg",
+      image: sample,
     },
     {
       id: 5,
       label: "퍼포먼스 마케팅",
-      image: "https://randomuser.me/api/portraits/men/5.jpg",
+      image: sample,
     },
   ];
 
@@ -114,149 +118,183 @@ const Inquiry = () => {
 
   return (
     // Background Wrapper Div
-    <div className="flex flex-col bg-AD-company-background bg-auto text-white min-h-screen">
+    <div className="font-pre flex flex-col bg-black text-white">
       {/* Banner */}
-      <div className="bg-red-700/75 my-32 mx-32 pt-12 pb-16 rounded-[24px]">
-        <h1 className="ml-24 text-7xl/loose font-bold">Inquiry</h1>
-        <blockquote className="ml-24 italic text-xl/loose">
-          Get in touch with us for personalized support
-        </blockquote>
-        <h2 className="ml-24 text-xl/loose">
-          효과적인 마케팅 솔루션을 찾고 계신가요?
-          <br />
-          지금 문의하셔서 맞춤형 서비스를 경험해 보세요
-        </h2>
+      <div className="relative w-full min-h-96">
+        <div className="absolute top-0 left-0 w-full h-20 bg-black bg-opacity-30 leading-10 z-10"></div>
+        <div className="absolute bottom-0 left-0 w-full h-1/3 bg-inherit bg-opacity-30 leading-10 backdrop-blur-lg z-5 content-center">
+          <div className="mx-20">
+            <h1 className="text-6xl font-bold">INQUIRY</h1>
+            <hr className="w-1/3 mt-3" />
+            <span className="text-xl">문의하기</span>
+          </div>
+        </div>
       </div>
 
-      {/* Inquiry Form */}
-      <form
-        ref={form}
-        onSubmit={handleSubmit}
-        className="shadow mx-4 text-white"
-      >
-        <h2 className="text-5xl font-bold text-center my-20">문의하기</h2>
-        <hr className="w-3/4 mx-auto border-t-2 border-gray-700 my-10" />
-
-        {/* 카테고리 선택 */}
-        <div className="grid grid-cols-5 gap-4">
-          {categories.map((category) => (
-            <div
-              key={category.id}
-              className="flex flex-col items-center text-center space-y-3"
-            >
-              <input
-                type="checkbox"
-                value={category.label}
-                checked={selectedOptions.includes(category.label)}
-                onChange={() => handleCheckboxChange(category.label)}
-                className="form-checkbox h-5 w-5"
-              />
-              <img
-                src={category.image}
-                alt={category.label}
-                className="w-32 h-32 object-cover rounded"
-              />
-
-              <span className="font-medium text-lg">{category.label}</span>
-            </div>
-          ))}
-        </div>
-
-        <hr className="w-3/4 mx-auto border-t-2 border-gray-300 my-10" />
-
-        {/* 브랜드, 담당자, 이메일, 연락처 */}
-        <div className="space-y-6 my-8 text-white">
-          {/* First Row */}
-          <div className="grid grid-cols-2 gap-4 items-center">
-            {/* 브랜드명 */}
-            <div className="flex p-4 items-center justify-center">
-              <label className="font-medium text-white text-3xl w-1/3">
-                브랜드명
-              </label>
-              <input
-                type="text"
-                name="brandName"
-                value={brandName}
-                onChange={(e) => setBrandName(e.target.value)}
-                placeholder="브랜드명을 입력해 주세요"
-                className="block bg-inherit text-xl w-2/3 border-b border-gray-300 focus:border-red-700 focus:ring-0 rounded-md p-2 outline-nonee"
-              />
-            </div>
-            {/* 담당자명 */}
-            <div className="flex p-4 items-center justify-center">
-              <label className="font-medium text-white text-3xl w-1/3">
-                담당자명
-              </label>
-              <input
-                type="text"
-                name="userName"
-                value={userName}
-                onChange={(e) => setUserName(e.target.value)}
-                placeholder="담당자명을 입력해 주세요"
-                className="block bg-inherit text-xl w-2/3 border-b border-gray-300 focus:border-red-700 focus:ring-0 rounded-md p-2 outline-nonee"
-              />
-            </div>
+      {/* Between */}
+      <div className="w-full h-auto content-center bg-city-image bg-[700px] text-black">
+        <div className="flex flex-row items-center justify-evenly mx-auto">
+          {/* quote */}
+          <div className="py-12 px-28 bg-black backdrop-blur-lg bg-opacity-50 leading-10 text-white space-y-6">
+            <p className="text-3xl">
+              급하신가요? 빨리 매출을 극대화 하고 싶으신가요?
+              <br />
+              그러면 나가셔도 좋습니다.
+            </p>
+            <p className="text-lg">
+              급할수록 천천히, 그리고 탄탄히, 무엇보다 짧은 기간 내에 이뤄낸
+              성과는 쉽게 무너지기 마련입니다.
+            </p>
+            <p className="text-xl">
+              제대로 알아보시고, 확실한 믿음을 가지고 동행하시길 권고 드립니다.
+            </p>
           </div>
-
-          {/* Second Row */}
-          <div className="grid grid-cols-2 gap-4 items-center">
-            {/* 이메일 */}
-            <div className="flex p-4 items-center justify-center">
-              <label className="font-medium text-white text-3xl w-1/3">
-                이메일
-              </label>
-              <input
-                type="email"
-                name="email"
-                value={email}
-                pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="이메일을 입력해 주세요"
-                className="block bg-inherit text-xl w-2/3 border-b border-gray-300 focus:border-red-700 focus:ring-0 rounded-md p-2 outline-nonee"
-              />
-            </div>
-            {/* 전화번호 */}
-            <div className="flex p-4 items-center justify-center">
-              <label className="font-medium text-white text-3xl w-1/3">
-                전화번호
-              </label>
-              <input
-                type="tel"
-                name="phoneNumber"
-                value={phoneNumber}
-                onChange={(e) => setPhoneNumber(e.target.value)}
-                pattern="^(01[0-9]|0[2-6][0-5]?)-?\d{3,4}-?\d{4}$"
-                placeholder="'-' 없이 숫자만 입력해 주세요"
-                className="block bg-inherit text-xl w-2/3 border-b border-gray-300 focus:border-red-700 focus:ring-0 rounded-md p-2 outline-nonee"
-              />
-            </div>
-          </div>
+          {/* to form */}
+          <Link
+            to="Form"
+            smooth={true}
+            duration={500}
+            className="p-20 bg-black backdrop-blur-lg bg-opacity-50 leading-10 text-2xl text-white border border-white"
+          >
+            문의하기
+          </Link>
         </div>
+      </div>
 
-        {/* 문의내용 */}
-        <div className="p-4">
-          <label className="block text-3xl">문의내용</label>
-          <textarea
-            name="message"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            className="mt-8 block w-full border border-gray-300 rounded-xl p-4 bg-gray-100 focus:border-black focus:ring-0 outline-none text-black"
-            placeholder=""
-            rows="6"
-          />
-        </div>
-
-        {/* Error Message */}
-        {error && <p className="text-red-500 text-sm my-4">{error}</p>}
-
-        {/* Submit Button */}
-        <button
-          type="submit"
-          className="m-4 bg-red-700 text-2xl text-white px-10 py-4 rounded-xl hover:bg-red-800"
+      <Element name="Form">
+        {/* Inquiry Form */}
+        <form
+          ref={form}
+          onSubmit={handleSubmit}
+          className="shadow mx-4 text-white"
         >
-          Submit
-        </button>
-      </form>
+          <h2 className="text-5xl font-bold text-center my-20">CONTACT</h2>
+          <hr className="w-3/4 mx-auto border-t-2 border-white my-10" />
+
+          {/* 카테고리 선택 */}
+          <p className="text-center text-2xl pb-10">CATEGORY</p>
+          <div className="grid grid-cols-5 w-3/4 mx-auto">
+            {categories.map((category) => (
+              <div
+                key={category.id}
+                className="flex flex-col items-center text-center space-y-3"
+              >
+                <input
+                  type="checkbox"
+                  value={category.label}
+                  checked={selectedOptions.includes(category.label)}
+                  onChange={() => handleCheckboxChange(category.label)}
+                  className="form-checkbox h-5 w-5"
+                />
+                <img
+                  src={category.image}
+                  alt={category.label}
+                  className="max-w-32 max-h-32 w-auto h-auto object-cover rounded"
+                />
+
+                <span className="font-medium text-lg">{category.label}</span>
+              </div>
+            ))}
+          </div>
+
+          <hr className="w-3/4 mx-auto border-t-2 border-gray-300 my-10" />
+
+          {/* 브랜드, 담당자, 이메일, 연락처 */}
+          <div className="space-y-6 my-8 text-white w-3/4 mx-auto">
+            {/* First Row */}
+            <div className="grid grid-cols-2 gap-4 items-center">
+              {/* 브랜드명 */}
+              <div className="flex p-4 items-center justify-center">
+                <label className="font-medium text-white text-xl w-1/3">
+                  브랜드명
+                </label>
+                <input
+                  type="text"
+                  name="brandName"
+                  value={brandName}
+                  onChange={(e) => setBrandName(e.target.value)}
+                  placeholder="브랜드명을 입력해 주세요"
+                  className="block bg-inherit text-lg w-2/3 border-b border-gray-300 focus:border-red-700 focus:ring-0 rounded-md p-2 outline-nonee"
+                />
+              </div>
+              {/* 담당자명 */}
+              <div className="flex p-4 items-center justify-center">
+                <label className="font-medium text-white text-xl w-1/3">
+                  담당자명
+                </label>
+                <input
+                  type="text"
+                  name="userName"
+                  value={userName}
+                  onChange={(e) => setUserName(e.target.value)}
+                  placeholder="담당자명을 입력해 주세요"
+                  className="block bg-inherit text-lg w-2/3 border-b border-gray-300 focus:border-red-700 focus:ring-0 rounded-md p-2 outline-nonee"
+                />
+              </div>
+            </div>
+
+            {/* Second Row */}
+            <div className="grid grid-cols-2 gap-4 items-center">
+              {/* 이메일 */}
+              <div className="flex p-4 items-center justify-center">
+                <label className="font-medium text-white text-xl w-1/3">
+                  이메일
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  value={email}
+                  pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="이메일을 입력해 주세요"
+                  className="block bg-inherit text-lg w-2/3 border-b border-gray-300 focus:border-red-700 focus:ring-0 rounded-md p-2 outline-nonee"
+                />
+              </div>
+              {/* 전화번호 */}
+              <div className="flex p-4 items-center justify-center">
+                <label className="font-medium text-white text-xl w-1/3">
+                  전화번호
+                </label>
+                <input
+                  type="tel"
+                  name="phoneNumber"
+                  value={phoneNumber}
+                  onChange={(e) => setPhoneNumber(e.target.value)}
+                  pattern="^(01[0-9]|0[2-6][0-5]?)-?\d{3,4}-?\d{4}$"
+                  placeholder="'-' 없이 숫자만 입력해 주세요"
+                  className="block bg-inherit text-lg w-2/3 border-b border-gray-300 focus:border-red-700 focus:ring-0 rounded-md p-2 outline-nonee"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* 문의내용 */}
+          <div className="p-4 w-3/4 mx-auto">
+            <label className="block text-xl">문의내용</label>
+            <textarea
+              name="message"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              className="mt-8 block w-full border border-gray-300 rounded-xl p-4 bg-gray-100 focus:border-black focus:ring-0 outline-none text-black"
+              placeholder=""
+              rows="6"
+            />
+          </div>
+
+          {/* Error Message */}
+          {error && <p className="text-red-500 text-sm my-4">{error}</p>}
+
+          {/* Submit Button */}
+          <div className="flex justify-center">
+            <button
+              type="submit"
+              className="m-4 bg-red-700 text-2xl text-white px-10 py-4 rounded-xl hover:bg-red-800"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </Element>
     </div>
   );
 };
