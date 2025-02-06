@@ -1,9 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { Link, Element } from "react-scroll";
-
-import PopupDom from "../components/PopupDom";
-import PopupPostCode from "../components/PopupPostCode";
+import Postcode from "react-daum-postcode";
 
 const Recruiting = () => {
   // Page Title
@@ -12,36 +10,41 @@ const Recruiting = () => {
   }, []);
 
   // EmailJS Handlings
-
-  const [selectedOptions, setSelectedOptions] = useState([]);
-
   const [userName, setUserName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [email, setEmail] = useState("");
   const [birthday, setBirthday] = useState("");
-  const [message, setMessage] = useState("");
   const [error, setError] = useState("");
+
+  // Address Functions
+  const [address, setAddress] = useState({
+    postcode: "", // 우편번호
+    address: "", // 기본주소
+    subaddress: "", // 상세주소 (유저가 입력)
+    extraAddress: "", // 참고항목
+  });
+
+  const [isPostcodeVisible, setPostcodeVisible] = useState(false);
+
+  const handlePostcodeComplete = (data) => {
+    setAddress({
+      postcode: data.zonecode, // 우편번호
+      address: data.address, // 기본주소
+      extraAddress: data.bname || "", // 참고항목
+    });
+    setPostcodeVisible(false); // close the postcode popup after selecting an address
+  };
+
+  // Function to close the postcode popup
+  const closePostcodePopup = () => {
+    setPostcodeVisible(false);
+  };
 
   const form = useRef();
 
-  // 체크박스 Handling
-  const handleCheckboxChange = (categoryLabel) => {
-    setSelectedOptions(
-      (prev) =>
-        prev.includes(categoryLabel)
-          ? prev.filter((label) => label !== categoryLabel) // Remove if already selected
-          : [...prev, categoryLabel] // Add if not selected
-    );
-  };
-
   const validateForm = () => {
-    if (!userName || !phoneNumber || !email || !birthday || !message) {
+    if (!userName || !phoneNumber || !email || !birthday || !address) {
       setError("Please fill all values.");
-      return false;
-    }
-
-    if (selectedOptions.length === 0) {
-      setError("Please select at least one option.");
       return false;
     }
     return true;
@@ -61,14 +64,13 @@ const Recruiting = () => {
       email,
       phoneNumber,
       birthday,
-      message,
-      selectedOptions: selectedOptions.join(", "),
+      address,
     };
 
     emailjs
       .send(
         process.env.REACT_APP_SERVICE_ID,
-        process.env.REACT_APP_TEMPLATE_ID,
+        process.env.REACT_APP_TEMPLATE_ID_RECRUITING,
         templateParams,
         process.env.REACT_APP_PUBLIC_KEY
       )
@@ -79,23 +81,16 @@ const Recruiting = () => {
         },
         (error) => {
           console.error("Error sending email:", error);
+          console.log(process.env.REACT_APP_PUBLIC_KEY);
+          console.log(process.env.REACT_APP_TEMPLATE_ID_RECRUITING);
+          console.log(process.env.REACT_APP_SERVICE_ID);
+          console.log(templateParams);
           alert("Failed to send inquiry. Please try again later.");
         }
       );
 
-    console.log("Selected Options:", selectedOptions);
-
     // Clears the form after submission
     window.location.reload();
-  };
-
-  // Postcode Popup Control
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const openPostCode = () => {
-    setIsPopupOpen(true);
-  };
-  const closePostCode = () => {
-    setIsPopupOpen(false);
   };
 
   return (
@@ -114,7 +109,7 @@ const Recruiting = () => {
 
       {/* Between */}
       <div className="w-full h-auto content-center bg-city-image bg-[700px] text-black">
-        <div className="flex flex-row items-center justify-evenly mx-auto">
+        <div className="flex flex-row mb-2 items-center justify-evenly mx-auto">
           {/* quote */}
           <div className="py-12 px-12 bg-black backdrop-blur-lg bg-opacity-50 leading-10 text-white space-y-6">
             <p className="text-3xl font-thin">WE ARE A</p>
@@ -146,7 +141,6 @@ const Recruiting = () => {
       </div>
 
       {/* Visual */}
-
       <Element name="Gasan">
         {/* Inquiry Form */}
         <form
@@ -220,7 +214,6 @@ const Recruiting = () => {
                   type="email"
                   name="email"
                   value={email}
-                  pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="이메일을 입력해 주세요"
                   className="block bg-inherit text-lg w-2/3 border-b border-gray-300 focus:border-red-700 focus:ring-0 rounded-md p-2 outline-nonee"
@@ -236,7 +229,6 @@ const Recruiting = () => {
                   name="birthday"
                   value={birthday}
                   onChange={(e) => setBirthday(e.target.value)}
-                  pattern="^(01[0-9]|0[2-6][0-5]?)-?\d{3,4}-?\d{4}$"
                   placeholder="'-' 없이 숫자만 입력해 주세요"
                   className="block bg-inherit text-lg w-2/3 border-b border-gray-300 focus:border-red-700 focus:ring-0 rounded-md p-2 outline-nonee"
                 />
@@ -244,39 +236,98 @@ const Recruiting = () => {
             </div>
           </div>
 
-          {/* 주소 */}
-          <div className="flex p-4 items-center">
-            <label className="font-medium text-white text-xl w-1/6">주소</label>
+          {/* 우편번호 */}
+          <div className="flex flex-row mb-2">
+            <div className="font-medium text-white text-xl p-4 basis-1/6">
+              주소
+            </div>
             <input
               type="text"
-              name="userName"
-              value={userName}
-              onChange={(e) => setUserName(e.target.value)}
-              placeholder="이름을 입력해 주세요"
-              className="block bg-inherit text-lg w-1/6 border-b border-gray-300 focus:border-red-700 focus:ring-0 rounded-md p-2 outline-nonee"
+              name="postcode"
+              value={address.postcode}
+              onChange={(e) =>
+                setAddress({ ...address, postcode: e.target.value })
+              }
+              placeholder="우편번호"
+              className="block bg-inherit text-lg w-1/6 border-b border-gray-300 focus:border-red-700 focus:ring-0 rounded-md p-2 outline-none"
+              readOnly
             />
-            <button type="button" onClick={openPostCode} className="ml-8">
+            <button
+              type="button"
+              onClick={() => setPostcodeVisible(true)}
+              className="ml-4 "
+            >
               우편번호 검색
             </button>
-            <div id="popupDom">
-              {isPopupOpen && (
-                <PopupDom>
-                  <PopupPostCode onClose={closePostCode} />
-                </PopupDom>
-              )}
-            </div>
+            {/* Postcode Modal Popup */}
+            {isPostcodeVisible && (
+              <>
+                {/* Modal Content */}
+                <div
+                  className="fixed z-60 inset-0 flex justify-center items-center"
+                  style={{ backdropFilter: "blur(5px)" }}
+                >
+                  <div className="bg-white p-6 rounded-lg shadow-lg w-96">
+                    <button
+                      className="absolute top-2 right-2 text-xl font-bold"
+                      onClick={{ closePostcodePopup }}
+                    >
+                      &times;
+                    </button>
+                    <Postcode
+                      onComplete={handlePostcodeComplete}
+                      style={{ width: "100%", height: "400px" }}
+                    />
+                  </div>
+                </div>
+              </>
+            )}
           </div>
 
-          {/* 문의내용 */}
-          <div className="p-4">
-            <label className="block text-xl">문의내용</label>
-            <textarea
-              name="message"
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              className="mt-8 block w-full border border-gray-300 rounded-xl p-4 bg-gray-100 focus:border-black focus:ring-0 outline-none text-black"
-              placeholder=""
-              rows="6"
+          {/* 기본주소 */}
+          <div className="flex flex-row mb-2">
+            <div className="p-4 basis-1/6"></div>
+            <input
+              type="text"
+              name="address"
+              value={address.address}
+              onChange={(e) =>
+                setAddress({ ...address, postcode: e.target.value })
+              }
+              placeholder="기본주소"
+              className="block bg-inherit w-1/2 text-lg border-b border-gray-300 focus:border-red-700 focus:ring-0 rounded-md p-2 outline-none"
+              readOnly
+            />
+          </div>
+
+          {/* 상세주소 */}
+          <div className="flex flex-row mb-2">
+            <div className="p-4 basis-1/6"></div>
+            <input
+              type="text"
+              name="subaddress"
+              value={address.subaddress}
+              onChange={(e) =>
+                setAddress({ ...address, subaddress: e.target.value })
+              }
+              placeholder="상세주소"
+              className="block bg-inherit w-1/2 text-lg border-b border-gray-300 focus:border-red-700 focus:ring-0 rounded-md p-2 outline-none"
+            />
+          </div>
+
+          {/* 참고항목 */}
+          <div className="flex flex-row mb-2">
+            <div className="p-4 basis-1/6"></div>
+            <input
+              type="text"
+              name="extraAddress"
+              value={address.extraAddress}
+              onChange={(e) =>
+                setAddress({ ...address, extraAddress: e.target.value })
+              }
+              placeholder="참고항목"
+              className="block bg-inherit w-1/2 text-lg border-b border-gray-300 focus:border-red-700 focus:ring-0 rounded-md p-2 outline-none"
+              readOnly
             />
           </div>
 
