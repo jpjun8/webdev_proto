@@ -136,7 +136,7 @@ const Recruiting = () => {
       </div>
 
       {/* Between */}
-      <div className="w-full h-auto content-center bg-city-image bg-[700px] text-black">
+      <div className="w-full h-auto content-center bg-city-image bg-cover text-black my-10">
         <div className="flex flex-row mb-2 items-center justify-evenly mx-auto">
           {/* quote */}
           <div className="py-12 px-12 bg-black backdrop-blur-lg bg-opacity-50 leading-10 text-white space-y-6">
