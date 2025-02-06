@@ -219,7 +219,7 @@ const Inquiry = () => {
                 value={brandName}
                 onChange={(e) => setBrandName(e.target.value)}
                 placeholder="브랜드명을 입력해 주세요"
-                className="block bg-inherit text-lg w-2/3 border-b border-gray-300 focus:border-red-700 focus:ring-0 rounded-md p-2 outline-nonee"
+                className="block bg-inherit text-lg w-2/3 border-b border-gray-300 focus:border-red-700 focus:ring-0 rounded-md p-2 outline-none"
               />
             </div>
             {/* 담당자명 */}
@@ -233,7 +233,7 @@ const Inquiry = () => {
                 value={userName}
                 onChange={(e) => setUserName(e.target.value)}
                 placeholder="담당자명을 입력해 주세요"
-                className="block bg-inherit text-lg w-2/3 border-b border-gray-300 focus:border-red-700 focus:ring-0 rounded-md p-2 outline-nonee"
+                className="block bg-inherit text-lg w-2/3 border-b border-gray-300 focus:border-red-700 focus:ring-0 rounded-md p-2 outline-none"
               />
             </div>
           </div>
@@ -251,7 +251,7 @@ const Inquiry = () => {
                 pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="이메일을 입력해 주세요"
-                className="block bg-inherit text-lg w-2/3 border-b border-gray-300 focus:border-red-700 focus:ring-0 rounded-md p-2 outline-nonee"
+                className="block bg-inherit text-lg w-2/3 border-b border-gray-300 focus:border-red-700 focus:ring-0 rounded-md p-2 outline-none"
               />
             </div>
             {/* 전화번호 */}
@@ -266,7 +266,7 @@ const Inquiry = () => {
                 onChange={(e) => setPhoneNumber(e.target.value)}
                 pattern="^(01[0-9]|0[2-6][0-5]?)-?\d{3,4}-?\d{4}$"
                 placeholder="'-' 없이 숫자만 입력해 주세요"
-                className="block bg-inherit text-lg w-2/3 border-b border-gray-300 focus:border-red-700 focus:ring-0 rounded-md p-2 outline-nonee"
+                className="block bg-inherit text-lg w-2/3 border-b border-gray-300 focus:border-red-700 focus:ring-0 rounded-md p-2 outline-none"
               />
             </div>
           </div>

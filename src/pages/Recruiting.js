@@ -10,19 +10,24 @@ const Recruiting = () => {
   }, []);
 
   // EmailJS Handlings
-  const [userName, setUserName] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [email, setEmail] = useState("");
-  const [birthday, setBirthday] = useState("");
-  const [error, setError] = useState("");
+  const [agreement, setAgreement] = useState(false); // 동의여부
+  const [userName, setUserName] = useState(""); // 이름
+  const [phoneNumber, setPhoneNumber] = useState(""); // 연락처
+  const [email, setEmail] = useState(""); // 이메일
+  const [birthday, setBirthday] = useState(""); // 생년월일
+  const [job, setJob] = useState(""); // 직종
+  const [skill, setSkill] = useState(""); //전문 기술
+  const [experience, setExperience] = useState(""); // 경력
+  const [education, setEducation] = useState(""); // 교육
+  const [error, setError] = useState(""); // 에러
 
   // Address Functions
   const [address, setAddress] = useState({
     postcode: "", // 우편번호
     address: "", // 기본주소
-    subaddress: "", // 상세주소 (유저가 입력)
     extraAddress: "", // 참고항목
   });
+  const [subaddress, setSubaddress] = useState(""); // 상세주소 (유저입력)
 
   const [isPostcodeVisible, setPostcodeVisible] = useState(false);
 
@@ -43,7 +48,19 @@ const Recruiting = () => {
   const form = useRef();
 
   const validateForm = () => {
-    if (!userName || !phoneNumber || !email || !birthday || !address) {
+    if (
+      !agreement ||
+      !userName ||
+      !phoneNumber ||
+      !email ||
+      !birthday ||
+      !address ||
+      !subaddress ||
+      !job ||
+      !skill ||
+      !experience ||
+      !education
+    ) {
       setError("Please fill all values.");
       return false;
     }
@@ -58,13 +75,26 @@ const Recruiting = () => {
       return;
     }
 
+    console.log("PK", process.env.REACT_APP_PUBLIC_KEY);
+    console.log("RECRUITING", process.env.REACT_APP_TEMPLATE_ID_RECRUITING);
+    console.log("INQUIRY", process.env.REACT_APP_TEMPLATE_ID_INQUIRY);
+    console.log("SERVICE ID", process.env.REACT_APP_SERVICE_ID);
+
     // Prepare data for Email
     const templateParams = {
+      agreement,
       userName,
       email,
       phoneNumber,
       birthday,
-      address,
+      postcode: address.postcode,
+      address: address.address,
+      detailedAddress: subaddress,
+      extraAddress: address.extraAddress,
+      job,
+      skill,
+      experience,
+      education,
     };
 
     emailjs
@@ -78,19 +108,17 @@ const Recruiting = () => {
         (response) => {
           console.log("Email sent successfully:", response);
           alert("Inquiry sent successfully!");
+          setTimeout(() => {
+            window.location.reload();
+          }, 500);
         },
         (error) => {
           console.error("Error sending email:", error);
-          console.log(process.env.REACT_APP_PUBLIC_KEY);
-          console.log(process.env.REACT_APP_TEMPLATE_ID_RECRUITING);
-          console.log(process.env.REACT_APP_SERVICE_ID);
-          console.log(templateParams);
           alert("Failed to send inquiry. Please try again later.");
         }
       );
 
-    // Clears the form after submission
-    window.location.reload();
+    console.log("Template Params: ", templateParams);
   };
 
   return (
@@ -98,7 +126,7 @@ const Recruiting = () => {
       {/* Banner */}
       <div className="relative w-full min-h-96">
         <div className="absolute top-0 left-0 w-full h-20 bg-black bg-opacity-30 leading-10 z-10"></div>
-        <div className="absolute bottom-0 left-0 w-full h-1/3 bg-inherit bg-opacity-30 leading-10 backdrop-blur-lg z-5 content-center">
+        <div className="absolute bottom-0 left-0 w-full h-1/3 bg-zinc-900 bg-opacity-30 leading-10 backdrop-blur-lg z-5 content-center">
           <div className="mx-20">
             <h1 className="text-6xl font-bold">RECRUITING</h1>
             <hr className="w-1/3 mt-3" />
@@ -146,7 +174,7 @@ const Recruiting = () => {
         <form
           ref={form}
           onSubmit={handleSubmit}
-          className="shadow mx-4 text-white w-3/4 mx-auto"
+          className="shadow mx-4 text-white w-3/4 mx-auto space-y-6"
         >
           <h2 className="text-5xl font-bold text-center my-20">
             가산본사 지원하기
@@ -162,7 +190,13 @@ const Recruiting = () => {
 
           {/* 동의서 체크박스 */}
           <div className="flex items-center justify-left">
-            <input type="checkbox" className="form-checkbox h-5 w-5" />
+            <input
+              type="checkbox"
+              name="agreement"
+              value={agreement}
+              onChange={(e) => setAgreement(!agreement)}
+              className="form-checkbox h-5 w-5"
+            />
             <span className="text-lg">
               &nbsp;&nbsp;개인정보처리방침안내의 내용에 동의합니다.
             </span>
@@ -183,7 +217,7 @@ const Recruiting = () => {
                   value={userName}
                   onChange={(e) => setUserName(e.target.value)}
                   placeholder="이름을 입력해 주세요"
-                  className="block bg-inherit text-lg w-2/3 border-b border-gray-300 focus:border-red-700 focus:ring-0 rounded-md p-2 outline-nonee"
+                  className="block bg-zinc-900 text-lg w-2/3 border-b border-gray-300 focus:border-red-700 focus:ring-0 rounded-md p-2 outline-none"
                 />
               </div>
               {/* 연락처 */}
@@ -198,7 +232,7 @@ const Recruiting = () => {
                   onChange={(e) => setPhoneNumber(e.target.value)}
                   pattern="^(01[0-9]|0[2-6][0-5]?)-?\d{3,4}-?\d{4}$"
                   placeholder="'-' 없이 숫자만 입력해 주세요"
-                  className="block bg-inherit text-lg w-2/3 border-b border-gray-300 focus:border-red-700 focus:ring-0 rounded-md p-2 outline-nonee"
+                  className="block bg-zinc-900 text-lg w-2/3 border-b border-gray-300 focus:border-red-700 focus:ring-0 rounded-md p-2 outline-none"
                 />
               </div>
             </div>
@@ -216,7 +250,7 @@ const Recruiting = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="이메일을 입력해 주세요"
-                  className="block bg-inherit text-lg w-2/3 border-b border-gray-300 focus:border-red-700 focus:ring-0 rounded-md p-2 outline-nonee"
+                  className="block bg-zinc-900 text-lg w-2/3 border-b border-gray-300 focus:border-red-700 focus:ring-0 rounded-md p-2 outline-none"
                 />
               </div>
               {/* 생년월일 */}
@@ -229,15 +263,14 @@ const Recruiting = () => {
                   name="birthday"
                   value={birthday}
                   onChange={(e) => setBirthday(e.target.value)}
-                  placeholder="'-' 없이 숫자만 입력해 주세요"
-                  className="block bg-inherit text-lg w-2/3 border-b border-gray-300 focus:border-red-700 focus:ring-0 rounded-md p-2 outline-nonee"
+                  className="block bg-zinc-900 text-lg w-2/3 border-b border-gray-300 focus:border-red-700 focus:ring-0 rounded-md p-2 outline-none"
                 />
               </div>
             </div>
           </div>
 
           {/* 우편번호 */}
-          <div className="flex flex-row mb-2">
+          <div className="flex flex-row mb-4">
             <div className="font-medium text-white text-xl p-4 basis-1/6">
               주소
             </div>
@@ -249,7 +282,7 @@ const Recruiting = () => {
                 setAddress({ ...address, postcode: e.target.value })
               }
               placeholder="우편번호"
-              className="block bg-inherit text-lg w-1/6 border-b border-gray-300 focus:border-red-700 focus:ring-0 rounded-md p-2 outline-none"
+              className="block bg-zinc-900 text-lg w-1/6 border-b border-gray-300 focus:border-red-700 focus:ring-0 rounded-md p-2 outline-none"
               readOnly
             />
             <button
@@ -285,38 +318,36 @@ const Recruiting = () => {
           </div>
 
           {/* 기본주소 */}
-          <div className="flex flex-row mb-2">
+          <div className="flex flex-row mb-4">
             <div className="p-4 basis-1/6"></div>
             <input
               type="text"
               name="address"
               value={address.address}
               onChange={(e) =>
-                setAddress({ ...address, postcode: e.target.value })
+                setAddress({ ...address, address: e.target.value })
               }
               placeholder="기본주소"
-              className="block bg-inherit w-1/2 text-lg border-b border-gray-300 focus:border-red-700 focus:ring-0 rounded-md p-2 outline-none"
+              className="block bg-zinc-900 w-1/2 text-lg border-b border-gray-300 focus:border-red-700 focus:ring-0 rounded-md p-2 outline-none"
               readOnly
             />
           </div>
 
-          {/* 상세주소 */}
-          <div className="flex flex-row mb-2">
+          {/* 상세주소: 따로 뺌 */}
+          <div className="flex flex-row mb-4">
             <div className="p-4 basis-1/6"></div>
             <input
               type="text"
               name="subaddress"
-              value={address.subaddress}
-              onChange={(e) =>
-                setAddress({ ...address, subaddress: e.target.value })
-              }
+              value={subaddress}
+              onChange={(e) => setSubaddress(e.target.value)}
               placeholder="상세주소"
-              className="block bg-inherit w-1/2 text-lg border-b border-gray-300 focus:border-red-700 focus:ring-0 rounded-md p-2 outline-none"
+              className="block bg-zinc-900 w-1/2 text-lg border-b border-gray-300 focus:border-red-700 focus:ring-0 rounded-md p-2 outline-none"
             />
           </div>
 
           {/* 참고항목 */}
-          <div className="flex flex-row mb-2">
+          <div className="flex flex-row mb-4">
             <div className="p-4 basis-1/6"></div>
             <input
               type="text"
@@ -326,8 +357,64 @@ const Recruiting = () => {
                 setAddress({ ...address, extraAddress: e.target.value })
               }
               placeholder="참고항목"
-              className="block bg-inherit w-1/2 text-lg border-b border-gray-300 focus:border-red-700 focus:ring-0 rounded-md p-2 outline-none"
+              className="block bg-zinc-900 w-1/2 text-lg border-b border-gray-300 focus:border-red-700 focus:ring-0 rounded-md p-2 outline-none"
               readOnly
+            />
+          </div>
+
+          {/* 직종 */}
+          <div className="flex flex-row">
+            <div className="font-medium text-white text-xl p-4 basis-1/6">
+              직종
+            </div>
+            <input
+              type="text"
+              name="job"
+              value={job}
+              onChange={(e) => setJob(e.target.value)}
+              className="block bg-zinc-900 w-3/4 text-lg border-b border-gray-300 focus:border-red-700 focus:ring-0 rounded-md p-2 outline-none"
+            />
+          </div>
+
+          {/* 전문 기술 */}
+          <div className="flex flex-row">
+            <div className="font-medium text-white text-xl p-4 basis-1/6">
+              전문 기술
+            </div>
+            <input
+              type="text"
+              name="skill"
+              value={skill}
+              onChange={(e) => setSkill(e.target.value)}
+              className="block bg-zinc-900 w-3/4 text-lg border-b border-gray-300 focus:border-red-700 focus:ring-0 rounded-md p-2 outline-none"
+            />
+          </div>
+
+          {/* 경력 */}
+          <div className="flex flex-row">
+            <div className="font-medium text-white text-xl p-4 basis-1/6">
+              경력
+            </div>
+            <input
+              type="text"
+              name="experience"
+              value={experience}
+              onChange={(e) => setExperience(e.target.value)}
+              className="block bg-zinc-900 w-3/4 text-lg border-b border-gray-300 focus:border-red-700 focus:ring-0 rounded-md p-2 outline-none"
+            />
+          </div>
+
+          {/* 교육 */}
+          <div className="flex flex-row">
+            <div className="font-medium text-white text-xl p-4 basis-1/6">
+              교육
+            </div>
+            <input
+              type="text"
+              name="education"
+              value={education}
+              onChange={(e) => setEducation(e.target.value)}
+              className="block bg-zinc-900 w-3/4 text-lg border-b border-gray-300 focus:border-red-700 focus:ring-0 rounded-md p-2 outline-none"
             />
           </div>
 
