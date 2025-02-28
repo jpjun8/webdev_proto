@@ -30,7 +30,7 @@ const Solution = () => {
           <div className="mx-20">
             <h1 className="text-6xl font-bold">Solution</h1>
             <hr className="w-1/3 mt-3" />
-            <span className="text-xl">에이디파트너스센터 솔루션 소개</span>
+            <span className="text-xl">디움 코퍼레이션 솔루션 소개</span>
           </div>
         </div>
         <section
@@ -123,7 +123,7 @@ const Solution = () => {
                 Professional Consulting aligned with SEO Guideline
               </h3>
               <p className="text-gray-600 text-sm mb-4">
-                에이디파트너스 센터는 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
+                디움 코퍼레이션은 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
                 전문적인 데이터를 기반으로 올바른 상품 최적화 서비스를
                 제공합니다.
               </p>
@@ -146,7 +146,7 @@ const Solution = () => {
                 Real Customers Influx
               </h3>
               <p className="text-gray-600 text-sm mb-4">
-                에이디파트너스 센터는 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
+                디움 코퍼레이션은 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
                 전문적인 데이터를 기반으로 올바른 상품 최적화 서비스를
                 제공합니다.
               </p>
@@ -167,7 +167,7 @@ const Solution = () => {
                 Zero Complaints
               </h3>
               <p className="text-gray-600 text-sm mb-4">
-                에이디파트너스 센터는 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
+                디움 코퍼레이션은 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
                 전문적인 데이터를 기반으로 올바른 상품 최적화 서비스를
                 제공합니다.
               </p>
@@ -203,7 +203,7 @@ const Solution = () => {
                 Professional Consulting aligned with SEO Guideline
               </h3>
               <p className="text-gray-600 text-sm mb-4">
-                에이디파트너스 센터는 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
+                디움 코퍼레이션은 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
                 전문적인 데이터를 기반으로 올바른 상품 최적화 서비스를
                 제공합니다.
               </p>
@@ -226,7 +226,7 @@ const Solution = () => {
                 Real Customers Influx
               </h3>
               <p className="text-gray-600 text-sm mb-4">
-                에이디파트너스 센터는 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
+                디움 코퍼레이션은 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
                 전문적인 데이터를 기반으로 올바른 상품 최적화 서비스를
                 제공합니다.
               </p>
@@ -247,7 +247,7 @@ const Solution = () => {
                 Zero Complaints
               </h3>
               <p className="text-gray-600 text-sm mb-4">
-                에이디파트너스 센터는 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
+                디움 코퍼레이션은 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
                 전문적인 데이터를 기반으로 올바른 상품 최적화 서비스를
                 제공합니다.
               </p>
@@ -286,7 +286,7 @@ const Solution = () => {
                 Professional Consulting aligned with SEO Guideline
               </h3>
               <p className="text-gray-600 text-sm mb-4">
-                에이디파트너스 센터는 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
+                디움 코퍼레이션은 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
                 전문적인 데이터를 기반으로 올바른 상품 최적화 서비스를
                 제공합니다.
               </p>
@@ -309,7 +309,7 @@ const Solution = () => {
                 Real Customers Influx
               </h3>
               <p className="text-gray-600 text-sm mb-4">
-                에이디파트너스 센터는 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
+                디움 코퍼레이션은 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
                 전문적인 데이터를 기반으로 올바른 상품 최적화 서비스를
                 제공합니다.
               </p>
@@ -330,7 +330,7 @@ const Solution = () => {
                 Zero Complaints
               </h3>
               <p className="text-gray-600 text-sm mb-4">
-                에이디파트너스 센터는 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
+                디움 코퍼레이션은 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
                 전문적인 데이터를 기반으로 올바른 상품 최적화 서비스를
                 제공합니다.
               </p>
@@ -366,7 +366,7 @@ const Solution = () => {
                 Professional Consulting aligned with SEO Guideline
               </h3>
               <p className="text-gray-600 text-sm mb-4">
-                에이디파트너스 센터는 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
+                디움 코퍼레이션은 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
                 전문적인 데이터를 기반으로 올바른 상품 최적화 서비스를
                 제공합니다.
               </p>
@@ -389,7 +389,7 @@ const Solution = () => {
                 Real Customers Influx
               </h3>
               <p className="text-gray-600 text-sm mb-4">
-                에이디파트너스 센터는 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
+                디움 코퍼레이션은 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
                 전문적인 데이터를 기반으로 올바른 상품 최적화 서비스를
                 제공합니다.
               </p>
@@ -410,7 +410,7 @@ const Solution = () => {
                 Zero Complaints
               </h3>
               <p className="text-gray-600 text-sm mb-4">
-                에이디파트너스 센터는 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
+                디움 코퍼레이션은 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
                 전문적인 데이터를 기반으로 올바른 상품 최적화 서비스를
                 제공합니다.
               </p>
@@ -449,7 +449,7 @@ const Solution = () => {
                 Professional Consulting aligned with SEO Guideline
               </h3>
               <p className="text-gray-600 text-sm mb-4">
-                에이디파트너스 센터는 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
+                디움 코퍼레이션은 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
                 전문적인 데이터를 기반으로 올바른 상품 최적화 서비스를
                 제공합니다.
               </p>
@@ -472,7 +472,7 @@ const Solution = () => {
                 Real Customers Influx
               </h3>
               <p className="text-gray-600 text-sm mb-4">
-                에이디파트너스 센터는 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
+                디움 코퍼레이션은 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
                 전문적인 데이터를 기반으로 올바른 상품 최적화 서비스를
                 제공합니다.
               </p>
@@ -493,7 +493,7 @@ const Solution = () => {
                 Zero Complaints
               </h3>
               <p className="text-gray-600 text-sm mb-4">
-                에이디파트너스 센터는 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
+                디움 코퍼레이션은 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
                 전문적인 데이터를 기반으로 올바른 상품 최적화 서비스를
                 제공합니다.
               </p>
@@ -530,7 +530,7 @@ const Solution = () => {
                 Professional Consulting aligned with SEO Guideline
               </h3>
               <p className="text-gray-600 text-sm mb-4">
-                에이디파트너스 센터는 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
+                디움 코퍼레이션은 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
                 전문적인 데이터를 기반으로 올바른 상품 최적화 서비스를
                 제공합니다.
               </p>
@@ -553,7 +553,7 @@ const Solution = () => {
                 Real Customers Influx
               </h3>
               <p className="text-gray-600 text-sm mb-4">
-                에이디파트너스 센터는 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
+                디움 코퍼레이션은 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
                 전문적인 데이터를 기반으로 올바른 상품 최적화 서비스를
                 제공합니다.
               </p>
@@ -574,7 +574,7 @@ const Solution = () => {
                 Zero Complaints
               </h3>
               <p className="text-gray-600 text-sm mb-4">
-                에이디파트너스 센터는 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
+                디움 코퍼레이션은 네이버 SEO(검색엔진최적화)GUIDELINE에 맞춘
                 전문적인 데이터를 기반으로 올바른 상품 최적화 서비스를
                 제공합니다.
               </p>

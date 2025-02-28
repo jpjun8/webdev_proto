@@ -67,7 +67,7 @@ const Home = () => {
         <span className="text-3xl font-bold mx-24">성공사례</span>
         <hr className="mx-24 mt-3 w-1/3 border-black" />
         <p className="mx-24 mt-4 text-lg">
-          에이디파트너스를 만나고 삶이 달라졌습니다.
+          디움 코퍼레이션을 만나고 삶이 달라졌습니다.
         </p>
 
         {/* 이미지 + 사례 */}

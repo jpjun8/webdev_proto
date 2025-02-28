@@ -4,6 +4,9 @@ import useScrollToHash from "../components/useScrollToHash";
 // Icons
 import { IoChevronBack, IoChevronForward } from "react-icons/io5";
 
+// Images
+import sampleImg from "../assets/samples/300x300.png";
+
 const Reference = () => {
   // Page Title
   useEffect(() => {
@@ -46,10 +49,10 @@ const Reference = () => {
       </div>
 
       {/* Store */}
-      <section id="store" className="my-12 mx-12">
+      <section id="store" className="my-12 mx-12 text-black">
         <div className="flex justify-center items-center">
           <div
-            className="grid grid-cols-4 w-full h-full grid-rows-2 space-x-1"
+            className="grid grid-cols-4 w-full h-full grid-rows-2 shadow-lg"
             style={{
               gridTemplateColumns: `1.5fr ${
                 activeColumns[0] === 0 ? "2fr" : "1fr"
@@ -61,19 +64,19 @@ const Reference = () => {
           >
             {/* First column spanning both rows */}
             <div className="bg-gray-300 row-span-2 p-6 shadow-lg">
-              <div className="text-left text-black">
+              <div className="relative text-left text-black">
                 {/* Header */}
-                <div className="font-bold text-xl mb-20">Reference</div>
+                <div className="text-lg mb-20">Reference</div>
                 {/* Title */}
-                <div className="text-4xl mt-4 mb-6 border-b-2 border-gray-500">
+                <div className="font-bold text-5xl mt-4 mb-4 border-b-2 border-gray-500">
                   Store
                 </div>
                 {/* Subtitle */}
-                <div className="text-lg text-gray-700 mt-2 mb-40">
-                  Store 성공사례를 소개합니다.
+                <div className="text-lg text-gray-700 mt-2">
+                  &nbsp;Store 성공사례를 소개합니다.
                 </div>
                 {/* Navigation Chevrons */}
-                <div className="flex justify-between mt-4">
+                <div className="absolute bottom-0 right-4 flex justify-end">
                   <button onClick={() => handleChevronClick(0, "left")}>
                     <IoChevronBack size={30} />
                   </button>
@@ -86,62 +89,143 @@ const Reference = () => {
 
             {/* Second to Fourth columns (A, B, C), hidden D */}
             <div
-              className={`flex flex-col row-span-2 h-full ease-in-out shadow-lg`}
+              className="flex flex-col row-span-2 h-full ease-in-out shadow-lg"
+              style={{
+                boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.1)", // Outer shadow for depth
+              }}
             >
-              <div className="h-full bg-blue-300">A - D</div>
-              <div className="h-full bg-blue-400">A - E</div>
+              {/* Top part */}
+              <div
+                className="flex-1 bg-snow p-6"
+                style={{ boxShadow: "inset 4px 4px 8px rgba(0, 0, 0, 0.1)" }}
+              >
+                {/* Header */}
+                <div className="text-md">성공사례</div>
+                <div className="text-3xl font-bold">A</div>
+                {/* Description */}
+                <div className="mt-72">
+                  <div>성공사례 A에 대한 내용 추가</div>
+                  <div>협업 회사 이름</div>
+                </div>
+              </div>
+
+              {/* Bottom part */}
+              <div
+                className="flex-1 bg-blue-400"
+                style={{ boxShadow: "inset 4px 4px 8px rgba(0, 0, 0, 0.1)" }}
+              >
+                <img
+                  src={sampleImg}
+                  alt="A - E"
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
 
             <div
-              className={`flex flex-col row-span-2 h-full ease-in-out shadow-lg`}
+              className="flex flex-col row-span-2 h-full ease-in-out shadow-lg"
+              style={{
+                boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.1)", // Outer shadow for depth
+              }}
             >
-              <div className="h-full bg-green-300">B - D</div>
-              <div className="h-full bg-green-400">B - E</div>
+              {/* Top part */}
+              <div
+                className="flex-1 bg-gainsborough p-6"
+                style={{ boxShadow: "inset 4px 4px 8px rgba(0, 0, 0, 0.1)" }}
+              >
+                {/* Header */}
+                <div className="text-md">성공사례</div>
+                <div className="text-3xl font-bold">B</div>
+                {/* Description */}
+                <div className="mt-72">
+                  <div>성공사례 B에 대한 내용 추가</div>
+                  <div>협업 회사 이름</div>
+                </div>
+              </div>
+
+              {/* Bottom part */}
+              <div
+                className="flex-1 bg-blue-400"
+                style={{ boxShadow: "inset 4px 4px 8px rgba(0, 0, 0, 0.1)" }}
+              >
+                <img
+                  src={sampleImg}
+                  alt="A - E"
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
 
             <div
-              className={`flex flex-col row-span-2 h-full ease-in-out shadow-lg`}
+              className="flex flex-col row-span-2 h-full ease-in-out shadow-lg"
+              style={{
+                boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.1)", // Outer shadow for depth
+              }}
             >
-              <div className="h-full bg-red-300">C - D</div>
-              <div className="h-full bg-red-400">C - E</div>
+              {/* Top part */}
+              <div
+                className="flex-1 bg-snow p-6"
+                style={{ boxShadow: "inset 4px 4px 8px rgba(0, 0, 0, 0.1)" }}
+              >
+                {/* Header */}
+                <div className="text-md">성공사례</div>
+                <div className="text-3xl font-bold">C</div>
+                {/* Description */}
+                <div className="mt-72">
+                  <div>성공사례 C에 대한 내용 추가</div>
+                  <div>협업 회사 이름</div>
+                </div>
+              </div>
+
+              {/* Bottom part */}
+              <div
+                className="flex-1 bg-blue-400"
+                style={{ boxShadow: "inset 4px 4px 8px rgba(0, 0, 0, 0.1)" }}
+              >
+                <img
+                  src={sampleImg}
+                  alt="A - E"
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Place */}
-      <section id="place" className="my-12 mx-12">
+      <section id="place" className="my-12 mx-12 text-black">
         <div className="flex justify-center items-center">
           <div
-            className="grid grid-cols-4 w-full h-full grid-rows-2 space-x-1"
+            className="grid grid-cols-4 w-full h-full grid-rows-2 shadow-lg"
             style={{
               gridTemplateColumns: `1.5fr ${
-                activeColumns[1] === 0 ? "2fr" : "1fr"
-              } ${activeColumns[1] === 1 ? "2fr" : "1fr"} ${
-                activeColumns[1] === 2 ? "2fr" : "1fr"
+                activeColumns[0] === 0 ? "2fr" : "1fr"
+              } ${activeColumns[0] === 1 ? "2fr" : "1fr"} ${
+                activeColumns[0] === 2 ? "2fr" : "1fr"
               }`,
               transition: "grid-template-columns 0.5s ease-in-out",
             }}
           >
             {/* First column spanning both rows */}
             <div className="bg-gray-300 row-span-2 p-6 shadow-lg">
-              <div className="text-left text-black">
+              <div className="relative text-left text-black">
                 {/* Header */}
-                <div className="font-bold text-xl mb-20">Reference</div>
+                <div className="text-lg mb-20">Reference</div>
                 {/* Title */}
-                <div className="text-4xl mt-4 mb-6 border-b-2 border-gray-500">
+                <div className="font-bold text-5xl mt-4 mb-4 border-b-2 border-gray-500">
                   Place
                 </div>
                 {/* Subtitle */}
-                <div className="text-lg text-gray-700 mt-2 mb-40">
-                  Place 성공사례를 소개합니다.
+                <div className="text-lg text-gray-700 mt-2">
+                  &nbsp;Place 성공사례를 소개합니다.
                 </div>
                 {/* Navigation Chevrons */}
-                <div className="flex justify-between mt-4">
-                  <button onClick={() => handleChevronClick(1, "left")}>
+                <div className="absolute bottom-0 right-4 flex justify-end">
+                  <button onClick={() => handleChevronClick(0, "left")}>
                     <IoChevronBack size={30} />
                   </button>
-                  <button onClick={() => handleChevronClick(1, "right")}>
+                  <button onClick={() => handleChevronClick(0, "right")}>
                     <IoChevronForward size={30} />
                   </button>
                 </div>
@@ -150,62 +234,143 @@ const Reference = () => {
 
             {/* Second to Fourth columns (A, B, C), hidden D */}
             <div
-              className={`flex flex-col row-span-2 h-full ease-in-out shadow-lg`}
+              className="flex flex-col row-span-2 h-full ease-in-out shadow-lg"
+              style={{
+                boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.1)", // Outer shadow for depth
+              }}
             >
-              <div className="h-full bg-blue-300">A - D</div>
-              <div className="h-full bg-blue-400">A - E</div>
+              {/* Top part */}
+              <div
+                className="flex-1 bg-snow p-6"
+                style={{ boxShadow: "inset 4px 4px 8px rgba(0, 0, 0, 0.1)" }}
+              >
+                {/* Header */}
+                <div className="text-md">성공사례</div>
+                <div className="text-3xl font-bold">A</div>
+                {/* Description */}
+                <div className="mt-72">
+                  <div>성공사례 A에 대한 내용 추가</div>
+                  <div>협업 회사 이름</div>
+                </div>
+              </div>
+
+              {/* Bottom part */}
+              <div
+                className="flex-1 bg-blue-400"
+                style={{ boxShadow: "inset 4px 4px 8px rgba(0, 0, 0, 0.1)" }}
+              >
+                <img
+                  src={sampleImg}
+                  alt="A - E"
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
 
             <div
-              className={`flex flex-col row-span-2 h-full ease-in-out shadow-lg`}
+              className="flex flex-col row-span-2 h-full ease-in-out shadow-lg"
+              style={{
+                boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.1)", // Outer shadow for depth
+              }}
             >
-              <div className="h-full bg-green-300">B - D</div>
-              <div className="h-full bg-green-400">B - E</div>
+              {/* Top part */}
+              <div
+                className="flex-1 bg-gainsborough p-6"
+                style={{ boxShadow: "inset 4px 4px 8px rgba(0, 0, 0, 0.1)" }}
+              >
+                {/* Header */}
+                <div className="text-md">성공사례</div>
+                <div className="text-3xl font-bold">B</div>
+                {/* Description */}
+                <div className="mt-72">
+                  <div>성공사례 B에 대한 내용 추가</div>
+                  <div>협업 회사 이름</div>
+                </div>
+              </div>
+
+              {/* Bottom part */}
+              <div
+                className="flex-1 bg-blue-400"
+                style={{ boxShadow: "inset 4px 4px 8px rgba(0, 0, 0, 0.1)" }}
+              >
+                <img
+                  src={sampleImg}
+                  alt="A - E"
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
 
             <div
-              className={`flex flex-col row-span-2 h-full ease-in-out shadow-lg`}
+              className="flex flex-col row-span-2 h-full ease-in-out shadow-lg"
+              style={{
+                boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.1)", // Outer shadow for depth
+              }}
             >
-              <div className="h-full bg-red-300">C - D</div>
-              <div className="h-full bg-red-400">C - E</div>
+              {/* Top part */}
+              <div
+                className="flex-1 bg-snow p-6"
+                style={{ boxShadow: "inset 4px 4px 8px rgba(0, 0, 0, 0.1)" }}
+              >
+                {/* Header */}
+                <div className="text-md">성공사례</div>
+                <div className="text-3xl font-bold">C</div>
+                {/* Description */}
+                <div className="mt-72">
+                  <div>성공사례 C에 대한 내용 추가</div>
+                  <div>협업 회사 이름</div>
+                </div>
+              </div>
+
+              {/* Bottom part */}
+              <div
+                className="flex-1 bg-blue-400"
+                style={{ boxShadow: "inset 4px 4px 8px rgba(0, 0, 0, 0.1)" }}
+              >
+                <img
+                  src={sampleImg}
+                  alt="A - E"
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Others */}
-      <section id="others" className="my-12 mx-12">
+      <section id="others" className="my-12 mx-12 text-black">
         <div className="flex justify-center items-center">
           <div
-            className="grid grid-cols-4 w-full h-full grid-rows-2 space-x-1"
+            className="grid grid-cols-4 w-full h-full grid-rows-2 shadow-lg"
             style={{
               gridTemplateColumns: `1.5fr ${
-                activeColumns[2] === 0 ? "2fr" : "1fr"
-              } ${activeColumns[2] === 1 ? "2fr" : "1fr"} ${
-                activeColumns[2] === 2 ? "2fr" : "1fr"
+                activeColumns[0] === 0 ? "2fr" : "1fr"
+              } ${activeColumns[0] === 1 ? "2fr" : "1fr"} ${
+                activeColumns[0] === 2 ? "2fr" : "1fr"
               }`,
               transition: "grid-template-columns 0.5s ease-in-out",
             }}
           >
             {/* First column spanning both rows */}
             <div className="bg-gray-300 row-span-2 p-6 shadow-lg">
-              <div className="text-left text-black">
+              <div className="relative text-left text-black">
                 {/* Header */}
-                <div className="font-bold text-xl mb-20">Reference</div>
+                <div className="text-lg mb-20">Reference</div>
                 {/* Title */}
-                <div className="text-4xl mt-4 mb-6 border-b-2 border-gray-500">
+                <div className="font-bold text-5xl mt-4 mb-4 border-b-2 border-gray-500">
                   Others
                 </div>
                 {/* Subtitle */}
-                <div className="text-lg text-gray-700 mt-2 mb-40">
-                  Others 성공사례를 소개합니다.
+                <div className="text-lg text-gray-700 mt-2">
+                  &nbsp;Others 성공사례를 소개합니다.
                 </div>
                 {/* Navigation Chevrons */}
-                <div className="flex justify-between mt-4">
-                  <button onClick={() => handleChevronClick(2, "left")}>
+                <div className="absolute bottom-0 right-4 flex justify-end">
+                  <button onClick={() => handleChevronClick(0, "left")}>
                     <IoChevronBack size={30} />
                   </button>
-                  <button onClick={() => handleChevronClick(2, "right")}>
+                  <button onClick={() => handleChevronClick(0, "right")}>
                     <IoChevronForward size={30} />
                   </button>
                 </div>
@@ -214,24 +379,105 @@ const Reference = () => {
 
             {/* Second to Fourth columns (A, B, C), hidden D */}
             <div
-              className={`flex flex-col row-span-2 h-full ease-in-out shadow-lg`}
+              className="flex flex-col row-span-2 h-full ease-in-out shadow-lg"
+              style={{
+                boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.1)", // Outer shadow for depth
+              }}
             >
-              <div className="h-full bg-blue-300">A - D</div>
-              <div className="h-full bg-blue-400">A - E</div>
+              {/* Top part */}
+              <div
+                className="flex-1 bg-snow p-6"
+                style={{ boxShadow: "inset 4px 4px 8px rgba(0, 0, 0, 0.1)" }}
+              >
+                {/* Header */}
+                <div className="text-md">성공사례</div>
+                <div className="text-3xl font-bold">A</div>
+                {/* Description */}
+                <div className="mt-72">
+                  <div>성공사례 A에 대한 내용 추가</div>
+                  <div>협업 회사 이름</div>
+                </div>
+              </div>
+
+              {/* Bottom part */}
+              <div
+                className="flex-1 bg-blue-400"
+                style={{ boxShadow: "inset 4px 4px 8px rgba(0, 0, 0, 0.1)" }}
+              >
+                <img
+                  src={sampleImg}
+                  alt="A - E"
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
 
             <div
-              className={`flex flex-col row-span-2 h-full ease-in-out shadow-lg`}
+              className="flex flex-col row-span-2 h-full ease-in-out shadow-lg"
+              style={{
+                boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.1)", // Outer shadow for depth
+              }}
             >
-              <div className="h-full bg-green-300">B - D</div>
-              <div className="h-full bg-green-400">B - E</div>
+              {/* Top part */}
+              <div
+                className="flex-1 bg-gainsborough p-6"
+                style={{ boxShadow: "inset 4px 4px 8px rgba(0, 0, 0, 0.1)" }}
+              >
+                {/* Header */}
+                <div className="text-md">성공사례</div>
+                <div className="text-3xl font-bold">B</div>
+                {/* Description */}
+                <div className="mt-72">
+                  <div>성공사례 B에 대한 내용 추가</div>
+                  <div>협업 회사 이름</div>
+                </div>
+              </div>
+
+              {/* Bottom part */}
+              <div
+                className="flex-1 bg-blue-400"
+                style={{ boxShadow: "inset 4px 4px 8px rgba(0, 0, 0, 0.1)" }}
+              >
+                <img
+                  src={sampleImg}
+                  alt="A - E"
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
 
             <div
-              className={`flex flex-col row-span-2 h-full ease-in-out shadow-lg`}
+              className="flex flex-col row-span-2 h-full ease-in-out shadow-lg"
+              style={{
+                boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.1)", // Outer shadow for depth
+              }}
             >
-              <div className="h-full bg-red-300">C - D</div>
-              <div className="h-full bg-red-400">C - E</div>
+              {/* Top part */}
+              <div
+                className="flex-1 bg-snow p-6"
+                style={{ boxShadow: "inset 4px 4px 8px rgba(0, 0, 0, 0.1)" }}
+              >
+                {/* Header */}
+                <div className="text-md">성공사례</div>
+                <div className="text-3xl font-bold">C</div>
+                {/* Description */}
+                <div className="mt-72">
+                  <div>성공사례 C에 대한 내용 추가</div>
+                  <div>협업 회사 이름</div>
+                </div>
+              </div>
+
+              {/* Bottom part */}
+              <div
+                className="flex-1 bg-blue-400"
+                style={{ boxShadow: "inset 4px 4px 8px rgba(0, 0, 0, 0.1)" }}
+              >
+                <img
+                  src={sampleImg}
+                  alt="A - E"
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>

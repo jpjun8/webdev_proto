@@ -25,7 +25,7 @@ const AD = () => {
               <div className="mx-20">
                 <h1 className="text-6xl font-bold">CEO</h1>
                 <hr className="w-1/3 mt-3" />
-                <span className="text-xl">에이디파트너스센터 소개</span>
+                <span className="text-xl">디움 코퍼레이션 소개</span>
               </div>
             </div>
           </div>
@@ -41,7 +41,7 @@ const AD = () => {
               <img src={sample} alt="image1" className="rounded shadow-2xl" />
               <div className="h-64 w-0.5 bg-black"></div>
               <div className="">
-                <h1 className="text-2xl/loose">(주)에이디파트너스센터</h1>
+                <h1 className="text-2xl/loose">(주)디움 코퍼레이션</h1>
                 <p>
                   대체로 사람들은 온라인 광고 회사를 믿지 않습니다.
                   <br />
@@ -68,7 +68,7 @@ const AD = () => {
                 data-aos-duration="1000"
                 data-aos-delay="200"
               >
-                클라이언트분들이 만족하지 못한다면 에이디파트너스센터 회사
+                클라이언트분들이 만족하지 못한다면 디움 코퍼레이션 회사
                 내리겠습니다.
               </p>
               <p
@@ -170,7 +170,7 @@ const AD = () => {
                 data-aos-dealy="200"
               >
                 대부분 마케팅 역량이 부족해서 발생한 실패입니다. <br />
-                에이디파트너스센터가 보유한 마케팅 역량으로 컨설팅을 제공하고{" "}
+                디움 코퍼레이션이 보유한 마케팅 역량으로 컨설팅을 제공하고{" "}
                 <br />
                 클라이언트가 원하는 수준까지 성상시킬 수 있습니다.
               </p>
@@ -187,7 +187,7 @@ const AD = () => {
                 data-aos-dealy="200"
               >
                 여러분의 꿈을 현실로 만들어 드립니다. <br />
-                에이디파트너스와 함께 더 큰 비전을 위해 나아갑시다.
+                디움 코퍼레이션과 함께 더 큰 비전을 위해 나아갑시다.
               </p>
             </div>
           </article>
@@ -202,7 +202,7 @@ const AD = () => {
             <div className="mx-20">
               <h1 className="text-6xl font-bold">COMPANY</h1>
               <hr className="w-1/3 mt-3" />
-              <span className="text-xl">에이디파트너스센터 소개</span>
+              <span className="text-xl">디움 코퍼레이션 소개</span>
             </div>
           </div>
         </div>
