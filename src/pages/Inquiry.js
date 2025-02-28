@@ -141,7 +141,7 @@ const Inquiry = () => {
       </div>
 
       {/* Between */}
-      <div className="w-full h-auto content-center bg-city-image bg-[700px] text-black">
+      <div className="w-full h-auto content-center bg-city-image bg-cover my-10 text-black">
         <div className="flex flex-row items-center justify-evenly mx-auto">
           {/* quote */}
           <div className="py-12 px-28 bg-black backdrop-blur-lg bg-opacity-50 leading-10 text-white space-y-6">

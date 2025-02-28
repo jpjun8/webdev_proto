@@ -19,7 +19,13 @@ const Recruiting = () => {
   const [skill, setSkill] = useState(""); //전문 기술
   const [experience, setExperience] = useState(""); // 경력
   const [education, setEducation] = useState(""); // 교육
+  const [file, setFile] = useState(null); // 첨부파일
   const [error, setError] = useState(""); // 에러
+
+  // File change
+  const handleFileChange = (e) => {
+    setFile(e.target.files[0]);
+  };
 
   // Address Functions
   const [address, setAddress] = useState({
@@ -95,6 +101,7 @@ const Recruiting = () => {
       skill,
       experience,
       education,
+      file,
     };
 
     emailjs
@@ -139,7 +146,7 @@ const Recruiting = () => {
       <div className="w-full h-auto content-center bg-city-image bg-cover text-black my-10">
         <div className="flex flex-row mb-2 items-center justify-evenly mx-auto">
           {/* quote */}
-          <div className="py-12 px-12 bg-black backdrop-blur-lg bg-opacity-50 leading-10 text-white space-y-6">
+          <div className="py-12 px-12 bg-gray-800 backdrop-blur-lg bg-opacity-50 leading-10 text-white space-y-6">
             <p className="text-3xl font-thin">WE ARE A</p>
             <p className="text-4xl font-semibold">
               COMPANY <br />
@@ -414,6 +421,19 @@ const Recruiting = () => {
               name="education"
               value={education}
               onChange={(e) => setEducation(e.target.value)}
+              className="block bg-zinc-900 w-3/4 text-lg border-b border-gray-300 focus:border-red-700 focus:ring-0 rounded-md p-2 outline-none"
+            />
+          </div>
+
+          {/* 첨부파일 */}
+          <div className="flex flex-row">
+            <div className="font-medium text-white text-xl p-4 basis-1/6">
+              첨부파일
+            </div>
+            <input
+              type="file"
+              name="file"
+              onChange={handleFileChange}
               className="block bg-zinc-900 w-3/4 text-lg border-b border-gray-300 focus:border-red-700 focus:ring-0 rounded-md p-2 outline-none"
             />
           </div>
