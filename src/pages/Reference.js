@@ -21,10 +21,11 @@ const Reference = () => {
       if (direction === "left") {
         newActiveColumns[index] =
           newActiveColumns[index] === 0 ? 2 : newActiveColumns[index] - 1;
-      } else {
+      } else if (direction == "right") {
         newActiveColumns[index] =
           newActiveColumns[index] === 2 ? 0 : newActiveColumns[index] + 1;
       }
+      console.log(newActiveColumns);
       return newActiveColumns;
     });
   };
@@ -45,11 +46,21 @@ const Reference = () => {
       </div>
 
       {/* Store */}
-      <section id="store" className="my-12 mx-4">
+      <section id="store" className="my-12 mx-12">
         <div className="flex justify-center items-center">
-          <div className="grid grid-cols-5 w-full h-full grid-rows-2">
-            {/* First column (SOMETHING) spanning both rows */}
-            <div className="bg-gray-300 row-span-2 p-6">
+          <div
+            className="grid grid-cols-4 w-full h-full grid-rows-2 space-x-1"
+            style={{
+              gridTemplateColumns: `1.5fr ${
+                activeColumns[0] === 0 ? "2fr" : "1fr"
+              } ${activeColumns[0] === 1 ? "2fr" : "1fr"} ${
+                activeColumns[0] === 2 ? "2fr" : "1fr"
+              }`,
+              transition: "grid-template-columns 0.5s ease-in-out",
+            }}
+          >
+            {/* First column spanning both rows */}
+            <div className="bg-gray-300 row-span-2 p-6 shadow-lg">
               <div className="text-left text-black">
                 {/* Header */}
                 <div className="font-bold text-xl mb-20">Reference</div>
@@ -75,50 +86,45 @@ const Reference = () => {
 
             {/* Second to Fourth columns (A, B, C), hidden D */}
             <div
-              className={`flex flex-col ${
-                activeColumns[0] === 0 ? "col-span-2" : "col-span-1"
-              } transition-all duration-300 row-span-2 h-full`}
+              className={`flex flex-col row-span-2 h-full ease-in-out shadow-lg`}
             >
               <div className="h-full bg-blue-300">A - D</div>
               <div className="h-full bg-blue-400">A - E</div>
             </div>
 
             <div
-              className={`flex flex-col ${
-                activeColumns[0] === 1 ? "col-span-2" : "col-span-1"
-              } transition-all duration-300 row-span-2 h-full`}
+              className={`flex flex-col row-span-2 h-full ease-in-out shadow-lg`}
             >
               <div className="h-full bg-green-300">B - D</div>
               <div className="h-full bg-green-400">B - E</div>
             </div>
 
             <div
-              className={`flex flex-col ${
-                activeColumns[0] === 2 ? "col-span-2" : "col-span-1"
-              } transition-all duration-300 row-span-2 h-full`}
+              className={`flex flex-col row-span-2 h-full ease-in-out shadow-lg`}
             >
               <div className="h-full bg-red-300">C - D</div>
               <div className="h-full bg-red-400">C - E</div>
-            </div>
-            {/* Hidden column */}
-            <div
-              className={`flex flex-col ${
-                activeColumns[0] === 2 ? "col-span-2" : "col-span-1"
-              } transition-all duration-300 bg-zinc-300 row-span-2 h-full hidden`}
-            >
-              <div className="h-full">D - D</div>
-              <div className="h-full">E - E</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Place */}
-      <section id="place" className="my-12 mx-4">
+      <section id="place" className="my-12 mx-12">
         <div className="flex justify-center items-center">
-          <div className="grid grid-cols-5 w-full h-full grid-rows-2">
-            {/* First column (SOMETHING) spanning both rows */}
-            <div className="bg-gray-300 row-span-2 p-6">
+          <div
+            className="grid grid-cols-4 w-full h-full grid-rows-2 space-x-1"
+            style={{
+              gridTemplateColumns: `1.5fr ${
+                activeColumns[1] === 0 ? "2fr" : "1fr"
+              } ${activeColumns[1] === 1 ? "2fr" : "1fr"} ${
+                activeColumns[1] === 2 ? "2fr" : "1fr"
+              }`,
+              transition: "grid-template-columns 0.5s ease-in-out",
+            }}
+          >
+            {/* First column spanning both rows */}
+            <div className="bg-gray-300 row-span-2 p-6 shadow-lg">
               <div className="text-left text-black">
                 {/* Header */}
                 <div className="font-bold text-xl mb-20">Reference</div>
@@ -144,50 +150,45 @@ const Reference = () => {
 
             {/* Second to Fourth columns (A, B, C), hidden D */}
             <div
-              className={`flex flex-col ${
-                activeColumns[1] === 0 ? "col-span-2" : "col-span-1"
-              } transition-all duration-300 row-span-2 h-full`}
+              className={`flex flex-col row-span-2 h-full ease-in-out shadow-lg`}
             >
               <div className="h-full bg-blue-300">A - D</div>
               <div className="h-full bg-blue-400">A - E</div>
             </div>
 
             <div
-              className={`flex flex-col ${
-                activeColumns[1] === 1 ? "col-span-2" : "col-span-1"
-              } transition-all duration-300 row-span-2 h-full`}
+              className={`flex flex-col row-span-2 h-full ease-in-out shadow-lg`}
             >
               <div className="h-full bg-green-300">B - D</div>
               <div className="h-full bg-green-400">B - E</div>
             </div>
 
             <div
-              className={`flex flex-col ${
-                activeColumns[1] === 2 ? "col-span-2" : "col-span-1"
-              } transition-all duration-300 row-span-2 h-full`}
+              className={`flex flex-col row-span-2 h-full ease-in-out shadow-lg`}
             >
               <div className="h-full bg-red-300">C - D</div>
               <div className="h-full bg-red-400">C - E</div>
-            </div>
-            {/* Hidden column */}
-            <div
-              className={`flex flex-col ${
-                activeColumns[1] === 2 ? "col-span-2" : "col-span-1"
-              } transition-all duration-300 bg-zinc-300 row-span-2 h-full hidden`}
-            >
-              <div className="h-full">D - D</div>
-              <div className="h-full">E - E</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Others */}
-      <section id="others" className="my-12 mx-4">
+      <section id="others" className="my-12 mx-12">
         <div className="flex justify-center items-center">
-          <div className="grid grid-cols-5 w-full h-full grid-rows-2">
-            {/* First column (SOMETHING) spanning both rows */}
-            <div className="bg-gray-300 row-span-2 p-6">
+          <div
+            className="grid grid-cols-4 w-full h-full grid-rows-2 space-x-1"
+            style={{
+              gridTemplateColumns: `1.5fr ${
+                activeColumns[2] === 0 ? "2fr" : "1fr"
+              } ${activeColumns[2] === 1 ? "2fr" : "1fr"} ${
+                activeColumns[2] === 2 ? "2fr" : "1fr"
+              }`,
+              transition: "grid-template-columns 0.5s ease-in-out",
+            }}
+          >
+            {/* First column spanning both rows */}
+            <div className="bg-gray-300 row-span-2 p-6 shadow-lg">
               <div className="text-left text-black">
                 {/* Header */}
                 <div className="font-bold text-xl mb-20">Reference</div>
@@ -213,39 +214,24 @@ const Reference = () => {
 
             {/* Second to Fourth columns (A, B, C), hidden D */}
             <div
-              className={`flex flex-col ${
-                activeColumns[2] === 0 ? "col-span-2" : "col-span-1"
-              } transition-all duration-300 row-span-2 h-full`}
+              className={`flex flex-col row-span-2 h-full ease-in-out shadow-lg`}
             >
               <div className="h-full bg-blue-300">A - D</div>
               <div className="h-full bg-blue-400">A - E</div>
             </div>
 
             <div
-              className={`flex flex-col ${
-                activeColumns[2] === 1 ? "col-span-2" : "col-span-1"
-              } transition-all duration-300 row-span-2 h-full`}
+              className={`flex flex-col row-span-2 h-full ease-in-out shadow-lg`}
             >
               <div className="h-full bg-green-300">B - D</div>
               <div className="h-full bg-green-400">B - E</div>
             </div>
 
             <div
-              className={`flex flex-col ${
-                activeColumns[2] === 2 ? "col-span-2" : "col-span-1"
-              } transition-all duration-300 row-span-2 h-full`}
+              className={`flex flex-col row-span-2 h-full ease-in-out shadow-lg`}
             >
               <div className="h-full bg-red-300">C - D</div>
               <div className="h-full bg-red-400">C - E</div>
-            </div>
-            {/* Hidden column */}
-            <div
-              className={`flex flex-col ${
-                activeColumns[2] === 2 ? "col-span-2" : "col-span-1"
-              } transition-all duration-300 bg-zinc-300 row-span-2 h-full hidden`}
-            >
-              <div className="h-full">D - D</div>
-              <div className="h-full">E - E</div>
             </div>
           </div>
         </div>
