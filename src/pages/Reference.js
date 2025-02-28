@@ -12,21 +12,21 @@ const Reference = () => {
 
   useScrollToHash();
 
-  const [activeColumn, setActiveColumn] = useState(0); // 0: A, 1: B, 2: C
+  const [activeColumns, setActiveColumns] = useState([0, 0, 0]); // 0: A, 1: B, 2: C
 
-  const getColumnWidth = (index) => {
-    if (index === activeColumn) return "w-full"; // expand column
-    return "w-1/6"; // shrunk columns
-  };
-
-  const handleLeftChevron = () => {
-    setActiveColumn((prev) => (prev === 0 ? 2 : prev - 1)); // Cycle through columns
-    console.log(activeColumn);
-  };
-
-  const handleRightChevron = () => {
-    setActiveColumn((prev) => (prev === 2 ? 0 : prev + 1)); // Cycle through columns
-    console.log(activeColumn);
+  const handleChevronClick = (index, direction) => {
+    setActiveColumns((prevState) => {
+      const newActiveColumns = [...prevState];
+      // Calculate new active column for the given index (section)
+      if (direction === "left") {
+        newActiveColumns[index] =
+          newActiveColumns[index] === 0 ? 2 : newActiveColumns[index] - 1;
+      } else {
+        newActiveColumns[index] =
+          newActiveColumns[index] === 2 ? 0 : newActiveColumns[index] + 1;
+      }
+      return newActiveColumns;
+    });
   };
 
   return (
@@ -63,10 +63,10 @@ const Reference = () => {
                 </div>
                 {/* Navigation Chevrons */}
                 <div className="flex justify-between mt-4">
-                  <button onClick={handleLeftChevron}>
+                  <button onClick={() => handleChevronClick(0, "left")}>
                     <IoChevronBack size={30} />
                   </button>
-                  <button onClick={handleRightChevron}>
+                  <button onClick={() => handleChevronClick(0, "right")}>
                     <IoChevronForward size={30} />
                   </button>
                 </div>
@@ -76,7 +76,7 @@ const Reference = () => {
             {/* Second to Fourth columns (A, B, C), hidden D */}
             <div
               className={`flex flex-col ${
-                activeColumn === 0 ? "col-span-2" : "col-span-1"
+                activeColumns[0] === 0 ? "col-span-2" : "col-span-1"
               } transition-all duration-300 row-span-2 h-full`}
             >
               <div className="h-full bg-blue-300">A - D</div>
@@ -85,7 +85,7 @@ const Reference = () => {
 
             <div
               className={`flex flex-col ${
-                activeColumn === 1 ? "col-span-2" : "col-span-1"
+                activeColumns[0] === 1 ? "col-span-2" : "col-span-1"
               } transition-all duration-300 row-span-2 h-full`}
             >
               <div className="h-full bg-green-300">B - D</div>
@@ -94,7 +94,7 @@ const Reference = () => {
 
             <div
               className={`flex flex-col ${
-                activeColumn === 2 ? "col-span-2" : "col-span-1"
+                activeColumns[0] === 2 ? "col-span-2" : "col-span-1"
               } transition-all duration-300 row-span-2 h-full`}
             >
               <div className="h-full bg-red-300">C - D</div>
@@ -103,7 +103,7 @@ const Reference = () => {
             {/* Hidden column */}
             <div
               className={`flex flex-col ${
-                activeColumn === 2 ? "col-span-2" : "col-span-1"
+                activeColumns[0] === 2 ? "col-span-2" : "col-span-1"
               } transition-all duration-300 bg-zinc-300 row-span-2 h-full hidden`}
             >
               <div className="h-full">D - D</div>
@@ -115,28 +115,68 @@ const Reference = () => {
 
       {/* Place */}
       <section id="place" className="my-12 mx-4">
-        <h2>PLACE</h2>
         <div className="flex justify-center items-center">
-          <div className="grid grid-cols-4 w-full">
+          <div className="grid grid-cols-5 w-full h-full grid-rows-2">
             {/* First column (SOMETHING) spanning both rows */}
-            <div className="bg-gray-300 h-full flex items-center justify-center row-span-2">
-              <div className="text-center">SOMETHING</div>
+            <div className="bg-gray-300 row-span-2 p-6">
+              <div className="text-left text-black">
+                {/* Header */}
+                <div className="font-bold text-xl mb-20">Reference</div>
+                {/* Title */}
+                <div className="text-4xl mt-4 mb-6 border-b-2 border-gray-500">
+                  Place
+                </div>
+                {/* Subtitle */}
+                <div className="text-lg text-gray-700 mt-2 mb-40">
+                  Place 성공사례를 소개합니다.
+                </div>
+                {/* Navigation Chevrons */}
+                <div className="flex justify-between mt-4">
+                  <button onClick={() => handleChevronClick(1, "left")}>
+                    <IoChevronBack size={30} />
+                  </button>
+                  <button onClick={() => handleChevronClick(1, "right")}>
+                    <IoChevronForward size={30} />
+                  </button>
+                </div>
+              </div>
             </div>
 
-            {/* Second to Fourth columns (A, B, C) */}
-            <div className="flex flex-col">
-              <div className="bg-blue-300 h-20">A - D</div>
-              <div className="bg-blue-300 h-20">A - E</div>
+            {/* Second to Fourth columns (A, B, C), hidden D */}
+            <div
+              className={`flex flex-col ${
+                activeColumns[1] === 0 ? "col-span-2" : "col-span-1"
+              } transition-all duration-300 row-span-2 h-full`}
+            >
+              <div className="h-full bg-blue-300">A - D</div>
+              <div className="h-full bg-blue-400">A - E</div>
             </div>
 
-            <div className="flex flex-col">
-              <div className="bg-green-300 h-20">B - D</div>
-              <div className="bg-green-300 h-20">B - E</div>
+            <div
+              className={`flex flex-col ${
+                activeColumns[1] === 1 ? "col-span-2" : "col-span-1"
+              } transition-all duration-300 row-span-2 h-full`}
+            >
+              <div className="h-full bg-green-300">B - D</div>
+              <div className="h-full bg-green-400">B - E</div>
             </div>
 
-            <div className="flex flex-col">
-              <div className="bg-red-300 h-20">C - D</div>
-              <div className="bg-red-300 h-20">C - E</div>
+            <div
+              className={`flex flex-col ${
+                activeColumns[1] === 2 ? "col-span-2" : "col-span-1"
+              } transition-all duration-300 row-span-2 h-full`}
+            >
+              <div className="h-full bg-red-300">C - D</div>
+              <div className="h-full bg-red-400">C - E</div>
+            </div>
+            {/* Hidden column */}
+            <div
+              className={`flex flex-col ${
+                activeColumns[1] === 2 ? "col-span-2" : "col-span-1"
+              } transition-all duration-300 bg-zinc-300 row-span-2 h-full hidden`}
+            >
+              <div className="h-full">D - D</div>
+              <div className="h-full">E - E</div>
             </div>
           </div>
         </div>
@@ -144,28 +184,68 @@ const Reference = () => {
 
       {/* Others */}
       <section id="others" className="my-12 mx-4">
-        <h2>OTHERS</h2>
         <div className="flex justify-center items-center">
-          <div className="grid grid-cols-4 w-full">
+          <div className="grid grid-cols-5 w-full h-full grid-rows-2">
             {/* First column (SOMETHING) spanning both rows */}
-            <div className="bg-gray-300 h-full flex items-center justify-center row-span-2">
-              <div className="text-center">SOMETHING</div>
+            <div className="bg-gray-300 row-span-2 p-6">
+              <div className="text-left text-black">
+                {/* Header */}
+                <div className="font-bold text-xl mb-20">Reference</div>
+                {/* Title */}
+                <div className="text-4xl mt-4 mb-6 border-b-2 border-gray-500">
+                  Others
+                </div>
+                {/* Subtitle */}
+                <div className="text-lg text-gray-700 mt-2 mb-40">
+                  Others 성공사례를 소개합니다.
+                </div>
+                {/* Navigation Chevrons */}
+                <div className="flex justify-between mt-4">
+                  <button onClick={() => handleChevronClick(2, "left")}>
+                    <IoChevronBack size={30} />
+                  </button>
+                  <button onClick={() => handleChevronClick(2, "right")}>
+                    <IoChevronForward size={30} />
+                  </button>
+                </div>
+              </div>
             </div>
 
-            {/* Second to Fourth columns (A, B, C) */}
-            <div className="flex flex-col">
-              <div className="bg-blue-300 h-20">A - D</div>
-              <div className="bg-blue-300 h-20">A - E</div>
+            {/* Second to Fourth columns (A, B, C), hidden D */}
+            <div
+              className={`flex flex-col ${
+                activeColumns[2] === 0 ? "col-span-2" : "col-span-1"
+              } transition-all duration-300 row-span-2 h-full`}
+            >
+              <div className="h-full bg-blue-300">A - D</div>
+              <div className="h-full bg-blue-400">A - E</div>
             </div>
 
-            <div className="flex flex-col">
-              <div className="bg-green-300 h-20">B - D</div>
-              <div className="bg-green-300 h-20">B - E</div>
+            <div
+              className={`flex flex-col ${
+                activeColumns[2] === 1 ? "col-span-2" : "col-span-1"
+              } transition-all duration-300 row-span-2 h-full`}
+            >
+              <div className="h-full bg-green-300">B - D</div>
+              <div className="h-full bg-green-400">B - E</div>
             </div>
 
-            <div className="flex flex-col">
-              <div className="bg-red-300 h-20">C - D</div>
-              <div className="bg-red-300 h-20">C - E</div>
+            <div
+              className={`flex flex-col ${
+                activeColumns[2] === 2 ? "col-span-2" : "col-span-1"
+              } transition-all duration-300 row-span-2 h-full`}
+            >
+              <div className="h-full bg-red-300">C - D</div>
+              <div className="h-full bg-red-400">C - E</div>
+            </div>
+            {/* Hidden column */}
+            <div
+              className={`flex flex-col ${
+                activeColumns[2] === 2 ? "col-span-2" : "col-span-1"
+              } transition-all duration-300 bg-zinc-300 row-span-2 h-full hidden`}
+            >
+              <div className="h-full">D - D</div>
+              <div className="h-full">E - E</div>
             </div>
           </div>
         </div>
