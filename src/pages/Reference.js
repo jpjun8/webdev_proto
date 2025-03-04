@@ -24,7 +24,7 @@ const Reference = () => {
       if (direction === "left") {
         newActiveColumns[index] =
           newActiveColumns[index] === 0 ? 2 : newActiveColumns[index] - 1;
-      } else if (direction == "right") {
+      } else if (direction === "right") {
         newActiveColumns[index] =
           newActiveColumns[index] === 2 ? 0 : newActiveColumns[index] + 1;
       }
