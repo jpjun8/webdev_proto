@@ -110,9 +110,9 @@ const Navbar = () => {
         >
           <Link to="/">
             <img
-              src={require("../assets/samples/logo.png")}
+              src={require("../assets/logo/png/4.png")}
               alt="Link to Home page"
-              className="logo top-4 left-4 z-50 bg-blue-500 border-2 border-black rounded max-w-[80px] h-auto"
+              className="logo top-4 left-4 z-50 rounded max-w-[120px] h-auto"
               onClick={() => setIsOpen(false)}
             />
           </Link>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import useScrollToHash from "../components/useScrollToHash";
 
 // Icons
@@ -36,6 +37,13 @@ const Reference = () => {
   return (
     // Section wrapper
     <div className="font-pre flex flex-col bg-black text-white overflow-hidden">
+      <Link to="/">
+        <img
+          src={require("../assets/logo/png/1.png")}
+          alt="Link to Home page"
+          className="logo absolute top-4 left-4 z-50 rounded max-w-[120px] h-auto"
+        />
+      </Link>
       {/* Banner */}
       <div className="bg-AD-CEO-banner bg-cover relative w-full min-h-96">
         <div className="absolute top-0 left-0 w-full h-20 bg-black bg-opacity-30 leading-10 z-10"></div>
@@ -200,9 +208,9 @@ const Reference = () => {
             className="grid grid-cols-4 w-full h-full grid-rows-2 shadow-lg"
             style={{
               gridTemplateColumns: `1.5fr ${
-                activeColumns[0] === 0 ? "2fr" : "1fr"
-              } ${activeColumns[0] === 1 ? "2fr" : "1fr"} ${
-                activeColumns[0] === 2 ? "2fr" : "1fr"
+                activeColumns[1] === 0 ? "2fr" : "1fr"
+              } ${activeColumns[1] === 1 ? "2fr" : "1fr"} ${
+                activeColumns[1] === 2 ? "2fr" : "1fr"
               }`,
               transition: "grid-template-columns 0.5s ease-in-out",
             }}
@@ -222,10 +230,10 @@ const Reference = () => {
                 </div>
                 {/* Navigation Chevrons */}
                 <div className="absolute bottom-0 right-4 flex justify-end">
-                  <button onClick={() => handleChevronClick(0, "left")}>
+                  <button onClick={() => handleChevronClick(1, "left")}>
                     <IoChevronBack size={30} />
                   </button>
-                  <button onClick={() => handleChevronClick(0, "right")}>
+                  <button onClick={() => handleChevronClick(1, "right")}>
                     <IoChevronForward size={30} />
                   </button>
                 </div>
@@ -345,9 +353,9 @@ const Reference = () => {
             className="grid grid-cols-4 w-full h-full grid-rows-2 shadow-lg"
             style={{
               gridTemplateColumns: `1.5fr ${
-                activeColumns[0] === 0 ? "2fr" : "1fr"
-              } ${activeColumns[0] === 1 ? "2fr" : "1fr"} ${
-                activeColumns[0] === 2 ? "2fr" : "1fr"
+                activeColumns[2] === 0 ? "2fr" : "1fr"
+              } ${activeColumns[2] === 1 ? "2fr" : "1fr"} ${
+                activeColumns[2] === 2 ? "2fr" : "1fr"
               }`,
               transition: "grid-template-columns 0.5s ease-in-out",
             }}
@@ -367,10 +375,10 @@ const Reference = () => {
                 </div>
                 {/* Navigation Chevrons */}
                 <div className="absolute bottom-0 right-4 flex justify-end">
-                  <button onClick={() => handleChevronClick(0, "left")}>
+                  <button onClick={() => handleChevronClick(2, "left")}>
                     <IoChevronBack size={30} />
                   </button>
-                  <button onClick={() => handleChevronClick(0, "right")}>
+                  <button onClick={() => handleChevronClick(2, "right")}>
                     <IoChevronForward size={30} />
                   </button>
                 </div>

@@ -14,11 +14,10 @@ module.exports = {
         "profile-background":
           "url('/src/assets/samples/profile_background.jpg')",
         "AD-CEO-banner":
-          "url('/src/assets/design_proto/design_assets/회사 계단 사진.jpg')",
+          "url('/src/assets/design/design_assets/회사 계단 사진.jpg')",
         "AD-company-chart":
-          "url('/src/assets/design_proto/design_assets/차트배경이미지.jpg')",
-        "city-image":
-          "url('/src/assets/design_proto/design_assets/도시이미지.jpg')",
+          "url('/src/assets/design/design_assets/차트배경이미지.jpg')",
+        "city-image": "url('/src/assets/design/design_assets/도시이미지.jpg')",
       },
       scrollBehavior: {
         smooth: "smooth",

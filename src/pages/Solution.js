@@ -23,6 +23,13 @@ const Solution = () => {
   return (
     // Section Wrapper
     <div className="font-pre flex flex-col bg-black text-white">
+      <Link to="/">
+        <img
+          src={require("../assets/logo/png/1.png")}
+          alt="Link to Home page"
+          className="logo absolute top-4 left-4 z-50 rounded max-w-[120px] h-auto"
+        />
+      </Link>
       {/* Banner */}
       <div className="bg-AD-CEO-banner bg-cover relative w-full min-h-[64rem]">
         <div className="absolute top-0 left-0 w-full h-20 bg-black bg-opacity-30 leading-10 z-10"></div>
@@ -33,12 +40,12 @@ const Solution = () => {
             <span className="text-xl">디움 코퍼레이션 솔루션 소개</span>
           </div>
         </div>
-        <section
+        <div
           id="list"
           className="absolute bottom-0 w-full h-2/3 content-center text-black items-center justify-center"
         >
           <div className="flex justify-center items-center">
-            <div className="grid grid-cols-3 gap-0 p-8 rounded-lg bg-gray-500 bg-opacity-80 text-3xl">
+            <div className="grid grid-cols-3 gap-0 p-4 rounded-lg bg-gray-500 bg-opacity-80 text-3xl">
               {/* Row 1 */}
               <div className="menu-item">
                 <Link
@@ -94,7 +101,7 @@ const Solution = () => {
               </div>
             </div>
           </div>
-        </section>
+        </div>
       </div>
 
       {/* N Store */}

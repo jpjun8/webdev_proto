@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import useScrollToHash from "../components/useScrollToHash";
 
 // Images
@@ -15,6 +16,13 @@ const AD = () => {
   return (
     // Section Wrapper
     <div className="font-pre flex flex-col bg-black text-white">
+      <Link to="/">
+        <img
+          src={require("../assets/logo/png/1.png")}
+          alt="Link to Home page"
+          className="logo absolute top-4 left-4 z-50 rounded max-w-[120px] h-auto"
+        />
+      </Link>
       {/* CEO */}
       <section id="CEO" className="">
         <div className="h-auto flex flex-col ">

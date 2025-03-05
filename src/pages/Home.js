@@ -1,19 +1,20 @@
 // Reference Site: https://www.squarespace.com/website-design
 import React, { useEffect, useState, useRef } from "react";
+import { Link } from "react-router-dom";
+
 // import HorizontalMenu from "../components/HorizontalMenu";
 import FAQSection from "../components/FAQ";
 import Accordion from "../components/Accordion";
 
 // Images
 import sample300x300 from "../assets/samples/300x300.png";
-
-const employees = [
-  { id: 1, name: "Alice", role: "Developer", img: sample300x300 },
-  { id: 2, name: "Bob", role: "Designer", img: sample300x300 },
-  { id: 3, name: "Charlie", role: "Manager", img: sample300x300 },
-  { id: 4, name: "Diana", role: "Analyst", img: sample300x300 },
-  { id: 5, name: "John", role: "CEO", img: sample300x300 },
-];
+import profile1 from "../assets/profiles/류연우.jpg";
+import profile2 from "../assets/profiles/송준.jpg";
+import profile3 from "../assets/profiles/이동훈.jpg";
+import profile4 from "../assets/profiles/이상욱.jpg";
+import profile5 from "../assets/profiles/전세찬.jpg";
+import profile6 from "../assets/profiles/정홍일.jpg";
+import profile7 from "../assets/profiles/조동민.png";
 
 const Home = () => {
   // Page Title
@@ -21,32 +22,135 @@ const Home = () => {
     document.title = "Home | AD";
   }, []);
 
-  const [currentIndex, setCurrentIndex] = useState(2);
-  const dragStartX = useRef(0);
-  const dragThreshold = 5; // Minimum pixels to trigger a slide
+  const [isDragging, setIsDragging] = useState(false);
+  const [currentTranslate, setCurrentTranslate] = useState(0);
+  const [dragStartX, setDragStartX] = useState(0);
+  const [dragStartTranslateX, setDragStartTranslateX] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0); // Current index of the visible item
+  const containerRef = useRef(null);
+
+  const employees = [
+    {
+      id: 1,
+      name: "류연우",
+      quote:
+        "광고주의 성공이 곧 나의 성공이라 믿습니다.\n\n수많은 상황을 직접 경험하고 극복하며 결국 해냈습니다.\n상황에 맞는 유동적인 방법으로 '완벽한' 결과물만 보여드리겠습니다.",
+      img: profile1,
+    },
+    { id: 2, name: "송준", quote: "X", img: profile2 },
+    {
+      id: 3,
+      name: "이동훈",
+      quote:
+        '"결과로 증명하는 마케팅 전문가, 신뢰를 제공하는 파트너"\n\n저는 단순한 마케팅 서비스를 넘어, 고객의 기대를 초과 달성하는 성과를 창출하는 파트너입니다.\n\n광고주가 저를 선택하는 이유는 분명합니다.\n고객의 목표를 깊이 이해하고, 맞춤형 전략을 통해 실질적인 성과를 이끌어내기 때문입니다.\n\n함께 성장하는 파트너가 되어, 여러분의 성공을 이끌어가겠습니다.',
+      img: profile3,
+    },
+    {
+      id: 4,
+      name: "이상욱",
+      quote:
+        '"답답하시죠? 뭐가 잘 안되시나요?"\n\n누구나 다 잘하면 1등이 되겠지만 그게 안되기 때문에 현재 위치에 있는 겁니다.\n\n앞으로 더 큰 사업영역을 늘려드리기 위해 제가 갖고 있는 경험과 노하우를 알려드리겠습니다.',
+      img: profile4,
+    },
+    {
+      id: 5,
+      name: "전세찬",
+      quote:
+        '"트렌드를 선도하는 전략적 마케팅 전문가"\n\n트렌드 분석과 전략적 실행에 전문성을 갖춘 마케터입니다.\n\n세세한 디테일까지 놓치지 않는 열정과 강력한 책임감을 바탕으로, 광고주님의 비전을 실현하는 데 전념하겠습니다.\n\n데이터 기반의 효과적인 마케팅 솔루션을 제공하며, 귀하의 꿈을 현실로 만드는 파트너로서 함께 성장해 나가겠습니다.',
+      img: profile5,
+    },
+    {
+      id: 6,
+      name: "정홍일",
+      quote:
+        '"성공의 지름길로 안내해드리겠습니다."\n\n온라인 쇼핑에 있어서 마케팅은 필수적으로 필요합니다.\n\n하지만, 많은 분들이 무턱대고 모르는 상태에서 광고와 마케팅을 진행하고 있습니다.\n\n모든 마케팅에 있어, 정답은 없지만 오답은 분명하게 존재합니다.\n\n실질적인 매출 상승을 위해 많은 경험과 노하우를 공유해드리겠습니다.\n\n면밀히 분석하고 확인하여, 상황에 맞는 최적의 환경을 조성하겠습니다.\n\n매출이 나올수 밖에 없는 구조를 만들어드리겠습니다.',
+      img: profile6,
+    },
+    {
+      id: 7,
+      name: "조동민",
+      quote:
+        "제가 생각하는 마케팅이란, 다른 이들보다 더 누군가의 기억에 남는 일입니다.\n\n저는 뛰어난 마케터로서 광고주님께 저란 사람을 성과로 기억에 남기는 게 제 목표입니다.",
+      img: profile7,
+    },
+    {
+      id: 8,
+      name: "이준수",
+      quote:
+        '"제조, 유통, 판매 경험을 갖고 있는 마케팅 기획자"\n\n저는 다양한 경험을 보유하고 있는 마케팅 기획자이면서 소비자입니다! 소비자 관점으로 판매 전환이 될 수 있는 솔루션을 제공해드리겠습니다! 모두가 바라보는 매출 증가 성과로 보여드리겠습니다!',
+      img: sample300x300,
+    },
+    {
+      id: 9,
+      name: "김혜선",
+      quote:
+        '"브랜드 성과 분석을 통한 지속 가능한 마케팅 전략 개발"\n\n브랜드의 성과 분석을 통해 전략을 개선하고, 시장 변화와 소비자 행동을 기반으로 트렌드를 파악하며 약점을 극복합니다.\n\n실패와 성공 요인을 분석하여 효과적인 마케팅 방안을 제안하고, 대표님의 전문 마케터로서 브랜드가 오랫동안 사랑받을 수 있도록 지원합니다.',
+      img: sample300x300,
+    },
+    {
+      id: 10,
+      name: "방승배",
+      quote:
+        '"대표님의 킹 메이커가 되겠습니다"\n\n많은 분들이 온라인 광고와 마케팅을 막연히 시작하고 있는 상황에서, 효과적인 전략을 통해 실질적인 매출 상승을 이끌어내고 있습니다.\n\n빠른 결과를 원하시는 마음은 충분히 공감합니다.\n\n하지만, 성공을 위한 철저한 분석과 전략이 선행되어야 지속 가능한 성과를 만들 수 있습니다.\n\n이미 많은 고객사들이 저희의 체계적인 접근 방식을 통해 성공을 경험했습니다.\n\n이제 대표님께서 경험하실 차례입니다!',
+      img: sample300x300,
+    },
+  ];
 
   const handleDragStart = (e) => {
-    dragStartX.current = e.clientX || e.touches[0].clientX;
+    setIsDragging(true);
+    setDragStartX(e.clientX || e.touches[0].clientX);
+    setDragStartTranslateX(currentTranslate); // Set the initial translate value
   };
 
-  const handleDragEnd = (e) => {
-    const dragEndX =
-      e.clientX || (e.changedTouches && e.changedTouches[0].clientX);
+  const handleDragMove = (e) => {
+    if (!isDragging) return;
 
-    if (dragEndX - dragStartX.current > dragThreshold) {
-      // Dragged right
-      setCurrentIndex((prev) => Math.max(prev - 1, 0));
-    } else if (dragStartX.current - dragEndX > dragThreshold) {
-      // Dragged left
-      setCurrentIndex((prev) => Math.min(prev + 1, employees.length - 1));
+    // Get the current mouse/touch position
+    const moveX = e.clientX || e.touches[0].clientX;
+    const diffX = moveX - dragStartX; // Calculate how far the user has dragged
+
+    // Calculate the total width of the items (total width of all items + their gaps)
+    const totalWidth = employees.length * 160; // 160 is the width of each item
+    const maxTranslate = totalWidth - 160 * 3; // Assuming 3 items are visible at once
+
+    // Calculate the new translateX value based on drag distance
+    let newTranslate = dragStartTranslateX + diffX;
+
+    // Prevent dragging beyond the last item
+    if (newTranslate > 0) {
+      newTranslate = 0; // Stop at the beginning
+    } else if (newTranslate < -maxTranslate) {
+      newTranslate = -maxTranslate; // Stop at the last item
     }
+
+    // Update the translate state
+    setCurrentTranslate(newTranslate);
+
+    // Update currentIndex based on the new translate
+    const index = Math.max(
+      0,
+      Math.min(employees.length - 1, Math.round(-newTranslate / 160))
+    );
+    setCurrentIndex(index);
+  };
+
+  const handleDragEnd = () => {
+    setIsDragging(false);
   };
 
   return (
-    <div className="font-pre text-white bg-zinc-950 flex flex-col overflow-x-hidden">
+    <div className="font-pre text-white bg-zinc-950 flex flex-col">
       {/* Top: change background image when received */}
       <section id="메인" className="bg-black text-black pb-64">
-        <div className="mx-36 p-8 bg-snow w-1/3">
+        <Link to="/">
+          <img
+            src={require("../assets/logo/png/1.png")}
+            alt="Link to Home page"
+            className="logo absolute top-4 left-4 z-50 rounded max-w-[120px] h-auto"
+          />
+        </Link>
+
+        <div className="mx-48 p-8 bg-snow w-1/3">
           <p className="font-semibold">사업자마케팅</p>
           <div className="my-12">
             <p className="text-xs">*24년 6월 기준</p>
@@ -106,27 +210,35 @@ const Home = () => {
         </div>
       </section>
       {/* 사원프로필 */}
-      <section id="사원프로필" className="py-32 bg-snow text-black">
+      <section
+        id="사원프로필"
+        className="py-32 bg-snow text-black overflow-x-hidden"
+      >
         <span className="text-3xl font-bold mx-24">사원 프로필</span>
         <hr className="mt-3 w-1/3 mx-24 mb-20 border-black" />
         {/* 가로 Rolling 직원 이미지들 + 코멘트 */}
 
-        <div className="flex items-center justify-center w-full relative space-x-4 my-16">
+        <div className="flex items-center justify-center relative my-16 overflow-hidden">
           <div
-            className="flex items-center gap-8 cursor-grab"
+            ref={containerRef}
+            className="flex items-center cursor-grab active:cursor-grabbing flex-nowrap mx-40"
             onMouseDown={handleDragStart}
+            onMouseMove={handleDragMove}
             onMouseUp={handleDragEnd}
             onTouchStart={handleDragStart}
+            onTouchMove={handleDragMove}
             onTouchEnd={handleDragEnd}
+            style={{
+              transform: `translateX(${currentTranslate}px)`,
+              transition: "transform 0.3s ease-out", // Smooth transition for drag
+            }}
           >
             {employees.map((employee, index) => (
               <div
                 key={employee.id}
-                className={`flex-shrink-0 w-64 h-[26rem] rounded-lg shadow-lg transition-transform duration-300 ${
-                  index === currentIndex ? "scale-110" : "scale-90"
-                }`}
+                className="flex flex-col items-center justify-center rounded-lg shadow-lg transition-transform duration-300 ease-out min-w-[130px]"
                 style={{
-                  transform: `translateX(${(index - currentIndex) * 160}px)`,
+                  transform: `translateX(${(index - currentIndex) * 200}px)`,
                 }}
                 onMouseDown={(e) => e.preventDefault()}
                 onTouchStart={(e) => e.preventDefault()}
@@ -134,10 +246,15 @@ const Home = () => {
                 <img
                   src={employee.img}
                   alt={employee.name}
-                  className="w-full h-full object-cover rounded-md mb-4"
+                  className="w-[200px] h-[32rem] object-cover rounded-md mb-4"
                 />
-                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-0 bg-red-500 w-80 h-36 rounded-lg flex items-center justify-center text-center shadow-md">
-                  <p className="text-sm text-white">{employee.role}</p>
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-0 bg-slate-200 w-64 h-auto rounded-lg flex items-center justify-center text-center shadow-md p-4">
+                  <p
+                    className="text-xs text-black"
+                    style={{ whiteSpace: "pre-line" }}
+                  >
+                    {employee.quote}
+                  </p>
                 </div>
               </div>
             ))}
