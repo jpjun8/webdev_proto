@@ -15,6 +15,9 @@ import profile4 from "../assets/profiles/이상욱.jpg";
 import profile5 from "../assets/profiles/전세찬.jpg";
 import profile6 from "../assets/profiles/정홍일.jpg";
 import profile7 from "../assets/profiles/조동민.png";
+import digitalMarketing from "../assets/digitalMarketing.jpg";
+import analytics from "../assets/analytics.jpg";
+import student from "../assets/student.jpg";
 import analysis from "../assets/data.png";
 import email from "../assets/email.png";
 import checklist from "../assets/checklist.png";
@@ -144,7 +147,7 @@ const Home = () => {
   return (
     <div className="font-pre text-white bg-zinc-950 flex flex-col">
       {/* Top: change background image when received */}
-      <section id="메인" className="bg-black text-black pb-10 px-2">
+      <section id="메인" className="bg-black text-black px-2">
         <Link to="/">
           <img
             src={require("../assets/logo/png/1.png")}
@@ -178,45 +181,42 @@ const Home = () => {
             <p className="text-8xl font-bold">100%</p>
           </div>
         </div>
+
+        {/* Little sentence */}
+        <p className="text-white py-20 flex items-center justify-center text-4xl">
+          상품에 관한 이야기가 필요할까요? 결과물로 증명하겠습니다.
+        </p>
       </section>
 
       {/* 성공사례 */}
       <section id="성공사례" className="py-32 bg-gainsborough text-black">
-        <span className="text-3xl font-bold mx-24">성공사례</span>
+        <span className="text-4xl font-bold mx-24">성공사례</span>
         <hr className="mx-24 mt-3 w-1/3 border-black" />
-        <p className="mx-24 mt-4 text-lg">
+        <p className="mx-24 mt-4 text-xl">
           디움 코퍼레이션을 만나고 삶이 달라졌습니다.
         </p>
 
         {/* 이미지 + 사례 */}
-        <div className="justify-items-center text-center grid gap-x-4 gap-y-6 grid-cols-3 pt-16 mx-24">
+        <div className="justify-items-center text-center grid gap-x-6 gap-y-6 grid-cols-3 pt-16 mx-24">
           {/* Each item wrapper */}
           <img
-            src={sample300x300}
+            src={digitalMarketing}
             alt="image1"
             className="rounded shadow-2xl"
           />
-          <img
-            src={sample300x300}
-            alt="image2"
-            className="rounded shadow-2xl"
-          />
-          <img
-            src={sample300x300}
-            alt="image3"
-            className="rounded shadow-2xl"
-          />
-          <div className="text-lg">
+          <img src={analytics} alt="image2" className="rounded shadow-2xl" />
+          <img src={student} alt="image3" className="rounded shadow-2xl" />
+          <div className="text-xl">
             <strong>한달에 </strong>온라인으로만
             <br />
             <strong>예약 400건</strong> 들어오는 분당 병원
           </div>
-          <div className="text-lg">
+          <div className="text-xl">
             마케팅 <strong>7개월</strong>만에
             <br />
             병원 <strong>한층 추가 확장</strong>
           </div>
-          <div className="text-lg">
+          <div className="text-xl">
             마케팅 <strong>3개월</strong>만에
             <br />
             한달 수술 예약 모두 찬 성형외과
@@ -390,7 +390,7 @@ const Home = () => {
           </p>
         </div>
         <div className="flex items-center">
-          <button className="bg-transparent text-white border border-white rounded-lg hover:bg-white hover:text-black transition duration-300 text-5xl p-20">
+          <button className="bg-transparent text-white border border-white rounded-[2vw] hover:bg-white hover:text-black transition duration-300 text-5xl p-20">
             문의하기
           </button>
         </div>
