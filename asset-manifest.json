@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/webdev_proto/static/css/main.90b679ab.css",
-    "main.js": "/webdev_proto/static/js/main.d9b325e6.js",
+    "main.css": "/webdev_proto/static/css/main.a7d1e4c5.css",
+    "main.js": "/webdev_proto/static/js/main.46920a47.js",
     "static/js/453.195b869a.chunk.js": "/webdev_proto/static/js/453.195b869a.chunk.js",
     "static/media/류연우.jpg": "/webdev_proto/static/media/류연우.3c2683dccab6bc8a8231.jpg",
     "static/media/조동민.png": "/webdev_proto/static/media/조동민.4e47b7c5c107910dbe0e.png",
@@ -14,18 +14,21 @@
     "static/media/정홍일.jpg": "/webdev_proto/static/media/정홍일.4f16746bd076ad0b167b.jpg",
     "static/media/이동훈.jpg": "/webdev_proto/static/media/이동훈.22063bdd70ed7bb17dbd.jpg",
     "static/media/송준.jpg": "/webdev_proto/static/media/송준.f932e59ac8182add891e.jpg",
+    "static/media/student.jpg": "/webdev_proto/static/media/student.a03554de5149644a341b.jpg",
     "static/media/4.png": "/webdev_proto/static/media/4.74f55487c5a4177e1036.png",
     "static/media/1.png": "/webdev_proto/static/media/1.6ed84457b5cca3f0f746.png",
+    "static/media/digitalMarketing.jpg": "/webdev_proto/static/media/digitalMarketing.cb5b836c277b8bfa2d89.jpg",
+    "static/media/analytics.jpg": "/webdev_proto/static/media/analytics.62023ce32c5b87e152e3.jpg",
     "static/media/email.png": "/webdev_proto/static/media/email.d50ec599c3ad3f17b186.png",
     "static/media/checklist.png": "/webdev_proto/static/media/checklist.81fae770a3998528e10e.png",
     "static/media/data.png": "/webdev_proto/static/media/data.3288509b7ca646aee53a.png",
     "index.html": "/webdev_proto/index.html",
-    "main.90b679ab.css.map": "/webdev_proto/static/css/main.90b679ab.css.map",
-    "main.d9b325e6.js.map": "/webdev_proto/static/js/main.d9b325e6.js.map",
+    "main.a7d1e4c5.css.map": "/webdev_proto/static/css/main.a7d1e4c5.css.map",
+    "main.46920a47.js.map": "/webdev_proto/static/js/main.46920a47.js.map",
     "453.195b869a.chunk.js.map": "/webdev_proto/static/js/453.195b869a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.90b679ab.css",
-    "static/js/main.d9b325e6.js"
+    "static/css/main.a7d1e4c5.css",
+    "static/js/main.46920a47.js"
   ]
 }
