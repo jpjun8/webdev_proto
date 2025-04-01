@@ -1,28 +1,31 @@
 {
   "files": {
-    "main.css": "/webdev_proto/static/css/main.0b927f0f.css",
-    "main.js": "/webdev_proto/static/js/main.4f509f6f.js",
-    "static/js/453.195b869a.chunk.js": "/webdev_proto/static/js/453.195b869a.chunk.js",
-    "static/media/류연우.jpg": "/webdev_proto/static/media/류연우.3c2683dccab6bc8a8231.jpg",
-    "static/media/조동민.png": "/webdev_proto/static/media/조동민.4e47b7c5c107910dbe0e.png",
-    "static/media/이상욱.jpg": "/webdev_proto/static/media/이상욱.4cf1c77cf4334d5e124e.jpg",
-    "static/media/전세찬.jpg": "/webdev_proto/static/media/전세찬.1b83761cc0abb23dc163.jpg",
-    "static/media/Pretendard-Regular.woff2": "/webdev_proto/static/media/Pretendard-Regular.38bed7de46e7b9049ced.woff2",
-    "static/media/도시이미지.jpg": "/webdev_proto/static/media/도시이미지.1e8f2e793c74050cb916.jpg",
-    "static/media/회사 계단 사진.jpg": "/webdev_proto/static/media/회사 계단 사진.a3403352574b88ad6f3c.jpg",
-    "static/media/차트배경이미지.jpg": "/webdev_proto/static/media/차트배경이미지.63edc28239b3f981fd42.jpg",
-    "static/media/정홍일.jpg": "/webdev_proto/static/media/정홍일.4f16746bd076ad0b167b.jpg",
-    "static/media/이동훈.jpg": "/webdev_proto/static/media/이동훈.22063bdd70ed7bb17dbd.jpg",
-    "static/media/송준.jpg": "/webdev_proto/static/media/송준.f932e59ac8182add891e.jpg",
-    "static/media/4.png": "/webdev_proto/static/media/4.74f55487c5a4177e1036.png",
-    "static/media/1.png": "/webdev_proto/static/media/1.6ed84457b5cca3f0f746.png",
-    "index.html": "/webdev_proto/index.html",
-    "main.0b927f0f.css.map": "/webdev_proto/static/css/main.0b927f0f.css.map",
-    "main.4f509f6f.js.map": "/webdev_proto/static/js/main.4f509f6f.js.map",
-    "453.195b869a.chunk.js.map": "/webdev_proto/static/js/453.195b869a.chunk.js.map"
+    "main.css": "/static/css/main.d0abc0df.css",
+    "main.js": "/static/js/main.635f65b8.js",
+    "static/js/453.195b869a.chunk.js": "/static/js/453.195b869a.chunk.js",
+    "static/media/류연우.jpg": "/static/media/류연우.3c2683dccab6bc8a8231.jpg",
+    "static/media/조동민.png": "/static/media/조동민.4e47b7c5c107910dbe0e.png",
+    "static/media/이상욱.jpg": "/static/media/이상욱.4cf1c77cf4334d5e124e.jpg",
+    "static/media/전세찬.jpg": "/static/media/전세찬.1b83761cc0abb23dc163.jpg",
+    "static/media/Pretendard-Regular.woff2": "/static/media/Pretendard-Regular.38bed7de46e7b9049ced.woff2",
+    "static/media/도시이미지.jpg": "/static/media/도시이미지.1e8f2e793c74050cb916.jpg",
+    "static/media/회사 계단 사진.jpg": "/static/media/회사 계단 사진.a3403352574b88ad6f3c.jpg",
+    "static/media/차트배경이미지.jpg": "/static/media/차트배경이미지.63edc28239b3f981fd42.jpg",
+    "static/media/정홍일.jpg": "/static/media/정홍일.4f16746bd076ad0b167b.jpg",
+    "static/media/이동훈.jpg": "/static/media/이동훈.22063bdd70ed7bb17dbd.jpg",
+    "static/media/송준.jpg": "/static/media/송준.f932e59ac8182add891e.jpg",
+    "static/media/4.png": "/static/media/4.74f55487c5a4177e1036.png",
+    "static/media/1.png": "/static/media/1.6ed84457b5cca3f0f746.png",
+    "static/media/email.png": "/static/media/email.d50ec599c3ad3f17b186.png",
+    "static/media/checklist.png": "/static/media/checklist.81fae770a3998528e10e.png",
+    "static/media/data.png": "/static/media/data.3288509b7ca646aee53a.png",
+    "index.html": "/index.html",
+    "main.d0abc0df.css.map": "/static/css/main.d0abc0df.css.map",
+    "main.635f65b8.js.map": "/static/js/main.635f65b8.js.map",
+    "453.195b869a.chunk.js.map": "/static/js/453.195b869a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0b927f0f.css",
-    "static/js/main.4f509f6f.js"
+    "static/css/main.d0abc0df.css",
+    "static/js/main.635f65b8.js"
   ]
 }
