@@ -146,7 +146,7 @@ const Navbar = () => {
       {/* Navigation Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed top-5 right-4 z-50 bg-inherit text-white px-4 py-2 rounded-lg"
+        className="fixed top-3 right-4 z-50 bg-inherit text-white px-4 py-2 rounded-lg"
       >
         {isOpen ? (
           // Close Icon (X)
@@ -155,7 +155,7 @@ const Navbar = () => {
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth="2"
-            stroke="red"
+            stroke={isScrolled ? "black" : "white"}
             className="w-8 h-8"
           >
             <path
@@ -171,7 +171,7 @@ const Navbar = () => {
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth="2"
-            stroke="red"
+            stroke={isScrolled ? "black" : "white"}
             className="w-8 h-8"
           >
             <path

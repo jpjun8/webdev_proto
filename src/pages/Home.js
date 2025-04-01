@@ -15,6 +15,9 @@ import profile4 from "../assets/profiles/이상욱.jpg";
 import profile5 from "../assets/profiles/전세찬.jpg";
 import profile6 from "../assets/profiles/정홍일.jpg";
 import profile7 from "../assets/profiles/조동민.png";
+import analysis from "../assets/data.png";
+import email from "../assets/email.png";
+import checklist from "../assets/checklist.png";
 
 const Home = () => {
   // Page Title
@@ -110,8 +113,8 @@ const Home = () => {
     const diffX = moveX - dragStartX; // Calculate how far the user has dragged
 
     // Calculate the total width of the items (total width of all items + their gaps)
-    const totalWidth = employees.length * 160; // 160 is the width of each item
-    const maxTranslate = totalWidth - 160 * 3; // Assuming 3 items are visible at once
+    const totalWidth = employees.length * 200; // 200 is the width of each item
+    const maxTranslate = totalWidth - 200 * 3; // Assuming 3 items are visible at once
 
     // Calculate the new translateX value based on drag distance
     let newTranslate = dragStartTranslateX + diffX;
@@ -129,7 +132,7 @@ const Home = () => {
     // Update currentIndex based on the new translate
     const index = Math.max(
       0,
-      Math.min(employees.length - 1, Math.round(-newTranslate / 160))
+      Math.min(employees.length - 1, Math.round(-newTranslate / 200))
     );
     setCurrentIndex(index);
   };
@@ -141,7 +144,7 @@ const Home = () => {
   return (
     <div className="font-pre text-white bg-zinc-950 flex flex-col">
       {/* Top: change background image when received */}
-      <section id="메인" className="bg-black text-black pb-64">
+      <section id="메인" className="bg-black text-black pb-10 px-2">
         <Link to="/">
           <img
             src={require("../assets/logo/png/1.png")}
@@ -150,7 +153,7 @@ const Home = () => {
           />
         </Link>
 
-        <div className="mx-48 p-8 bg-snow w-1/3">
+        <div className="mx-48 p-8 bg-snow w-1/3 mb-32">
           <p className="font-semibold">사업자마케팅</p>
           <div className="my-12">
             <p className="text-xs">*24년 6월 기준</p>
@@ -159,10 +162,21 @@ const Home = () => {
               사업자마케팅 회사
             </p>
           </div>
-
-          <span className="inline-block pb-2">
-            상품에 관한 이야기가 필요할까요? 결과물로 증명하겠습니다.
-          </span>
+        </div>
+        {/* 3 items */}
+        <div className="grid grid-cols-3 gap-4 text-white">
+          <div className="col-span-1 p-6 bg-black border border-white">
+            <p className="text-lg">계약업체</p>
+            <p className="text-8xl font-bold">1950개</p>
+          </div>
+          <div className="col-span-1 p-6 bg-black border border-white">
+            <p className="text-lg">재계약율</p>
+            <p className="text-8xl font-bold">94.6%</p>
+          </div>
+          <div className="col-span-1 p-6 bg-black border border-white">
+            <p className="text-lg">서비스 만족도</p>
+            <p className="text-8xl font-bold">100%</p>
+          </div>
         </div>
       </section>
 
@@ -212,13 +226,13 @@ const Home = () => {
       {/* 사원프로필 */}
       <section
         id="사원프로필"
-        className="py-32 bg-snow text-black overflow-x-hidden"
+        className="py-10 bg-snow text-black overflow-x-hidden"
       >
         <span className="text-3xl font-bold mx-24">사원 프로필</span>
         <hr className="mt-3 w-1/3 mx-24 mb-20 border-black" />
-        {/* 가로 Rolling 직원 이미지들 + 코멘트 */}
 
-        <div className="flex items-center justify-center relative my-16 overflow-hidden">
+        {/* 가로 Rolling 직원 이미지들 + 코멘트 */}
+        <div className="flex items-center justify-center relative overflow-hidden">
           <div
             ref={containerRef}
             className="flex items-center cursor-grab active:cursor-grabbing flex-nowrap mx-40"
@@ -236,7 +250,7 @@ const Home = () => {
             {employees.map((employee, index) => (
               <div
                 key={employee.id}
-                className="flex flex-col items-center justify-center rounded-lg shadow-lg transition-transform duration-300 ease-out min-w-[130px]"
+                className="flex flex-col items-center justify-center rounded-lg shadow-lg transition-transform duration-300 ease-out w-[200px]"
                 style={{
                   transform: `translateX(${(index - currentIndex) * 200}px)`,
                 }}
@@ -246,9 +260,9 @@ const Home = () => {
                 <img
                   src={employee.img}
                   alt={employee.name}
-                  className="w-[200px] h-[32rem] object-cover rounded-md mb-4"
+                  className="w-full h-[400px] object-cover rounded-md mb-4"
                 />
-                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-0 bg-slate-200 w-64 h-auto rounded-lg flex items-center justify-center text-center shadow-md p-4">
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-0 bg-snow w-64 h-auto rounded-lg flex items-center justify-center text-center shadow-md p-4">
                   <p
                     className="text-xs text-black"
                     style={{ whiteSpace: "pre-line" }}
@@ -262,26 +276,26 @@ const Home = () => {
         </div>
 
         {/* 마케팅 실패 이유 설명 */}
-        <div className="mt-64 bg-gainsborough">
-          <p className="font-bold text-2xl text-center pt-20">
+        <div className="mt-32 bg-gainsborough">
+          <p className="font-bold text-3xl text-center pt-10">
             당신의 마케팅이 지금까지 실패했던 이유를 알려드리겠습니다.
           </p>
-          <hr className="mx-24 mt-8 mb-20 border-1 border-black" />
+          <hr className="mx-24 mt-8 border-2 border-black" />
           <Accordion />
         </div>
       </section>
       {/* 서비스 소개 */}
-      <section id="서비스소개" className="px-4 py-20 bg-snow">
-        <div className="py-8 mb-6 bg-zinc-800 rounded-tl-[36px] text-center w-5/6 mx-auto">
-          <h2 className="text-lg mb-2 font-base">
+      <section id="서비스소개" className="px-8 py-20 bg-snow">
+        <div className="py-8 mb-6 bg-black rounded-tl-[36px] text-center mx-auto">
+          <h2 className="text-xl mb-2 font-base">
             서비스 소개
             <br />
-            <strong className="text-3xl font-semibold">
+            <strong className="text-4xl font-semibold">
               장기적인 파트너를 찾습니다.
             </strong>
           </h2>
         </div>
-        <div className="rounded-br-[36px] py-12 px-24 bg-zinc-800 text-lg w-5/6 mx-auto">
+        <div className="rounded-br-[36px] py-12 px-24 bg-black text-xl mx-auto">
           <p
             data-aos="fade-up"
             data-aos-delay="200"
@@ -299,43 +313,55 @@ const Home = () => {
             data-aos-offset="200"
             data-aos-easing="ease-in-out-sine"
           >
-            이것이 가능하려면, 담당자의 역할이 중요합니다, 따라서
+            이것이 가능하려면, 담당자의 역할이 중요합니다.
             <br />
             <br />
           </p>
-          <p
-            data-aos="fade-up"
-            data-aos-delay="600"
-            data-aos-offset="200"
-            data-aos-easing="ease-in-out-sine"
-          >
-            1. 마케팅을 진행하기 앞서 시장에 대한 분석, 방향성 검토, 상품에 대한
-            분석을 담당자가 직접 전문적으로 해줍니다.
-            <br />
-            <br />
-          </p>
-          <p
-            data-aos="fade-up"
-            data-aos-delay="800"
-            data-aos-offset="200"
-            data-aos-easing="ease-in-out-sine"
-          >
-            2. 마케팅 투자대비 성과가 없을 것 같은 마케팅은 진행을 도와드리지
-            않습니다. 성공할만한 케이스들만 진행을 도와드리고, 저희 또한 그렇기
-            때문에 재연장율 92%라는 성과를 자랑하고 있습니다.
-            <br />
-            <br />
-          </p>
-          <p
-            data-aos="fade-up"
-            data-aos-delay="1000"
-            data-aos-offset="200"
-            data-aos-easing="ease-in-out-sine"
-          >
-            3. 관리를 받는다는 것은 당연한 겁니다. 유령회사, 담당자 부재 등
-            이슈는 감수해야할 영역이 아닙니다, 비용을 지불하였으면, 그에 맞는
-            관리를 받으셔야 합니다.
-          </p>
+          <div className="grid grid-cols-5 grid-rows-3 gap-4 text-black">
+            <div className="col-span-1 row-span-1 w-full p-6 bg-gainsborough rounded-lg flex justify-center items-center">
+              <img src={analysis} alt="analysis" className="w-1/2" />
+            </div>
+            <div className="col-span-4 row-span-1 w-full p-6 bg-gainsborough rounded-lg flex items-center">
+              <div>
+                <p className="font-semibold">
+                  마케팅을 진행하기 앞서 분석이 중요합니다.
+                </p>
+                <p className="text-xl">
+                  시장에 대한 분석, 방향성 검토, 상품에 대한 분석을 담당자가
+                  직접 전문적으로 해줍니다.
+                </p>
+              </div>
+            </div>
+            <div className="col-span-1 row-span-1 w-full p-6 bg-gainsborough rounded-lg flex justify-center items-center">
+              <img src={email} alt="email" className="w-1/2" />
+            </div>
+            <div className="col-span-4 row-span-1 w-full p-6 bg-gainsborough rounded-lg flex items-center">
+              <div>
+                <p className="font-semibold">
+                  마케팅 투자대비 성과가 없을 것 같은 마케팅은 진행을 도와드리지
+                  않습니다.
+                </p>
+                <p className="text-xl">
+                  성공할만한 케이스들만 진행을 도와드리고, 저희 또한 그렇기
+                  때문에 재연장율 94.6%라는 성과를 자랑하고 있습니다.
+                </p>
+              </div>
+            </div>
+            <div className="col-span-1 row-span-1 w-full p-6 bg-gainsborough rounded-lg flex justify-center items-center">
+              <img src={checklist} alt="checklist" className="w-1/2" />
+            </div>
+            <div className="col-span-4 row-span-1 w-full p-6 bg-gainsborough rounded-lg flex items-center">
+              <div>
+                <p className="font-semibold">
+                  관리를 받는다는 것은 당연한 겁니다.
+                </p>
+                <p className="text-xl">
+                  유령회사, 담당자 부재 등 이슈는 감수해야할 영역이 아닙니다,
+                  비용을 지불하셨으면 그에 맞는 관리를 받으셔야 합니다.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
       {/* 자주 묻는 질문 */}
@@ -348,23 +374,23 @@ const Home = () => {
       {/* 문의하기 */}
       <section
         id="문의"
-        className="my-32 py-16 w-5/6 mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6 items-center justify-center text-center md:text-left border-2 border-white bg-black"
+        className="my-32 py-16 w-5/6 mx-auto px-8 grid grid-cols-1 md:grid-cols-3 gap-6 items-center justify-center text-center md:text-left border-2 border-white bg-black"
       >
         <div className="md:col-span-2 flex flex-col items-center md:items-start mx-12">
-          <h2 className="text-2xl font-semibold mb-4">
+          <h2 className="text-3xl font-semibold mb-4">
             급하신가요? 빨리 매출을 극대화 하고 싶으신가요? <br />
             그러면 나가셔도 좋습니다.
           </h2>
-          <p className="mb-4">
+          <p className="text-xl mb-4">
             급할수록 천천히, 그리고 탄탄히, 무엇보다 짧은 기간 내에 이뤄낸
             성과는 쉽게 무너지기 마련입니다.
           </p>
-          <p className="text-lg">
+          <p className="text-xl">
             제대로 알아보시고, 확실한 믿음을 가지고 동행하시길 권고 드립니다.
           </p>
         </div>
-        <div className="flex justify-center">
-          <button className="px-12 py-3 bg-transparent text-white border border-white rounded-full hover:bg-white hover:text-black transition duration-300">
+        <div className="flex items-center">
+          <button className="bg-transparent text-white border border-white rounded-lg hover:bg-white hover:text-black transition duration-300 text-5xl p-20">
             문의하기
           </button>
         </div>

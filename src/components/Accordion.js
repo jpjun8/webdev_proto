@@ -31,20 +31,20 @@ const Accordion = () => {
   };
 
   return (
-    <div className="relative flex flex-row items-start space-y-4 text-xl py-16">
+    <div className="relative flex flex-row items-start space-y-6 text-2xl py-16">
       {/* Accordion Items */}
-      <div className="flex flex-col items-center space-y-8 w-2/3 mx-auto">
+      <div className="flex flex-col items-center space-y-6 mx-24">
         {items.map((item) => (
           <div
             key={item.id}
-            className="border border-gray-500 w-full overflow-hidden transition-all duration-300"
+            className="border-2 border-black w-full overflow-hidden transition-all duration-300"
             style={{
-              height: activeItem === item.id ? "auto" : "50px",
+              height: activeItem === item.id ? "auto" : "90px",
             }}
           >
             <button
-              className={`w-full text-left px-4 py-2 font-bold transition-colors duration-300 ${
-                activeItem === item.id ? "text-black" : "text-slate-600"
+              className={`w-full text-left px-4 py-6 font-bold transition-colors duration-300 ${
+                activeItem === item.id ? "text-black" : "text-black"
               }`}
               onClick={() => toggleItem(item.id)}
             >
@@ -59,20 +59,24 @@ const Accordion = () => {
                 overflow: "hidden",
               }}
             >
-              <p className="text-lg">{item.content}</p>
+              <p className="text-xl">{item.content}</p>
             </div>
           </div>
         ))}
       </div>
 
       {/* Tracking Slider */}
-      <div className="absolute right-32 top-0 h-full flex flex-col items-center">
-        <div className="relative w-2 h-5/6 bg-gray-600">
+      <div className="absolute right-10 top-0 h-full flex flex-col items-center">
+        <div className="relative w-2 h-5/6 bg-black">
           {/* Slider */}
           <div
             className="absolute w-6 h-6 bg-white rounded-full transform -translate-x-1/2 cursor-pointer transition-transform duration-300 inset-1"
             style={{
-              top: `${sliderPosition ? (sliderPosition / (items.length - 1)) * 100 : -2}%`,
+              top: `${
+                sliderPosition
+                  ? (sliderPosition / (items.length - 1)) * 100
+                  : -2
+              }%`,
             }}
           ></div>
         </div>

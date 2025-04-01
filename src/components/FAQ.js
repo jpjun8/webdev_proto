@@ -1,28 +1,16 @@
 import React, { useState } from "react";
 import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/outline";
 
-const FAQItem = ({ question, answer }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleAnswer = () => {
-    setIsOpen(!isOpen);
-  };
-
+const FAQItem = ({ question, answer, isOpen, toggleAnswer }) => {
   return (
-    <div className="border-y border-black py-4">
+    <div className="border-t-2 border-black py-4">
       <div className="flex items-center">
-        <p
-          className={`text-xl font-medium ml-4 ${
-            isOpen ? "text-black" : "text-slate-600"
-          }`}
-        >
+        <p className="text-3xl font-semibold ml-4">
           Q&nbsp;&nbsp;&nbsp;{question}
         </p>
         <button
           onClick={toggleAnswer}
-          className={`w-16 h-16 ml-auto flex items-center justify-center rounded-full ${
-            isOpen ? "text-black" : "text-slate-600"
-          }`}
+          className="w-16 h-16 ml-auto flex items-center justify-center rounded-full"
         >
           {isOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
         </button>
@@ -32,18 +20,14 @@ const FAQItem = ({ question, answer }) => {
           isOpen ? "max-h-screen" : "max-h-0"
         }`}
       >
-        <p className="text-black mt-2 ml-4 text-lg/loose">
-          <span className="text-xl">
-            A<br />
-          </span>
-          {answer}
-        </p>
+        <p className="text-black mt-2 ml-4 text-2xl/loose">{answer}</p>
       </div>
     </div>
   );
 };
 
 const FAQSection = () => {
+  const [openIndex, setOpenIndex] = useState(null);
   const faqData = [
     {
       question: "광고비 투자 대비 이뤄낸 성과가 없으면요?",
@@ -72,15 +56,27 @@ const FAQSection = () => {
     },
   ];
 
+  const toggleAnswer = (index) => {
+    setOpenIndex(openIndex === index ? null : index); // If the same item is clicked, close it
+  };
+
   return (
     <div className="">
       <div className="text-center mb-12">
-        <p className="text-md">자주 묻는 질문</p>
-        <h2 className="text-3xl/loose">아직 궁금한 점이 있으신가요?</h2>
+        <p className="text-2xl">자주 묻는 질문</p>
+        <h2 className="text-4xl/loose font-semibold">
+          아직 궁금한 점이 있으신가요?
+        </h2>
       </div>
       {faqData.map((faq, index) => {
         return (
-          <FAQItem key={index} question={faq.question} answer={faq.answer} />
+          <FAQItem
+            key={index}
+            question={faq.question}
+            answer={faq.answer}
+            isOpen={openIndex === index}
+            toggleAnswer={() => toggleAnswer(index)}
+          />
         );
       })}
     </div>
